@@ -235,7 +235,7 @@ export default {
     format: { type: String, default: "primary" },
     size: { type: String },
     target: { type: String, default: "_parent" },
-    disabled: { type: Boolean, default: "false" },
+    disabled: { type: Boolean },
   },
 
   data() {

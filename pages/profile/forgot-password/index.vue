@@ -10,21 +10,20 @@
 </template>
 
 <script>
-definePageMeta({
-  layout: "home",
-});
-
 export default {
   setup() {
-    useHead({
-      title: "Forgot Password - FLASH",
-      meta: [
-        {
-          name: "description",
-          content: "FLASH - Forgot Password",
-        },
-      ],
-    });
+    definePageMeta({
+      layout: "home",
+    }),
+      useHead({
+        title: "Forgot Password - FLASH",
+        meta: [
+          {
+            name: "description",
+            content: "FLASH - Forgot Password",
+          },
+        ],
+      });
   },
 };
 </script>

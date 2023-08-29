@@ -20,9 +20,6 @@
           placeholder="Password"
         />
       </div>
-      <div class="success" v-if="isSuccess">
-        We received your submission, thank you!
-      </div>
       <UiButton role="button" text="Sign In" type="submit" />
     </form>
     <div class="text-white block float-left pr-4">
@@ -37,3 +34,14 @@
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      email: "",
+      password: "",
+    };
+  },
+};
+</script>

@@ -32,24 +32,23 @@
 </template>
 
 <script>
-definePageMeta({
-  layout: "default",
-});
-
 export default {
   setup() {
     const config = useRuntimeConfig();
     const firestartersURL = config.public.VUE_APP_FIRESTARTERS_WEBSITE_URL;
 
-    useHead({
-      title: "Report - FLASH - Enterprise Maturity Assessment",
-      meta: [
-        {
-          name: "description",
-          content: "Report - FLASH - Enterprise Maturity Assessment",
-        },
-      ],
-    });
+    definePageMeta({
+      layout: "default",
+    }),
+      useHead({
+        title: "Report - FLASH - Enterprise Maturity Assessment",
+        meta: [
+          {
+            name: "description",
+            content: "Report - FLASH - Enterprise Maturity Assessment",
+          },
+        ],
+      });
 
     return {
       firestartersURL,

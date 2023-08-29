@@ -6,10 +6,10 @@
       Alternatively, you can jump to any section that interests you below. All
       questions must be completed to generate a report.
     </div>
-    <div class="py-10 text-center">
+    <div class="py-10 text-right float-right">
       <UiButton
         text="Start Survey Now &rarr;"
-        path="/survey/1/question"
+        path="/survey/1/customer%20centricity"
         size="xl"
       />
     </div>
@@ -32,21 +32,20 @@
 </template>
 
 <script>
-definePageMeta({
-  layout: "dashboard",
-});
-
 export default {
   setup() {
-    useHead({
-      title: "Dashboard - FLASH - Enterprise Maturity Assessment",
-      meta: [
-        {
-          name: "description",
-          content: "Dashboard - FLASH - Enterprise Maturity Assessment",
-        },
-      ],
-    });
+    definePageMeta({
+      layout: "dashboard",
+    }),
+      useHead({
+        title: "Dashboard - FLASH - Enterprise Maturity Assessment",
+        meta: [
+          {
+            name: "description",
+            content: "Dashboard - FLASH - Enterprise Maturity Assessment",
+          },
+        ],
+      });
   },
   data() {
     return {

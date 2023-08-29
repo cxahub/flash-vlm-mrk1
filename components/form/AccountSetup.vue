@@ -1,9 +1,9 @@
 <template>
   <div class="mx-auto">
     <FormBusinessFunction v-if="showStep1" />
-    <FormJobFunction v-if="showStep2" />
+    <FormJobRole v-if="showStep2" />
     <FormUserFunction v-if="showStep3" />
-    <div class="block float-left py-10">
+    <div class="py-10">
       <div v-if="showStep3">
         <!--Waiting on form logic-->
         <!--

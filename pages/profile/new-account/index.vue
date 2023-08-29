@@ -7,21 +7,20 @@
 </template>
 
 <script>
-definePageMeta({
-  layout: "home",
-});
-
 export default {
   setup() {
-    useHead({
-      title: "Setup New Account - FLASH",
-      meta: [
-        {
-          name: "description",
-          content: "FLASH - New Account",
-        },
-      ],
-    });
+    definePageMeta({
+      layout: "home",
+    }),
+      useHead({
+        title: "Setup New Account - FLASH",
+        meta: [
+          {
+            name: "description",
+            content: "FLASH - New Account",
+          },
+        ],
+      });
   },
 };
 </script>

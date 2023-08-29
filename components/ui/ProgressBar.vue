@@ -5,7 +5,7 @@
     <div class="w-full h-8 rounded-full border-2 relative cursor-default">
       <!-- Player Ball -->
       <span
-        class="absolute -ml-2.5 text-2xl text-fs-yellow text-roboto"
+        class="absolute -ml-12 pr-6 text-2xl text-fs-yellow text-roboto"
         :style="{ left: progress }"
       >
         <span class="relative block h-7 rounded-full bg-fs-yellow right-0">
@@ -23,10 +23,13 @@
 
 <script>
 export default {
-  data() {
+  props: {
+    questionID: { type: Number, default: 0 },
+  },
+  data(props) {
     return {
       duration: "100%",
-      progress: "90%",
+      progress: Math.round((props.questionID / 17) * 100) + "%",
     };
   },
   methods: {},

@@ -4,21 +4,20 @@
 </template>
 
 <script>
-definePageMeta({
-  layout: "default",
-});
-
 export default {
   setup() {
-    useHead({
-      title: "Contact - FLASH - Enterprise Maturity Assessment",
-      meta: [
-        {
-          name: "description",
-          content: "Contact - FLASH - Enterprise Maturity Assessment",
-        },
-      ],
-    });
+    definePageMeta({
+      layout: "default",
+    }),
+      useHead({
+        title: "Contact - FLASH - Enterprise Maturity Assessment",
+        meta: [
+          {
+            name: "description",
+            content: "Contact - FLASH - Enterprise Maturity Assessment",
+          },
+        ],
+      });
   },
 };
 </script>

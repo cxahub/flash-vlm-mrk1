@@ -10,21 +10,20 @@
 </template>
 
 <script>
-definePageMeta({
-  layout: "home",
-});
-
 export default {
   setup() {
-    useHead({
-      title: "Profile - FLASH",
-      meta: [
-        {
-          name: "description",
-          content: "FLASH - User Profile",
-        },
-      ],
-    });
+    definePageMeta({
+      layout: "home",
+    }),
+      useHead({
+        title: "Profile - FLASH",
+        meta: [
+          {
+            name: "description",
+            content: "FLASH - User Profile",
+          },
+        ],
+      });
   },
 };
 </script>
