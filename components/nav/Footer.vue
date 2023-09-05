@@ -1,7 +1,7 @@
 <template>
-  <footer class="fixed w-full bottom-0 bg-fs-brown">
+  <footer class="sticky w-full bottom-0 bg-fs-brown">
     <div class="container mx-auto z-10">
-      <div class="py-4 grid grid-rows-2 gap-0 h-40">
+      <div class="grid grid-rows-2 gap-0 h-40 py-4">
         <div class="grid grid-cols-1">
           <div class="text-center">
             <NuxtLink
@@ -63,21 +63,21 @@
         </div>
       </div>
     </div>
-    <div
-      @click="showTerms = !showTerms"
-      class="absolute w-full cursor-default"
-      :class="showTerms ? 'show-panel' : `hide-panel`"
-    >
-      <LegalTerms />
-    </div>
-    <div
-      @click="showCookiePolicy = !showCookiePolicy"
-      class="absolute w-full cursor-default"
-      :class="showCookiePolicy ? 'show-panel' : `hide-panel`"
-    >
-      <LegalCookiePolicy />
-    </div>
   </footer>
+  <div
+    @click="showTerms = !showTerms"
+    class="absolute mx-4 -top-24 xl:top-60 xl:left-[60%] xl:w-[20%] h-[50%] overflow-x-hidden rounded-3xl border-2 p-8 bg-white border-gray-500"
+    :class="showTerms ? 'show-panel-bottom' : `hide-panel-bottom`"
+  >
+    <LegalTerms />
+  </div>
+  <div
+    @click="showCookiePolicy = !showCookiePolicy"
+    class="absolute mx-4 -top-24 xl:top-60 xl:left-[60%] xl:w-[20%] h-[50%] overflow-x-hidden rounded-3xl border-2 p-8 bg-white border-gray-500"
+    :class="showCookiePolicy ? 'show-panel-bottom' : `hide-panel-bottom`"
+  >
+    <LegalCookiePolicy />
+  </div>
 </template>
 
 <script>
@@ -111,31 +111,35 @@ export default {
 </script>
 
 <style scoped>
-.show-panel {
+.show-panel-bottom {
   transition-timing-function: ease-in;
   opacity: 1;
   transition: 1s;
-  transform: translateY(-210%);
+  transform: translateY(45%);
   z-index: 5;
   visibility: visible;
 }
 
-.hide-panel {
+.hide-panel-bottom {
   transition-timing-function: ease-out;
   transition: 1s;
   opacity: 0;
-  transform: translateY(-200%);
+  transform: translateY(100%);
   z-index: 5;
   visibility: hidden;
 }
 
 @media (min-width: 992px) {
-  .show-panel {
-    transform: translateY(-210%);
+  .show-panel-bottom {
+    transition: 1s;
+    transform: translateY(0%);
+    visibility: visible;
   }
 
-  .hide-panel {
-    transform: translateY(-100%);
+  .hide-panel-bottom {
+    transition: 1s;
+    transform: translateY(100%);
+    visibility: hidden;
   }
 }
 </style>

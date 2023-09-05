@@ -1,6 +1,6 @@
 <template>
   <NavHeader />
-  <main>
+  <main class="bg-white">
     <div class="container mx-auto">
       <slot />
     </div>

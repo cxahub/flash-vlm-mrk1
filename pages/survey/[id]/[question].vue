@@ -4,7 +4,10 @@
   </div>
   <div v-else>
     <UiProgressBar :questionID="parseInt(route.params.id)" />
-    <SurveyQuestion :questionID="parseInt(route.params.id) - 1" />
+    <SurveyQuestion
+      :questionID="parseInt(route.params.id) - 1"
+      :questionsAnswered="questionsAswered"
+    />
     <div
       v-if="parseInt(route.params.id) > 1 && parseInt(route.params.id) <= 15"
     >
@@ -39,6 +42,11 @@
 
 <script>
 export default {
+  data() {
+    return {
+      questionsAnswered: 0,
+    };
+  },
   setup() {
     const route = useRoute();
     //Get runtime config.
@@ -55,17 +63,42 @@ export default {
           },
         ],
       });
+
+    //Fetch options.
+    const options = {
+      method: "POST",
+      body: {
+        Response: {
+          userInfo: {
+            firstName: "Chad",
+            lastName: "Fraser",
+            userType: "Employee",
+            userId: "140256",
+            email: "chad.fraser@sap.com",
+          },
+          surveyInfo: {
+            surveyTemplateId: 77,
+            surveyAreaId: 4,
+          },
+        },
+      },
+      query: {
+        questions: true,
+      },
+    };
+
     //Fetch data.
     const { pending, data: questions } = useLazyFetch(
       config.public.VUE_APP_API_URL +
         "/" +
         config.public.VUE_APP_API_VLM_ENROLL_ROUTE,
       {
-        query: {
-          questions: true,
-        },
+        method: options.method,
+        body: options.body,
+        query: options.query,
       }
     );
+
     return {
       route,
       questions,

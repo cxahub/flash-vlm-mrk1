@@ -1,15 +1,15 @@
 <template>
   <div class="mx-auto">
-    <h1 class="text-5xl text-fs-yellow uppercase font-bold pb-8">
+    <h1 class="text-2xl xl:text-5xl text-fs-yellow uppercase font-bold">
       Setup Your Account: {{ step }} of 3
     </h1>
-    <div class="text-3xl text-white font-bold">
+    <div class="text-lg xl:text-3xl text-white font-bold py-4">
       {{ question }}<br />
-      <span class="text-base font-normal text-gray-400">
+      <div class="text-xs xl:text-base font-normal text-gray-400 leading-5">
         {{ instructions }}
-      </span>
+      </div>
     </div>
-    <div class="block w-full">
+    <div class="grid grid-cols-1 xl:grid-cols-2 gap-4">
       <form
         accept-charset="UTF-8"
         v-on:submit.prevent="onSubmit()"
@@ -20,14 +20,14 @@
           <input
             type="text"
             v-model="userFName"
-            class="block float-left rounded w-auto mr-4"
+            class="block float-left rounded w-auto mr-4 mb-2"
             required="required"
             placeholder="First Name"
           />
           <input
             type="text"
             v-model="userLName"
-            class="block rounded w-1/3"
+            class="block rounded xl:w-1/3"
             required="required"
             placeholder="Last Name"
           />
@@ -37,7 +37,7 @@
           <input
             type="text"
             v-model="company"
-            class="block rounded w-2/3"
+            class="block rounded xl:w-2/3"
             required="required"
             placeholder="Company Name"
           />
@@ -47,7 +47,7 @@
           <input
             type="email"
             v-model="email"
-            class="block rounded w-2/3"
+            class="block rounded xl:w-2/3"
             required="required"
             placeholder="Email"
           />
@@ -57,7 +57,7 @@
           <input
             type="password"
             v-model="password"
-            class="block rounded w-2/3"
+            class="block rounded xl:w-2/3"
             required="required"
             placeholder="Password"
           />
@@ -69,7 +69,7 @@
           <input
             type="password"
             v-model="confirmPassword"
-            class="block rounded w-2/3"
+            class="block rounded xl:w-2/3"
             required="required"
             placeholder="Confirm Password"
           />
@@ -87,28 +87,6 @@ export default {
       question: "Enter your account information",
       instructions:
         "For a more personalized experience plase enter all relevant information below.",
-      options: [
-        {
-          id: 1,
-          option: "C-Suite",
-        },
-        {
-          id: 2,
-          option: "SVP/VP",
-        },
-        {
-          id: 3,
-          option: "Sr Dir/Director",
-        },
-        {
-          id: 4,
-          option: "Sr Mgr/Manager",
-        },
-        {
-          id: 5,
-          option: "Individual Contributor",
-        },
-      ],
     };
   },
 };

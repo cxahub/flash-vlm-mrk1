@@ -6,7 +6,7 @@
         <input
           type="email"
           v-model="email"
-          class="block rounded w-2/3"
+          class="block rounded xl:w-2/3"
           placeholder="Email"
         />
       </div>
@@ -15,7 +15,7 @@
         <input
           type="password"
           v-model="password"
-          class="block rounded w-2/3"
+          class="block rounded xl:w-2/3"
           required="required"
           placeholder="Password"
         />

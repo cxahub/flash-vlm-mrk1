@@ -1,21 +1,23 @@
 <template>
-  <h1 class="text-5xl uppercase font-bold">Your Survey Dashboard</h1>
-  <div class="grid grid-cols-2">
-    <div class="text-xl py-8">
+  <h1 class="text-2xl xl:text-5xl uppercase font-bold">
+    Your Survey Dashboard
+  </h1>
+  <div class="grid xl:grid-cols-2 gap-0 xl:gap-4">
+    <div class="xl:text-xl py-8">
       Use the button on the right to get started with our guided assessment.
       Alternatively, you can jump to any section that interests you below. All
       questions must be completed to generate a report.
     </div>
-    <div class="py-10 text-right float-right">
+    <div class="py-10 text-center xl:text-right float-right">
       <UiButton
         text="Start Survey Now &rarr;"
         path="/survey/1/customer%20centricity"
         size="xl"
       />
     </div>
-    <div class="py-10">
+    <div class="py-10 text-center xl:text-left">
       <UiButton
-        text="Show My Surveys"
+        :text="!showSurveyList ? 'Show My Surveys' : 'Hide My Surveys'"
         path=""
         @click="showSurveyList = !showSurveyList"
       />
@@ -25,8 +27,8 @@
     <DashboardSurveyList />
   </div>
   <div v-else>
-    <DashboardQuestions />
     <UiProgressBar />
+    <DashboardQuestions :showLink="true" />
     <ReportGenerate />
   </div>
 </template>

@@ -1,6 +1,6 @@
 <template>
   <div
-    class="w-full xl:w-5/6 p-10 bg-fs-brown bg-cover rounded-3xl border-2 border-gray-500 z-5"
+    class="w-full xl:w-5/6 p-8 bg-fs-brown bg-cover rounded-3xl border-2 border-gray-500 z-5"
   >
     <h1 class="text-2xl xl:text-5xl text-fs-yellow uppercase font-bold">
       Welcome to Your Flash&trade; "Retail" Enterprise Maturity Assessment
@@ -19,7 +19,7 @@
           @click="showTopics = !showTopics"
         />
       </div>
-      <div class="xl:block xl:float-left">
+      <div class="pb-8 xl:pb-0 xl:block xl:float-left xl:pr-8">
         <UiButton
           text="Review Sample insights Report"
           path="/report/flash-report-example.pdf"
@@ -29,7 +29,7 @@
         />
       </div>
     </div>
-    <div class="text-white text-sm xl:text-base py-8">
+    <div class="text-white text-sm xl:text-base py-8 text-center xl:text-left">
       I have read & accepted the
       <NuxtLink
         to=""
@@ -56,28 +56,28 @@
       >
     </div>
     <div class="py-8">
-      <div class="block float-left pr-8">
+      <div class="block xl:float-left text-center">
         <UiButton text="Start Now" path="/collaborate" size="lg" />
       </div>
     </div>
   </div>
   <div
     @click="showTopics = !showTopics"
-    class="absolute top-60 right-[28rem] p-10 bg-white w-fit rounded-3xl border-2 border-gray-500"
-    :class="showTopics ? 'show-panel-left' : `hide-panel-left`"
+    class="absolute right-4 left-4 -top-24 xl:top-60 xl:left-[60%] xl:w-[20%] h-[50%] overflow-x-hidden rounded-3xl border-2 p-8 bg-white border-gray-500"
+    :class="showTopics ? 'show-panel-topic' : `hide-panel-topic`"
   >
     <MainPreviewTopics />
   </div>
   <div
     @click="showTerms = !showTerms"
-    class="absolute -bottom-60 left-[0] right-[0] w-full cursor-default"
+    class="absolute right-4 left-4 -top-24 xl:top-60 xl:left-[60%] xl:w-[20%] h-[50%] overflow-x-hidden rounded-3xl border-2 p-8 bg-white border-gray-500"
     :class="showTerms ? 'show-panel-bottom' : `hide-panel-bottom`"
   >
     <LegalTerms />
   </div>
   <div
     @click="showPrivacy = !showPrivacy"
-    class="absolute -bottom-60 left-[0] right-[0] w-full cursor-default"
+    class="absolute right-4 left-4 -top-24 xl:top-60 xl:left-[60%] xl:w-[20%] h-[50%] overflow-x-hidden rounded-3xl border-2 p-8 bg-white border-gray-500"
     :class="showPrivacy ? 'show-panel-bottom' : `hide-panel-bottom`"
   >
     <LegalPrivacy />
@@ -97,19 +97,19 @@ export default {
 </script>
 
 <style scoped>
-.show-panel-left {
+.show-panel-topic {
   transition-timing-function: ease-in;
   opacity: 1;
   transition: 1s;
-  transform: translateX(0%);
+  transform: translateY(55%);
   z-index: 0;
   visibility: visible;
 }
 
-.hide-panel-left {
+.hide-panel-topic {
   transition-timing-function: ease-out;
   transition: 1s;
-  transform: translateX(-90%);
+  transform: translateY(200%);
   opacity: 0;
   z-index: 0;
   visibility: hidden;
@@ -119,7 +119,7 @@ export default {
   transition-timing-function: ease-in;
   opacity: 1;
   transition: 1s;
-  transform: translateY(-180%);
+  transform: translateY(45%);
   z-index: 5;
   visibility: visible;
 }
@@ -128,26 +128,35 @@ export default {
   transition-timing-function: ease-out;
   transition: 1s;
   opacity: 0;
-  transform: translateY(-100%);
+  transform: translateY(100%);
   z-index: 5;
   visibility: hidden;
 }
 
 @media (min-width: 992px) {
+  .show-panel-topic {
+    transition: 1s;
+    transform: translateX(10%);
+    visibility: visible;
+  }
+
+  .hide-panel-topic {
+    transition: 1s;
+    transform: translateX(-150%);
+    visibility: hidden;
+  }
+
   .show-panel-bottom {
-    transform: translateY(-180%);
+    transition: 1s;
+    transform: translateY(0%);
+    visibility: visible;
   }
 
   .hide-panel-bottom {
-    transform: translateY(-100%);
-  }
-
-  .show-panel {
-    transform: translateY(-210%);
-  }
-
-  .hide-panel {
-    transform: translateY(-100%);
+    transition: 1s;
+    opacity: 0;
+    transform: translateY(100%);
+    visibility: hidden;
   }
 }
 </style>

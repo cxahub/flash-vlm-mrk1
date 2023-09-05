@@ -164,6 +164,35 @@
         </button>
       </div>
     </div>
+    <div v-if="size === 'md'">
+      <div v-if="format === 'primary'">
+        <button
+          :class="[defaultBtn, primaryBtnMD]"
+          :type="type"
+          :disabled="disabled"
+        >
+          {{ text }}
+        </button>
+      </div>
+      <div v-if="format === 'secondary'">
+        <button
+          :class="[defaultBtn, secondaryBtnMD]"
+          :type="type"
+          :disabled="disabled"
+        >
+          {{ text }}
+        </button>
+      </div>
+      <div v-if="format === 'tertiary'">
+        <button
+          :class="[defaultBtn, tertiaryBtnMD]"
+          :type="type"
+          :disabled="disabled"
+        >
+          {{ text }}
+        </button>
+      </div>
+    </div>
     <div v-if="size === 'sm'">
       <div v-if="format === 'primary'">
         <button
@@ -242,29 +271,35 @@ export default {
     return {
       defaultBtn: "max-w-max font-bold uppercase rounded-lg cursor-pointer",
       primaryBtn:
-        "bg-fs-yellow hover:bg-fs-yellow-light lg:text-base sm:text-sm lg:py-4 lg:px-4 lg:my-5 sm:py-3 sm:px-3 sm:my-3",
+        "bg-fs-yellow hover:bg-fs-yellow-light text-sm xl:text-base py-3 px-3 my-3 xl:py-4 xl:px-4 xl:my-5",
       primaryBtnXL:
-        "bg-fs-yellow hover:bg-fs-yellow-light text-2xl py-6 px-6 my-6",
+        "bg-fs-yellow hover:bg-fs-yellow-light text-xl xl:text-2xl py-4 px-4 my-4 xl:py-6 xl:px-6 xl:my-6",
       primaryBtnLG:
-        "bg-fs-yellow hover:bg-fs-yellow-light text-lg py-4 px-4 my-4",
+        "bg-fs-yellow hover:bg-fs-yellow-light text-base xl:text-lg py-4 px-4 my-4 xl:py-5 xl:px-5 xl:my-5",
+      primaryBtnMD:
+        "bg-fs-yellow hover:bg-fs-yellow-light text-sm xl:text-base py-3 px-3 my-3 xl:py-4 xl:px-4 xl:my-4",
       primaryBtnSM:
-        "bg-fs-yellow hover:bg-fs-yellow-light text-sm py-3 px-3 my-3",
+        "bg-fs-yellow hover:bg-fs-yellow-light text-sm xl:text-base py-3 px-3 my-3 xl:py-4 xl:px-4 xl:my-4",
       secondaryBtn:
-        "bg-white border border-fs-brown hover:bg-fs-brown hover:text-white lg:text-base sm:text-sm lg:py-4 lg:px-4 lg:my-5 sm:py-3 sm:px-3 sm:my-3",
+        "bg-white border border-fs-brown hover:bg-fs-brown hover:text-white text-sm xl:text-base py-3 px-3 my-3 xl:py-4 xl:px-4 xl:my-5",
       secondaryBtnXL:
-        "bg-white border border-fs-brown hover:bg-fs-brown hover:text-white text-2xl py-6 px-3 my-6",
+        "bg-white border border-fs-brown hover:bg-fs-brown hover:text-white text-xl xl:text-2xl py-4 px-4 my-4 xl:py-6 xl:px-6 xl:my-6",
       secondaryBtnLG:
-        "bg-white border border-fs-brown hover:bg-fs-brown hover:text-white text-lg py-4 px-4 my-4",
+        "bg-white border border-fs-brown hover:bg-fs-brown hover:text-white text-base xl:text-lg py-4 px-4 my-4 xl:py-5 xl:px-5 xl:my-5",
+      secondaryBtnMD:
+        "bg-white border border-fs-brown hover:bg-fs-brown hover:text-white text-sm xl:text-base py-3 px-3 my-3 xl:py-4 xl:px-4 xl:my-4",
       secondaryBtnSM:
-        "bg-white border border-fs-brown hover:bg-fs-brown hover:text-white text-xs xl:text-sm py-3 px-3 my-3",
+        "bg-white border border-fs-brown hover:bg-fs-brown hover:text-white text-sm xl:text-base py-3 px-3 my-3 xl:py-4 xl:px-4 xl:my-4",
       tertiaryBtn:
-        "bg-fs-brown border border-fs-yellow text-white hover:bg-white hover:text-fs-brown lg:text-base sm:text-sm lg:py-4 lg:px-4 lg:my-5 sm:py-3 sm:px-3 sm:my-3",
+        "bg-fs-brown border border-fs-yellow text-white hover:bg-white hover:text-fs-brown text-sm xl:text-base py-3 px-3 my-3 xl:py-4 xl:px-4 xl:my-5",
       tertiaryBtnXL:
-        "bg-fs-brown border border-fs-yellow text-white hover:bg-white hover:text-fs-brown text-2xl py-6 px-3 my-6",
+        "bg-fs-brown border border-fs-yellow text-white hover:bg-white hover:text-fs-brown text-xl xl:text-2xl py-4 px-4 my-4 xl:py-6 xl:px-6 xl:my-6",
       tertiaryBtnLG:
-        "bg-fs-brown border border-fs-yellow text-white hover:bg-white hover:text-fs-brown text-lg py-4 px-4 my-4",
+        "bg-fs-brown border border-fs-yellow text-white hover:bg-white hover:text-fs-brown text-base xl:text-lg py-4 px-4 my-4 xl:py-5 xl:px-5 xl:my-5",
+      tertiaryBtnMD:
+        "bg-fs-brown border border-fs-yellow text-white hover:bg-white hover:text-fs-brown text-sm xl:text-base py-3 px-3 my-3 xl:py-4 xl:px-4 xl:my-4",
       tertiaryBtnSM:
-        "bg-fs-brown border border-fs-yellow text-white hover:bg-white hover:text-fs-brown text-sm py-3 px-3 my-3",
+        "bg-fs-brown border border-fs-yellow text-white hover:bg-white hover:text-fs-brown text-sm xl:text-base py-3 px-3 my-3 xl:py-4 xl:px-4 xl:my-4",
     };
   },
 };

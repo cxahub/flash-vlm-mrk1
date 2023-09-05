@@ -1,5 +1,5 @@
 <template>
-  <header class="fixed top-0 left-0 right-0 z-20 bg-fs-brown">
+  <header class="sticky top-0 z-20 bg-fs-brown xl:h-[90px]">
     <nav
       class="container mx-auto xl:flex xl:justify-between xl:items-center py-5"
     >

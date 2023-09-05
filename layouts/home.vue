@@ -1,11 +1,10 @@
 <template>
   <NavHeader />
-  <main :style="bgImage">
+  <main :style="bgImage" class="flex-grow">
     <div class="container mx-auto">
       <slot />
     </div>
   </main>
-
   <NavFooter />
 </template>
 

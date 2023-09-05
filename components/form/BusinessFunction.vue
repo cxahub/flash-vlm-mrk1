@@ -4,20 +4,19 @@
   </div>
   <div v-else>
     <div class="mx-auto">
-      <h1 class="text-5xl text-fs-yellow uppercase font-bold pb-8">
+      <h1 class="text-2xl xl:text-5xl text-fs-yellow uppercase font-bold">
         Setup Your Account: {{ step }} of 3
       </h1>
-      <div class="text-3xl text-white font-bold">
+      <div class="text-lg xl:text-3xl text-white font-bold py-4">
         {{ question }}<br />
-        <span class="text-base font-normal text-gray-400">
+        <div class="text-xs xl:text-base font-normal text-gray-400 leading-5">
           {{ instructions }}
-        </span>
+        </div>
       </div>
-
       <div class="w-full">
         <div v-for="bf in businessfunction" :key="bf.id">
           <div
-            class="block float-left text-lg font-bold text-white text-center uppercase border-2 border-gray-600 rounded-full hover:bg-fs-yellow hover:text-black py-2 px-4 my-2 mx-1 cursor-pointer"
+            class="xl:block xl:float-left text-sm xl:text-lg font-bold text-white text-center uppercase border-2 border-gray-600 rounded-full hover:bg-fs-yellow hover:text-black py-2 px-4 my-2 mx-1 cursor-pointer"
             :class="
               bfSelected.includes(bf.bf_name.toUpperCase())
                 ? '{ !text-black bg-fs-yellow }'

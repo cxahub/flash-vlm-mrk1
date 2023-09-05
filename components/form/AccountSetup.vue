@@ -19,55 +19,55 @@
           "
         />-->
         <UiButton
-          text="Continue to Survey"
-          path="/dashboard"
-          class="block float-left pr-4"
-          type="submit"
-        />
-        <UiButton
           text="Previous Step"
-          class="block float-left"
+          class="block float-left pr-4"
           format="secondary"
           @click="
             showStep3 = false;
             showStep2 = true;
           "
         />
+        <UiButton
+          text="Continue"
+          path="/dashboard"
+          class="block"
+          type="submit"
+        />
       </div>
       <div v-else-if="showStep2">
         <UiButton
-          text="Next Step"
-          class="block float-left pr-4"
-          @click="
-            showStep3 = !showStep3;
-            showStep2 = false;
-            showStep1 = false;
-          "
-        />
-        <UiButton
           text="Previous Step"
-          class="block float-left"
+          class="block float-left pr-4"
           format="secondary"
           @click="
             showStep2 = false;
             showStep1 = true;
           "
         />
+        <UiButton
+          text="Next Step"
+          class="block float-left"
+          @click="
+            showStep3 = !showStep3;
+            showStep2 = false;
+            showStep1 = false;
+          "
+        />
       </div>
       <div v-else>
         <UiButton
-          text="Next Step"
+          text="Previous Step"
+          path="/collaborate"
           class="block float-left pr-4"
+          format="secondary"
+        />
+        <UiButton
+          text="Next Step"
+          class="block float-left"
           @click="
             showStep2 = !showStep2;
             showStep1 = false;
           "
-        />
-        <UiButton
-          text="Previous Step"
-          path="/collaborate"
-          class="block float-left"
-          format="secondary"
         />
       </div>
     </div>

@@ -13,10 +13,11 @@ module.exports = {
     container: {
       padding: {
         DEFAULT: "1rem",
-        sm: "2rem",
-        lg: "4rem",
-        xl: "5rem",
-        "2xl": "5rem",
+        sm: "1rem",
+        md: "1rem",
+        lg: "1rem",
+        xl: "1rem",
+        "2xl": "1rem",
       },
     },
     extend: {
@@ -45,5 +46,5 @@ module.exports = {
       },
     },
   },
-  plugins: [require("@tailwindcss/forms")],
+  plugins: [require("@tailwindcss/forms"), require("tailwind-scrollbar-hide")],
 };
