@@ -1,6 +1,6 @@
 <template>
   <NavHeader />
-  <main :style="bgImage" class="flex-grow">
+  <main :style="bgImage">
     <div class="container mx-auto">
       <slot />
     </div>
@@ -17,6 +17,8 @@ export default {
         "background-position": "center center",
         "background-size": "cover",
         "background-image": `url(${bgImage})`,
+        "background-repeat": "no-repeat",
+        height: "80vh",
       },
     };
   },

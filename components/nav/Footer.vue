@@ -1,5 +1,5 @@
 <template>
-  <footer class="sticky w-full bottom-0 bg-fs-brown">
+  <footer class="w-full">
     <div class="container mx-auto z-10">
       <div class="grid gap-0 h-50 xl:h-40 py-4">
         <div class="grid grid-cols-1">

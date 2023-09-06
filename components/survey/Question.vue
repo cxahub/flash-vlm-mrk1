@@ -49,11 +49,11 @@
               :key="q.id"
             >
               <input
-                :id="index + 1"
+                :name="q.id"
+                :value="index + 1"
                 type="checkbox"
-                class="rounded mt-1 xl:mt-2 focus:outline-none focus:border-gray-300 focus:ring-none focus:ring-gray-300 text-fs-brown"
+                class="rounded mt-1 xl:mt-1.5 ring-0 focus:ring-0 ring-transparent ring-offset-0 shadow-none focus:ring-transparent bg-white text-fs-brown"
                 required="required"
-                @click.prevent="selectAnswer()"
               />
               <div class="xl:text-xl xl:font-bold ml-4">
                 {{ q.text }}

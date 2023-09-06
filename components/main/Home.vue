@@ -30,6 +30,12 @@
       </div>
     </div>
     <div class="text-white text-sm xl:text-base py-8 text-center xl:text-left">
+      <input
+        name="agreement"
+        type="checkbox"
+        class="rounded -mt-1 mr-1 ring-0 focus:ring-0 ring-transparent ring-offset-0 shadow-none focus:ring-transparent bg-white border-none text-fs-brown"
+        required="required"
+      />
       I have read & accepted the
       <NuxtLink
         to=""
