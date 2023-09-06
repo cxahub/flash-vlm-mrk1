@@ -4,10 +4,7 @@
   </div>
   <div v-else>
     <UiProgressBar :questionID="parseInt(route.params.id)" />
-    <SurveyQuestion
-      :questionID="parseInt(route.params.id) - 1"
-      :questionsAnswered="questionsAswered"
-    />
+    <SurveyQuestion :questionID="parseInt(route.params.id) - 1" />
     <div
       v-if="parseInt(route.params.id) > 1 && parseInt(route.params.id) <= 15"
     >
@@ -43,9 +40,7 @@
 <script>
 export default {
   data() {
-    return {
-      questionsAnswered: 0,
-    };
+    return {};
   },
   setup() {
     const route = useRoute();

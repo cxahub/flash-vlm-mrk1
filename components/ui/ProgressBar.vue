@@ -2,7 +2,9 @@
   <!-- Survey Progress -->
   <div class="flex flex-nowrap gap-4 items-center py-8">
     <div class="font-bold pr-4">0%</div>
-    <div class="w-full h-8 rounded-full border-2 relative cursor-default">
+    <div
+      class="w-full h-8 rounded-full border-2 relative cursor-default bg-white drop-shadow-md"
+    >
       <!-- Player Ball -->
       <span
         class="absolute pr-6 text-2xl text-fs-yellow text-roboto"

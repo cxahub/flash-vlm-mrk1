@@ -1,45 +1,50 @@
 <template>
-  <div class="relative bottom-0 mx-auto text-center">
-    <div class="grid grid-cols-2 xl:grid-cols-3 gap-0 xl:gap-8 py-0 py-4">
-      <div
-        v-if="questionID > 1"
-        class="px-2 py-4 xl:py-0"
-        :class="questionID === 16 ? 'col-span-2 text-center' : 'text-center'"
-      >
-        <UiButton
-          text="Previous Question"
-          :path="`/survey/${questionID - 1}/${questionPrevious.toLowerCase()}`"
-          format="secondary"
-          size="md"
-        />
-      </div>
-      <div v-if="questionID < 16" class="px-2 py-4 xl:py-0">
-        <UiButton
-          text="Next Question"
-          :path="`/survey/${questionID + 1}/${questionNext.toLowerCase()}`"
-          format="primary"
-          size="md"
-        />
-      </div>
-      <div class="col-span-2 xl:col-span-1 py-4 xl:py-0 px-2 text-center">
-        <UiButton
-          text="View Dashboard"
-          path="/dashboard"
-          format="tertiary"
-          size="md"
-        />
-      </div>
-      <div
-        v-if="questionID === 16"
-        class="col-span-2 xl:col-span-1 py-4 xl:py-0 px-2 text-center"
-      >
-        <UiButton
-          text="Generate My Report"
-          path="/report"
-          format="primary"
-          size="md"
-        />
-      </div>
+  <div class="grid grid-rows-3 grid-col-2 gap-8 xl:gap-16 pb-8 xl:py-4">
+    <div
+      v-if="questionID > 1"
+      class="row-start-1"
+      :class="questionID === 16 ? 'col-span-2 text-center' : 'text-center'"
+    >
+      <UiButton
+        text="Previous Question"
+        :path="`/survey/${questionID - 1}/${questionPrevious.toLowerCase()}`"
+        format="secondary"
+        size="md"
+      />
+    </div>
+    <div
+      v-if="questionID < 16"
+      class="row-start-1"
+      :class="questionID === 1 ? 'col-span-2 text-center' : 'text-center'"
+    >
+      <UiButton
+        text="Next Question"
+        :path="`/survey/${questionID + 1}/${questionNext.toLowerCase()}`"
+        format="primary"
+        size="md"
+      />
+    </div>
+    <div
+      class="row-start-2 col-span-2 xl:row-start-1 xl:col-start-1 xl:col-span-1 text-center"
+      :class="questionID === 16 ? 'xl:col-span-2 text-center' : ''"
+    >
+      <UiButton
+        text="View Dashboard"
+        path="/dashboard"
+        format="tertiary"
+        size="md"
+      />
+    </div>
+    <div
+      v-if="questionID === 16"
+      class="row-start-3 col-span-2 xl:col-span-4 xl:row-start-2 text-center"
+    >
+      <UiButton
+        text="Generate My Report"
+        path="/report"
+        format="primary"
+        size="lg"
+      />
     </div>
   </div>
 </template>

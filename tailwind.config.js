@@ -12,12 +12,12 @@ module.exports = {
     },
     container: {
       padding: {
-        DEFAULT: "1rem",
-        sm: "1rem",
-        md: "1rem",
-        lg: "1rem",
-        xl: "1rem",
-        "2xl": "1rem",
+        DEFAULT: "0rem",
+        sm: "0rem",
+        md: "0rem",
+        lg: "0rem",
+        xl: "0rem",
+        "2xl": "0rem",
       },
     },
     extend: {
@@ -31,7 +31,7 @@ module.exports = {
         "fs-brown": "#363031",
         "fs-light-brown": "#837678",
         "fs-orange": "#f77f00",
-        "fs-yellow": "#fcbf49",
+        "fs-yellow": "#fcba36",
         "fs-yellow-light": "#fac761",
         "fs-red": "#eb1f04",
         "fs-blue": "#003049",

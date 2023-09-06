@@ -12,6 +12,7 @@ export default defineNuxtConfig({
   css: ["~/assets/styles/main.css"],
   app: {
     head: {
+      meta: [{ name: "theme-color", content: "#363031" }],
       link: [
         {
           rel: "stylesheet",

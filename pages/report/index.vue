@@ -1,5 +1,5 @@
 <template>
-  <h1 class="text-5xl uppercase font-bold py-4">Thank You</h1>
+  <h1 class="text-3xl xl:text-5xl uppercase font-bold py-4">Thank You</h1>
   <p class="text-lg">
     Your <span class="font-bold">FLASH&trade;</span> Report is processing and
     will be emailed to
@@ -18,7 +18,7 @@
     site, we'd love to hear from you.
   </p>
   <h2 class="text-4xl uppercase font-bold py-8">Next Steps?</h2>
-  <div class="grid grid-cols-3 gap-8">
+  <div class="grid xl:grid-cols-3 gap-8">
     <div>
       <ReportRequest />
     </div>

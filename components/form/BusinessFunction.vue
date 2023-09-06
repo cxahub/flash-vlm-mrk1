@@ -4,7 +4,7 @@
   </div>
   <div v-else>
     <div class="mx-auto">
-      <h1 class="text-2xl xl:text-5xl text-fs-yellow uppercase font-bold">
+      <h1 class="text-3xl xl:text-5xl text-fs-yellow uppercase font-bold">
         Setup Your Account: {{ step }} of 3
       </h1>
       <div class="text-lg xl:text-3xl text-white font-bold py-4">

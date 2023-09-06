@@ -14,7 +14,7 @@
                 }/${q.header.texts[0].text.toLowerCase()}`"
               >
                 <div
-                  class="w-100 text-base xl:text-lg font-bold text-black text-center uppercase border-2 border-gray-600 rounded-full hover:bg-fs-yellow hover:text-black py-2 px-4 my-2 mx-3 cursor-pointer"
+                  class="w-100 text-base xl:text-lg font-bold text-black text-center uppercase border-2 border-gray-600 rounded-full hover:bg-fs-yellow hover:text-black py-2 px-4 my-2 mx-3 cursor-pointer bg-white drop-shadow-lg"
                 >
                   {{ q.header.texts[0].text }}
                 </div></NuxtLink
@@ -22,7 +22,7 @@
             </div>
             <div v-else>
               <div
-                class="xl:w-100 text-base xl:text-lg font-bold text-black text-center uppercase border-2 border-gray-600 rounded-full hover:bg-fs-yellow hover:text-black py-2 px-4 my-2 mx-0"
+                class="xl:w-100 text-base xl:text-lg font-bold text-black text-center uppercase border-2 border-gray-600 rounded-full hover:bg-fs-yellow hover:text-black py-2 px-4 my-2 mx-0 bg-white drop-shadow-lg"
               >
                 {{ q.header.texts[0].text }}
               </div>

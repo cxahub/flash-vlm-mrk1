@@ -269,7 +269,8 @@ export default {
 
   data() {
     return {
-      defaultBtn: "max-w-max font-bold uppercase rounded-lg cursor-pointer",
+      defaultBtn:
+        "max-w-max font-bold uppercase rounded-lg cursor-pointer drop-shadow-lg",
       primaryBtn:
         "bg-fs-yellow hover:bg-fs-yellow-light text-sm xl:text-base py-3 px-3 my-3 xl:py-4 xl:px-4 xl:my-5",
       primaryBtnXL:

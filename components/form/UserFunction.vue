@@ -1,6 +1,6 @@
 <template>
   <div class="mx-auto">
-    <h1 class="text-2xl xl:text-5xl text-fs-yellow uppercase font-bold">
+    <h1 class="text-3xl xl:text-5xl text-fs-yellow uppercase font-bold">
       Setup Your Account: {{ step }} of 3
     </h1>
     <div class="text-lg xl:text-3xl text-white font-bold py-4">
@@ -20,14 +20,14 @@
           <input
             type="text"
             v-model="userFName"
-            class="block float-left rounded w-auto mr-4 mb-2"
+            class="rounded mr-4 mb-2 w-full xl:w-1/2"
             required="required"
             placeholder="First Name"
           />
           <input
             type="text"
             v-model="userLName"
-            class="block rounded xl:w-1/3"
+            class="rounded w-full xl:w-1/2"
             required="required"
             placeholder="Last Name"
           />
@@ -37,7 +37,7 @@
           <input
             type="text"
             v-model="company"
-            class="block rounded xl:w-2/3"
+            class="rounded w-full xl:w-2/3"
             required="required"
             placeholder="Company Name"
           />
@@ -47,7 +47,7 @@
           <input
             type="email"
             v-model="email"
-            class="block rounded xl:w-2/3"
+            class="rounded w-full xl:w-2/3"
             required="required"
             placeholder="Email"
           />
@@ -57,7 +57,7 @@
           <input
             type="password"
             v-model="password"
-            class="block rounded xl:w-2/3"
+            class="rounded w-full xl:w-2/3"
             required="required"
             placeholder="Password"
           />
@@ -69,7 +69,7 @@
           <input
             type="password"
             v-model="confirmPassword"
-            class="block rounded xl:w-2/3"
+            class="rounded w-full xl:w-2/3"
             required="required"
             placeholder="Confirm Password"
           />

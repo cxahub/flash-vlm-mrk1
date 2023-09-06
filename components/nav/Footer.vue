@@ -1,7 +1,7 @@
 <template>
   <footer class="sticky w-full bottom-0 bg-fs-brown">
     <div class="container mx-auto z-10">
-      <div class="grid grid-rows-2 gap-0 h-40 py-4">
+      <div class="grid gap-0 h-50 xl:h-40 py-4">
         <div class="grid grid-cols-1">
           <div class="text-center">
             <NuxtLink

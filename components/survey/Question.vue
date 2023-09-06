@@ -5,7 +5,7 @@
   <div v-else>
     <div class="mx-auto">
       <div
-        class="grid grid-cols-1 xl:grid-cols-3 gap-0 xl:gap-8 px-8 py-6 mb-8 border-2 rounded-3xl"
+        class="grid grid-cols-1 xl:grid-cols-3 gap-0 xl:gap-8 px-8 py-6 mb-8 border-2 rounded-3xl bg-white drop-shadow-lg"
       >
         <div>
           <h1
@@ -19,7 +19,7 @@
         </div>
         <div class="xl:col-span-2">
           <div
-            class="text-fs-yellow xl:text-xl font-semibold xl:font-bold text-center xl:text-left px-4 xl:pb-8"
+            class="text-fs-yellow drop-shadow-sm xl:text-xl font-semibold xl:font-bold text-center xl:text-left px-4 xl:pb-8"
           >
             {{ question.body.texts[0].text }}
           </div>
@@ -70,7 +70,6 @@
 export default {
   props: {
     questionID: { type: Number, default: 0 },
-    /*questionsAnswered: { type: Number, default: 0 },*/
   },
   setup(props) {
     //Get runtime config.

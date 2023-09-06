@@ -1,6 +1,6 @@
 <template>
   <div
-    class="w-full xl:w-5/6 p-8 bg-fs-brown bg-cover rounded-3xl border-2 border-gray-500 z-5"
+    class="w-full xl:w-5/6 p-8 bg-fs-brown bg-cover rounded-3xl border-2 border-gray-500 z-5 drop-shadow-lg"
   >
     <h1 class="text-2xl xl:text-5xl text-fs-yellow uppercase font-bold">
       Get the Most Value for Your Company
@@ -21,7 +21,9 @@
         />
       </div>
     </div>
-    <div class="text-white xl:text-2xl font-bold py-8 underline">
+    <div
+      class="text-white xl:text-2xl text-center xl:text-left font-bold py-8 underline"
+    >
       Do you have P & L visibility or people to collaborate with?
     </div>
     <div class="py-8">
