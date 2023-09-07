@@ -49,7 +49,6 @@
             to="/"
             activeClass="text-fs-yellow"
             @click="showMenu = !showMenu"
-            class="flex xl:hidden"
             >Home</NuxtLink
           >
         </li>
@@ -60,7 +59,6 @@
             to="/dashboard"
             activeClass="text-fs-yellow"
             @click="showMenu = !showMenu"
-            class="flex xl:hidden"
             >Dashboard</NuxtLink
           >
         </li>
@@ -71,7 +69,6 @@
             to="/profile"
             activeClass="text-fs-yellow"
             @click="showMenu = !showMenu"
-            class="flex xl:hidden"
             >Sign In</NuxtLink
           >
         </li>
