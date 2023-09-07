@@ -1,5 +1,5 @@
 <template>
-  <NuxtLayout>
+  <NuxtLayout :name="layout">
     <div>
       <template v-if="error.statusCode === 404">
         <h1 class="text-8xl text-fs-brown font-bold pb-8">404!</h1>
@@ -27,4 +27,16 @@
 
 <script setup>
 const error = useError();
+
+const layout = "default";
+
+useHead({
+  title: "Error - FLASH - Enterprise Maturity Assessment",
+  meta: [
+    {
+      name: "description",
+      content: "Error - FLASH - Enterprise Maturity Assessment",
+    },
+  ],
+});
 </script>

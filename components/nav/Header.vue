@@ -45,19 +45,33 @@
         <li
           class="font-roboto-condensed text-base font-light text-white hover:text-fs-yellow"
         >
-          <NuxtLink to="/" activeClass="text-fs-yellow">Home</NuxtLink>
+          <NuxtLink
+            to="/"
+            activeClass="text-fs-yellow"
+            @click="showMenu = !showMenu"
+            class="flex xl:hidden"
+            >Home</NuxtLink
+          >
         </li>
         <li
           class="font-roboto-condensed text-base font-light text-white hover:text-fs-yellow"
         >
-          <NuxtLink to="/dashboard" activeClass="text-fs-yellow"
+          <NuxtLink
+            to="/dashboard"
+            activeClass="text-fs-yellow"
+            @click="showMenu = !showMenu"
+            class="flex xl:hidden"
             >Dashboard</NuxtLink
           >
         </li>
         <li
           class="font-roboto-condensed text-base font-light text-white hover:text-fs-yellow"
         >
-          <NuxtLink to="/profile" activeClass="text-fs-yellow"
+          <NuxtLink
+            to="/profile"
+            activeClass="text-fs-yellow"
+            @click="showMenu = !showMenu"
+            class="flex xl:hidden"
             >Sign In</NuxtLink
           >
         </li>

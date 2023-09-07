@@ -8,6 +8,7 @@
             @click="
               showTerms = !showTerms;
               showCookiePolicy = false;
+              $scrollTop();
             "
             target="_blank"
             class="pr-10 xl:ml-0 xl:py-2 text-xs xl:text-base text-fs-yellow hover:text-white cursor-pointer"
@@ -19,6 +20,7 @@
             @click="
               showCookiePolicy = !showCookiePolicy;
               showTerms = false;
+              $scrollTop();
             "
             target="_blank"
             class="py-2 text-xs xl:text-base text-fs-yellow hover:text-white cursor-pointer"
@@ -50,7 +52,7 @@
           class="col-span-2 xl:col-span-1 text-center xl:pt-6 xl:text-left text-xs xl:text-sm text-white"
         >
           Survey Provided by SAP® | Copyright ©
-          {{ dateNowFormat(year) }} Firestarters. All rights reserved.
+          {{ $dateNowFormat(year) }} Firestarters. All rights reserved.
         </div>
       </div>
     </div>
@@ -73,6 +75,7 @@
 
 <script>
 import moment from "moment";
+
 export default {
   setup() {
     //Get runtime config.
@@ -92,11 +95,6 @@ export default {
       showCookiePolicy: false,
       year: new Date(),
     };
-  },
-  methods: {
-    dateNowFormat(value) {
-      return moment(value).format("yyyy");
-    },
   },
 };
 </script>

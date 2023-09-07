@@ -17,7 +17,10 @@
           path=""
           format="secondary"
           size="sm"
-          @click="showCollaborators = !showCollaborators"
+          @click="
+            showCollaborators = !showCollaborators;
+            $scrollTop();
+          "
         />
       </div>
     </div>

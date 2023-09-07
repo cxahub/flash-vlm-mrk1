@@ -16,7 +16,10 @@
           path=""
           format="secondary"
           size="sm"
-          @click="showTopics = !showTopics"
+          @click="
+            showTopics = !showTopics;
+            $scrollTop();
+          "
         />
       </div>
       <div class="pb-8 xl:pb-0 xl:block xl:float-left xl:pr-8">
@@ -46,6 +49,7 @@
           showTerms = !showTerms;
           showPrivacy = false;
           showCookiePolicy = false;
+          $scrollTop();
         "
         >Terms & Conditions</NuxtLink
       >
@@ -58,6 +62,7 @@
           showPrivacy = !showPrivacy;
           showTerms = false;
           showCookiePolicy = false;
+          $scrollTop();
         "
         >Privacy Policy</NuxtLink
       >
