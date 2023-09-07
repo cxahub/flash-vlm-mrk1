@@ -11,6 +11,7 @@
   "devDependencies": {
     "@nuxt/devtools": "latest",
     "@nuxt/image": "^1.0.0-rc.1",
+    "@sidebase/nuxt-session": "^0.2.7",
     "@tailwindcss/forms": "^0.5.4",
     "@types/node": "^18.16.19",
     "nuxt": "^3.6.3",

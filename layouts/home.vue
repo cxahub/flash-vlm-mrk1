@@ -18,7 +18,7 @@ export default {
         "background-size": "cover",
         "background-image": `url(${bgImage})`,
         "background-repeat": "no-repeat",
-        height: "80vh",
+        height: "100%",
       },
     };
   },

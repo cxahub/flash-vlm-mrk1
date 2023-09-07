@@ -1,8 +1,12 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   build: { transpile: ["yup", "@vee-validate/rules"] },
-  modules: ["@nuxtjs/tailwindcss", "@nuxtjs/google-fonts", "@nuxt/image"],
-  buildModules: ["@nuxtjs/dotenv", "@nuxtjs/moment"],
+  modules: [
+    "@nuxtjs/tailwindcss",
+    "@nuxtjs/google-fonts",
+    "@nuxt/image",
+    "@sidebase/nuxt-session",
+  ],
   devServer: {
     port: 4000,
   },

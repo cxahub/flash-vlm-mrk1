@@ -290,7 +290,7 @@ export default {
       secondaryBtnMD:
         "bg-white border border-fs-brown hover:bg-fs-brown hover:text-white text-sm xl:text-base py-3 px-3 my-3 xl:py-4 xl:px-4 xl:my-4",
       secondaryBtnSM:
-        "bg-white border border-fs-brown hover:bg-fs-brown hover:text-white text-sm xl:text-base py-3 px-3 my-3 xl:py-4 xl:px-4 xl:my-4",
+        "bg-white border border-fs-brown hover:bg-fs-brown hover:text-white hover:border-fs-light-brown text-sm xl:text-base py-3 px-3 my-3 xl:py-4 xl:px-4 xl:my-4",
       tertiaryBtn:
         "bg-fs-brown border border-fs-yellow text-white hover:bg-white hover:text-fs-brown text-sm xl:text-base py-3 px-3 my-3 xl:py-4 xl:px-4 xl:my-5",
       tertiaryBtnXL:

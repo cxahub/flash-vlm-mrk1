@@ -33,10 +33,11 @@
       <input
         name="agreement"
         type="checkbox"
-        class="rounded -mt-1 mr-1 ring-0 focus:ring-0 ring-transparent ring-offset-0 shadow-none focus:ring-transparent bg-white border-none text-fs-brown"
+        class="rounded -mt-1 mr-2 ring-0 focus:ring-0 ring-transparent ring-offset-0 shadow-none focus:ring-transparent bg-white border-none text-fs-brown"
         required="required"
+        @click="agreement = !agreement"
       />
-      I have read & accepted the
+      <u>You must check to continue</u>, I have read & accepted the
       <NuxtLink
         to=""
         activeClass="text-fs-yellow"
@@ -61,7 +62,7 @@
         >Privacy Policy</NuxtLink
       >
     </div>
-    <div class="py-8">
+    <div v-if="agreement" class="py-8">
       <div class="block xl:float-left text-center">
         <UiButton text="Start Now" path="/collaborate" size="lg" />
       </div>
@@ -94,6 +95,7 @@
 export default {
   data() {
     return {
+      agreement: false,
       showTopics: false,
       showTerms: false,
       showPrivacy: false,

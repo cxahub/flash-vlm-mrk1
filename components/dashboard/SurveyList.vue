@@ -3,11 +3,10 @@
     <div v-if="pending">
       <UiLoader icon="flash-icon-bg-white.png" />
     </div>
-    <div v-else>
+    <div v-else class="pb-16">
       <h1 class="text-xl xl:text-3xl uppercase font-bold py-8">
         My Surveys ({{ surveys[0].tabs[0].TotalCount }})
       </h1>
-
       <table class="table-auto w-full">
         <thead>
           <tr class="border-b-2">

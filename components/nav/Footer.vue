@@ -1,65 +1,56 @@
 <template>
-  <footer class="w-full">
+  <footer class="xl:sticky bottom-0 w-full h-160 bg-fs-brown">
     <div class="container mx-auto z-10">
-      <div class="grid gap-0 h-50 xl:h-40 py-4">
-        <div class="grid grid-cols-1">
-          <div class="text-center">
-            <NuxtLink
-              to=""
-              @click="
-                showTerms = !showTerms;
-                showCookiePolicy = false;
-              "
-              target="_blank"
-              class="block float-left px-10 py-2 text-xs xl:text-base text-fs-yellow hover:text-white cursor-pointer"
-              activeClass="underline decoration-solid"
-              >Terms of Use</NuxtLink
-            >
-            <NuxtLink
-              to=""
-              @click="
-                showCookiePolicy = !showCookiePolicy;
-                showTerms = false;
-              "
-              target="_blank"
-              class="block xl:float-left py-2 text-xs xl:text-base text-fs-yellow hover:text-white cursor-pointer"
-              activeClass="underline decoration-solid"
-              >Cookie Policy</NuxtLink
-            >
-            <div
-              class="block xl:float-left px-10 py-2 text-xs xl:text-base text-white"
-            >
-              Survey Provided by SAP®
-            </div>
-          </div>
-        </div>
-        <div class="grid grid-cols-1 xl:grid-cols-2 text-center xl:text-left">
-          <div>
-            <NuxtLink :to="firestartersURL" class="block hover:text-fs-yellow">
-              <img
-                role="image"
-                class="xl:block xl:float-left w-4 xl:w-10 mt-1 xl:mr-3 mx-auto"
-                src="/images/icon/firestarters-icon.png"
-                aria-label="firestarters icon"
-                alt="Firestarters Icon"
-              />
-              <span
-                class="xl:block xl:float-left font-roboto text-xs lg:text-xl text-white uppercase font-bold"
-              >
-                Firestarters
-                <span
-                  class="font-roboto-condensed block text-xs lg:text-sm text-fs-light-brown capitalize"
-                  >Your Global Business Community</span
-                >
-              </span>
-            </NuxtLink>
-          </div>
-          <div
-            class="block text-xs xl:text-sm text-white text-center xl:text-right pt-6"
+      <div class="grid grid-cols-2 gap-8 py-4">
+        <div class="col-span-2 text-center xl:text-left">
+          <NuxtLink
+            to=""
+            @click="
+              showTerms = !showTerms;
+              showCookiePolicy = false;
+            "
+            target="_blank"
+            class="pr-10 xl:ml-0 xl:py-2 text-xs xl:text-base text-fs-yellow hover:text-white cursor-pointer"
+            activeClass="underline decoration-solid"
+            >Terms of Use</NuxtLink
           >
-            Copyright © {{ dateNowFormat(year) }} Firestarters. All rights
-            reserved.
-          </div>
+          <NuxtLink
+            to=""
+            @click="
+              showCookiePolicy = !showCookiePolicy;
+              showTerms = false;
+            "
+            target="_blank"
+            class="py-2 text-xs xl:text-base text-fs-yellow hover:text-white cursor-pointer"
+            activeClass="underline decoration-solid"
+            >Cookie Policy</NuxtLink
+          >
+        </div>
+        <div class="col-span-2 xl:col-span-1 text-center xl:text-left">
+          <NuxtLink :to="firestartersURL" class="block hover:text-fs-yellow">
+            <img
+              role="image"
+              class="xl:block xl:float-left w-4 xl:w-10 mt-1 xl:mr-3 mx-auto"
+              src="/images/icon/firestarters-icon.png"
+              aria-label="firestarters icon"
+              alt="Firestarters Icon"
+            />
+            <span
+              class="xl:block xl:float-left font-roboto text-xs lg:text-xl text-white uppercase font-bold"
+            >
+              Firestarters
+              <span
+                class="font-roboto-condensed block text-xs lg:text-sm text-fs-light-brown capitalize"
+                >Your Global Business Community</span
+              >
+            </span>
+          </NuxtLink>
+        </div>
+        <div
+          class="col-span-2 xl:col-span-1 text-center xl:pt-6 xl:text-left text-xs xl:text-sm text-white"
+        >
+          Survey Provided by SAP® | Copyright ©
+          {{ dateNowFormat(year) }} Firestarters. All rights reserved.
         </div>
       </div>
     </div>

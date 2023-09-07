@@ -1,12 +1,12 @@
 <template>
-  <div class="text-center">
+  <div class="text-center py-16">
     <img
       :src="`/images/icon/${icon}`"
       loading="lazy"
-      class="w-8 mx-auto animate-bounce"
+      class="w-8 mx-auto animate-bounce drop-shadow-lg pb-4"
       aria-label="firestarters loader"
     />
-    <div class="animate-pulse">Loading</div>
+    <div class="animate-pulse font-bold">Loading...</div>
   </div>
 </template>
 
