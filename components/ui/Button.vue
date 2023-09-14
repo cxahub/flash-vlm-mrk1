@@ -264,13 +264,13 @@ export default {
     format: { type: String, default: "primary" },
     size: { type: String },
     target: { type: String, default: "_parent" },
-    disabled: { type: Boolean },
+    disabled: { type: Boolean, default: false },
   },
 
   data() {
     return {
       defaultBtn:
-        "max-w-max font-bold uppercase rounded-lg cursor-pointer drop-shadow-lg",
+        "max-w-max text-black font-bold uppercase rounded-lg cursor-pointer drop-shadow-lg",
       primaryBtn:
         "bg-fs-yellow hover:bg-fs-yellow-light text-sm xl:text-base py-3 px-3 my-3 xl:py-4 xl:px-4 xl:my-5",
       primaryBtnXL:

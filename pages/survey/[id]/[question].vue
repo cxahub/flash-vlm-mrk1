@@ -37,68 +37,68 @@
   </div>
 </template>
 
-<script>
-export default {
-  data() {
-    return {};
-  },
-  setup() {
-    const route = useRoute();
-    //Get runtime config.
-    const config = useRuntimeConfig();
-    definePageMeta({
-      layout: "survey",
-    }),
-      useHead({
-        title: "Survey - FLASH - Enterprise Maturity Assessment",
-        meta: [
-          {
-            name: "description",
-            content: "Survey - FLASH - Enterprise Maturity Assessment",
-          },
-        ],
-      });
+<script setup>
+import nuxtStorage from "nuxt-storage";
 
-    //Fetch options.
-    const options = {
-      method: "POST",
-      body: {
-        Response: {
-          userInfo: {
-            firstName: "Chad",
-            lastName: "Fraser",
-            userType: "Employee",
-            userId: "140256",
-            email: "chad.fraser@sap.com",
-          },
-          surveyInfo: {
-            surveyTemplateId: 77,
-            surveyAreaId: 4,
-          },
-        },
-      },
-      query: {
-        questions: true,
-      },
-    };
+const route = useRoute();
 
-    //Fetch data.
-    const { pending, data: questions } = useLazyFetch(
-      config.public.VUE_APP_API_URL +
-        "/" +
-        config.public.VUE_APP_API_VLM_ENROLL_ROUTE,
+//Get runtime config.
+const config = useRuntimeConfig();
+
+definePageMeta({
+  layout: "survey",
+}),
+  useHead({
+    title: "Survey - FLASH - Enterprise Maturity Assessment",
+    meta: [
       {
-        method: options.method,
-        body: options.body,
-        query: options.query,
-      }
-    );
+        name: "description",
+        content: "Survey - FLASH - Enterprise Maturity Assessment",
+      },
+    ],
+  });
 
-    return {
-      route,
-      questions,
-      pending,
-    };
+//Fetch options.
+const options = {
+  method: "POST",
+  body: {
+    Response: {
+      userInfo: {
+        firstName: "John",
+        lastName: "McCoy",
+        userType: "Employee",
+        userId: "140302",
+        email: "flash@sap.com",
+      },
+      surveyInfo: {
+        surveyTemplateId: 77,
+        surveyAreaId: 4,
+      },
+    },
+  },
+  query: {
+    questions: true,
   },
 };
+
+//Fetch data.
+const { pending, data: questions } = useLazyFetch(
+  config.public.VUE_APP_API_URL +
+    "/" +
+    config.public.VUE_APP_API_VLM_ENROLL_ROUTE,
+  {
+    method: options.method,
+    body: options.body,
+    query: options.query,
+  }
+);
+
+const authenticated = ref(
+  nuxtStorage.localStorage.getData("authenticated") || false
+);
+
+if (!authenticated.value) {
+  console.log("Auth: " + nuxtStorage.localStorage.getData("authenticated"));
+  //navigateTo("/");
+}
 </script>

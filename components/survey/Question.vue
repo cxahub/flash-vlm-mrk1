@@ -81,11 +81,11 @@ export default {
       body: {
         Response: {
           userInfo: {
-            firstName: "Chad",
-            lastName: "Fraser",
+            firstName: "John",
+            lastName: "McCoy",
             userType: "Employee",
-            userId: "140256",
-            email: "chad.fraser@sap.com",
+            userId: "140302",
+            email: "flash@sap.com",
           },
           surveyInfo: {
             surveyTemplateId: 77,

@@ -45,50 +45,47 @@
   </div>
 </template>
 
-<script>
-export default {
-  setup() {
-    //Get runtime config.
-    const config = useRuntimeConfig();
+<script setup>
+import nuxtStorage from "nuxt-storage";
 
-    //Fetch data.
-    const { pending, data: jobrole } = useLazyFetch(
-      config.public.VUE_APP_API_URL +
-        "/" +
-        config.public.VUE_APP_API_JOB_ROLE_ROUTE,
-      {
-        query: {
-          status_id: 1,
-          order_by: "sort_id, jr_name",
-        },
-      }
-    );
-    return {
-      config,
-      jobrole,
-      pending,
-    };
-  },
-  data() {
-    return {
-      step: 2,
-      question: "What is your job role?",
-      instructions:
-        'Choose multiple or enter an "Other" if option is not listed.',
-      jrSelected: [],
-      otherField: "",
-    };
-  },
-  methods: {
-    updateList(value) {
-      value = value.toUpperCase();
-      if (this.jrSelected.includes(value)) {
-        this.jrSelected.splice(this.jrSelected.indexOf(value), 1);
-      } else {
-        this.jrSelected.push(value);
-      }
-      console.log(this.jrSelected);
+//Get runtime config.
+const config = useRuntimeConfig();
+const emit = defineEmits(["disable"]);
+
+//Fetch data.
+const { pending, data: jobrole } = useLazyFetch(
+  config.public.VUE_APP_API_URL +
+    "/" +
+    config.public.VUE_APP_API_JOB_ROLE_ROUTE,
+  {
+    query: {
+      status_id: 1,
+      order_by: "sort_id, jr_name",
     },
-  },
-};
+  }
+);
+
+const step = ref(2);
+const question = ref("What is your job role?");
+const instructions = ref(
+  'Choose multiple or enter an "Other" if option is not listed.'
+);
+const jrSelected = ref([]);
+const otherField = ref("");
+
+function updateList(value) {
+  value = value.toUpperCase();
+  if (this.jrSelected.includes(value)) {
+    this.jrSelected.splice(this.jrSelected.indexOf(value), 1);
+  } else {
+    this.jrSelected.push(value);
+    emit("disable", true);
+  }
+  nuxtStorage.localStorage.setData("jobrole", this.jrSelected, 5);
+  if (this.jrSelected === undefined || this.jrSelected.length == 0) {
+    emit("disable", true);
+  } else {
+    emit("disable", false);
+  }
+}
 </script>

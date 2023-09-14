@@ -13,7 +13,7 @@
             target="_blank"
             class="pr-10 xl:ml-0 xl:py-2 text-xs xl:text-base text-fs-yellow hover:text-white cursor-pointer"
             activeClass="underline decoration-solid"
-            >Terms of Use</NuxtLink
+            >Terms & Conditions</NuxtLink
           >
           <NuxtLink
             to=""
@@ -74,8 +74,6 @@
 </template>
 
 <script>
-import moment from "moment";
-
 export default {
   setup() {
     //Get runtime config.

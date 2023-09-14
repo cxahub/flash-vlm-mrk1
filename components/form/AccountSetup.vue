@@ -1,23 +1,11 @@
 <template>
-  <FormBusinessFunction v-if="showStep1" />
-  <FormJobRole v-if="showStep2" />
+  <FormBusinessFunction v-if="showStep1" @disable="handleDisableBF" />
+  <FormJobRole v-if="showStep2" @disable="handleDisableJR" />
   <FormUserFunction v-if="showStep3" />
   <div class="py-10">
     <div v-if="showStep3">
-      <!--Waiting on form logic-->
-      <!--
-        <UiButton
-          role="button"
-          text="Continue to Survey"
-          class="block float-left pr-4 -my-9"
-          type="submit"
-          @click="
-            showStep3 = false;
-            showStep2 = false;
-            showStep1 = false;
-          "
-        />-->
       <UiButton
+        role="button"
         text="Previous Step"
         class="block float-left pr-4"
         format="secondary"
@@ -26,10 +14,17 @@
           showStep2 = true;
         "
       />
-      <UiButton text="Continue" path="/dashboard" class="block" type="submit" />
+      <UiButton
+        role="button"
+        text="Continue"
+        path="/dashboard"
+        class="block"
+        type="submit"
+      />
     </div>
     <div v-else-if="showStep2">
       <UiButton
+        role="button"
         text="Previous Step"
         class="block float-left pr-4"
         format="secondary"
@@ -38,9 +33,13 @@
           showStep1 = true;
         "
       />
+      {{ showNext }}
       <UiButton
+        role="button"
         text="Next Step"
         class="block float-left"
+        :class="showNextJR ? 'opacity-50' : ''"
+        :disabled="showNextJR"
         @click="
           showStep3 = !showStep3;
           showStep2 = false;
@@ -50,14 +49,18 @@
     </div>
     <div v-else>
       <UiButton
+        role="button"
         text="Previous Step"
-        path="/collaborate"
         class="block float-left pr-4"
         format="secondary"
+        @click="$router.push('/collaborate')"
       />
       <UiButton
+        role="button"
         text="Next Step"
         class="block float-left"
+        :class="showNextBF ? 'opacity-50' : ''"
+        :disabled="showNextBF"
         @click="
           showStep2 = !showStep2;
           showStep1 = false;
@@ -67,14 +70,18 @@
   </div>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      showStep1: true,
-      showStep2: false,
-      showStep3: false,
-    };
-  },
+<script setup>
+const showStep1 = ref(true);
+const showStep2 = ref(false);
+const showStep3 = ref(false);
+let showNextBF = ref(true);
+let showNextJR = ref(true);
+
+const handleDisableBF = (key) => {
+  showNextBF.value = key;
+};
+
+const handleDisableJR = (key) => {
+  showNextJR.value = key;
 };
 </script>

@@ -44,6 +44,9 @@ module.exports = {
         "2-5r": "2.5rem",
         "3r": "3rem",
       },
+      listStyleImage: {
+        checkmark: 'url("/images/icon/checkmark.svg")',
+      },
     },
   },
   plugins: [require("@tailwindcss/forms"), require("tailwind-scrollbar-hide")],

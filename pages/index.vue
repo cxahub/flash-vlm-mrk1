@@ -6,7 +6,7 @@
 export default {
   setup() {
     definePageMeta({
-      layout: "home",
+      layout: "default",
     }),
       useHead({
         title: "FLASH - Enterprise Maturity Assessment",

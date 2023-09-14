@@ -29,7 +29,35 @@
     >
       Do you have P & L visibility or people to collaborate with?
     </div>
-    <div class="py-8">
+    <div>
+      <input
+        name="pnl"
+        type="radio"
+        class="h-5 w-5 -mt-1 mr-2 ring-0 focus:ring-0 ring-transparent ring-offset-0 shadow-none focus:ring-transparent bg-white border-none text-fs-light-brown"
+        value="true"
+        v-model="pnl"
+        required="required"
+        @click="
+          setPNL('true');
+          showBegin = !showBegin;
+        "
+      />
+      <label class="text-white mr-6" for="pnl"> Yes </label>
+      <input
+        name="pnl"
+        type="radio"
+        class="h-5 w-5 -mt-1 mr-2 ring-0 focus:ring-0 ring-transparent ring-offset-0 shadow-none focus:ring-transparent bg-white border-none text-fs-light-brown"
+        value="false"
+        v-model="pnl"
+        required="required"
+        @click="
+          setPNL('false');
+          showBegin = !showBegin;
+        "
+      />
+      <label class="text-white" for="pnl"> No </label>
+    </div>
+    <div v-if="showBegin" class="py-8">
       <div class="xl:block xl:float-left xl:pr-8 text-center">
         <UiButton
           text="Yes, Let's Begin"
@@ -37,9 +65,14 @@
           size="lg"
         />
       </div>
+
       <div class="xl:block xl:float-left xl:pr-8 text-center mt-10 xl:mt-0">
         <UiButton text="Back" path="/" size="sm" format="secondary" />
       </div>
+    </div>
+    <div v-else class="text-white py-8">
+      Please contact or invite your P & L team prior to answering this survey so
+      you can provide the most accurate answers and gain the most value.
     </div>
   </div>
   <div
@@ -52,11 +85,21 @@
 </template>
 
 <script>
+import nuxtStorage from "nuxt-storage";
+
 export default {
   data() {
     return {
+      pnl: false,
       showCollaborators: false,
+      showBegin: false,
     };
+  },
+
+  methods: {
+    setPNL(value) {
+      nuxtStorage.localStorage.setData("pnl", value, 5);
+    },
   },
 };
 </script>

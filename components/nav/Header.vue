@@ -19,7 +19,7 @@
           <div
             class="hidden xl:block float-left text-2xl xl:font-roboto-condensed font-medium text-fs-light-brown capitalize pt-2 mx-8"
           >
-            {{ dateNowFormat(year) }} Enterprise Maturity Assessment
+            {{ $dateNowFormat(year) }} Enterprise Maturity Assessment
           </div>
         </NuxtLink>
         <!-- Mobile menu button -->
@@ -42,54 +42,83 @@
         :class="showMenu ? 'flex min-h-screen' : 'hidden'"
         class="flex-col mt-8 space-y-4 xl:flex xl:space-y-0 xl:flex-row xl:items-center xl:space-x-10 xl:mt-0"
       >
+        <div v-if="authenticated">
+          <li
+            class="font-roboto-condensed text-base font-light text-white hover:text-fs-yellow"
+          >
+            Welcome {{ userName }}
+          </li>
+        </div>
         <li
           class="font-roboto-condensed text-base font-light text-white hover:text-fs-yellow"
         >
           <NuxtLink
             to="/"
             activeClass="text-fs-yellow"
-            @click="showMenu = !showMenu"
+            @click="showMenu = false"
             >Home</NuxtLink
           >
         </li>
-        <li
-          class="font-roboto-condensed text-base font-light text-white hover:text-fs-yellow"
-        >
-          <NuxtLink
-            to="/dashboard"
-            activeClass="text-fs-yellow"
-            @click="showMenu = !showMenu"
-            >Dashboard</NuxtLink
+        <div v-if="authenticated">
+          <li
+            class="font-roboto-condensed text-base font-light text-white hover:text-fs-yellow"
           >
-        </li>
-        <li
-          class="font-roboto-condensed text-base font-light text-white hover:text-fs-yellow"
-        >
-          <NuxtLink
-            to="/profile"
-            activeClass="text-fs-yellow"
-            @click="showMenu = !showMenu"
-            >Sign In</NuxtLink
+            <NuxtLink
+              to="/dashboard"
+              activeClass="text-fs-yellow"
+              @click="showMenu = false"
+              >Dashboard</NuxtLink
+            >
+          </li>
+        </div>
+        <div v-if="authenticated">
+          <li
+            class="font-roboto-condensed text-base font-light text-white hover:text-fs-yellow"
           >
-        </li>
+            <NuxtLink
+              to=""
+              activeClass="text-fs-yellow"
+              @click="setSignOut()"
+              class="cursor-pointer"
+              >Sign Out</NuxtLink
+            >
+          </li>
+        </div>
+        <div v-else>
+          <li
+            class="font-roboto-condensed text-base font-light text-white hover:text-fs-yellow"
+          >
+            <NuxtLink
+              to="/profile"
+              activeClass="text-fs-yellow"
+              @click="showMenu = false"
+              >Sign In</NuxtLink
+            >
+          </li>
+        </div>
       </ul>
     </nav>
   </header>
 </template>
 
-<script>
-import moment from "moment";
-export default {
-  data() {
-    return {
-      showMenu: false,
-      year: new Date(),
-    };
-  },
-  methods: {
-    dateNowFormat(value) {
-      return moment(value).format("yyyy");
-    },
-  },
-};
+<script setup>
+import nuxtStorage from "nuxt-storage";
+
+const authenticated = ref(
+  nuxtStorage.localStorage.getData("authenticated") || false
+);
+
+const firstName = useCookie("firstName");
+const lastName = useCookie("lastName");
+firstName.value = Array.from(firstName.value)[0] || "Valued";
+lastName.value = lastName.value || "User";
+
+const userName = ref(lastName.value + ", " + firstName.value);
+const showMenu = ref(false);
+const year = new Date();
+
+function setSignOut() {
+  nuxtStorage.localStorage.clear();
+  navigateTo("/");
+}
 </script>

@@ -1,12 +1,13 @@
 <template>
-  <h1 class="text-2xl xl:text-5xl uppercase font-bold">
-    Your Survey Dashboard
+  <h1 class="text-3xl xl:text-5xl font-bold text-fs-yellow">
+    Survey Dashboard
   </h1>
   <div class="grid xl:grid-cols-2 gap-0 xl:gap-4">
     <div class="xl:text-xl py-8">
-      Use the button on the right to get started with our guided assessment.
-      Alternatively, you can jump to any section that interests you below. All
-      questions must be completed to generate a report.
+      <span class="font-bold"
+        >We'll keep track of your progress for you on this page.<br
+      /></span>
+      Use the button on the right to get started with your assessment.
     </div>
     <div class="py-10 text-center xl:text-right float-right">
       <UiButton
@@ -33,26 +34,29 @@
   </div>
 </template>
 
-<script>
-export default {
-  setup() {
-    definePageMeta({
-      layout: "dashboard",
-    }),
-      useHead({
-        title: "Dashboard - FLASH - Enterprise Maturity Assessment",
-        meta: [
-          {
-            name: "description",
-            content: "Dashboard - FLASH - Enterprise Maturity Assessment",
-          },
-        ],
-      });
-  },
-  data() {
-    return {
-      showSurveyList: false,
-    };
-  },
-};
+<script setup>
+import nuxtStorage from "nuxt-storage";
+
+definePageMeta({
+  layout: "dashboard",
+}),
+  useHead({
+    title: "Dashboard - FLASH - Enterprise Maturity Assessment",
+    meta: [
+      {
+        name: "description",
+        content: "Dashboard - FLASH - Enterprise Maturity Assessment",
+      },
+    ],
+  });
+
+const showSurveyList = ref(false);
+
+const authenticated = ref(
+  nuxtStorage.localStorage.getData("authenticated") || false
+);
+
+if (!authenticated.value) {
+  navigateTo("/profile?timeout=true");
+}
 </script>

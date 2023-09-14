@@ -19,7 +19,9 @@
     >
       <UiButton
         text="Next Question"
-        :path="`/survey/${questionID + 1}/${questionNext.toLowerCase()}`"
+        :path="`/survey/${questionID + 1}/${encodeURIComponent(
+          questionNext.toLowerCase()
+        )}`"
         format="primary"
         size="md"
       />

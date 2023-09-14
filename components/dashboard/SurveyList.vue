@@ -54,7 +54,7 @@ export default {
       body: {
         Response: {
           userInfo: {
-            email: "chad.fraser@sap.com",
+            email: "flash@sap.com",
           },
         },
       },
