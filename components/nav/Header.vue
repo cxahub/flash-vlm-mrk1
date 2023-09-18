@@ -46,9 +46,10 @@
           <li
             class="font-roboto-condensed text-base font-light text-white hover:text-fs-yellow"
           >
-            Welcome {{ userName }}
+            Welcome {{ company }}
           </li>
         </div>
+        <!--
         <li
           class="font-roboto-condensed text-base font-light text-white hover:text-fs-yellow"
         >
@@ -58,7 +59,7 @@
             @click="showMenu = false"
             >Home</NuxtLink
           >
-        </li>
+        </li>-->
         <div v-if="authenticated">
           <li
             class="font-roboto-condensed text-base font-light text-white hover:text-fs-yellow"
@@ -71,6 +72,7 @@
             >
           </li>
         </div>
+        <!--
         <div v-if="authenticated">
           <li
             class="font-roboto-condensed text-base font-light text-white hover:text-fs-yellow"
@@ -96,29 +98,33 @@
             >
           </li>
         </div>
+        -->
       </ul>
     </nav>
   </header>
 </template>
 
 <script setup>
-import nuxtStorage from "nuxt-storage";
+//import nuxtStorage from "nuxt-storage";
 
-const authenticated = ref(
-  nuxtStorage.localStorage.getData("authenticated") || false
-);
+const authenticated = ref(useCookie("authenticated") || false);
+const company = ref(useCookie("company") || false);
 
-const firstName = useCookie("firstName");
-const lastName = useCookie("lastName");
-firstName.value = Array.from(firstName.value)[0] || "Valued";
-lastName.value = lastName.value || "User";
+console.log("Auth:" + authenticated.value);
 
-const userName = ref(lastName.value + ", " + firstName.value);
+//const firstName = useCookie("firstName");
+//const lastName = useCookie("lastName");
+//firstName.value = Array.from(firstName.value)[0] || "Valued";
+//lastName.value = lastName.value || "User";
+
+//const userName = ref(lastName.value + ", " + firstName.value);
 const showMenu = ref(false);
 const year = new Date();
 
+/*
 function setSignOut() {
   nuxtStorage.localStorage.clear();
   navigateTo("/");
 }
+*/
 </script>

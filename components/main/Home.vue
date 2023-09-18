@@ -36,14 +36,18 @@
           </li>
         </ul>
       </div>
-      <div class="text-xs xl:text-sm xl:pt-40">
-        <img src="/images/logo/sap-logo.png" class="block float-left mr-4" />
-        The FLASH™ Retail Maturity Assessment is provided by SAP — a global
-        leader in enterprise cloud technology.
-      </div>
     </div>
     <div class="xl:col-span-2 pt-10 xl:pt-0 xl:px-16">
-      <FormUserFunction />
+      <FormCompanyFunction />
     </div>
   </div>
 </template>
+
+<script setup>
+onMounted(() => {
+  const authenticated = ref(useCookie("authenticated") || false);
+  if (authenticated.value) {
+    navigateTo("/dashboard");
+  }
+});
+</script>

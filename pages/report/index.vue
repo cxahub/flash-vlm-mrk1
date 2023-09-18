@@ -1,10 +1,24 @@
 <template>
   <h1 class="text-3xl xl:text-5xl uppercase font-bold py-4">Thank You</h1>
   <p class="text-lg">
-    Your <span class="font-bold">FLASH&trade;</span> Report is processing and
-    will be emailed to
-    <span class="text-fs-yellow font-bold underline">{{ userEmail }}</span>
-    shortly.<br /><br />
+    Your <span class="font-bold">FLASH&trade;</span> Report is ready for
+    download!<br /><br />
+    <UiButton
+      class="py-4"
+      text="Download"
+      path="/report"
+      format="primary"
+      size="lg"
+    /><br />
+    If you are unable to download your report please contact us at:
+    <NuxtLink
+      :to="`mailto:flash@sap.com?subject=FLASH Download Problem - ${company}`"
+      activeClass="text-fs-yellow"
+      class="underline"
+      target="_blank"
+      >flash@sap.com</NuxtLink
+    ><br /><br />
+
     Please provide feedback regarding your experience, request a meeting, or
     visit our
     <NuxtLink
@@ -31,33 +45,22 @@
   </div>
 </template>
 
-<script>
-export default {
-  setup() {
-    const config = useRuntimeConfig();
-    const firestartersURL = config.public.VUE_APP_FIRESTARTERS_WEBSITE_URL;
+<script setup>
+const config = useRuntimeConfig();
+const firestartersURL = config.public.VUE_APP_FIRESTARTERS_WEBSITE_URL;
 
-    definePageMeta({
-      layout: "default",
-    }),
-      useHead({
-        title: "Report - FLASH - Enterprise Maturity Assessment",
-        meta: [
-          {
-            name: "description",
-            content: "Report - FLASH - Enterprise Maturity Assessment",
-          },
-        ],
-      });
+const company = ref(useCookie("company") || false);
 
-    return {
-      firestartersURL,
-    };
-  },
-  data() {
-    return {
-      userEmail: "m.helle@sap.com",
-    };
-  },
-};
+definePageMeta({
+  layout: "default",
+}),
+  useHead({
+    title: "Report - FLASH - Enterprise Maturity Assessment",
+    meta: [
+      {
+        name: "description",
+        content: "Report - FLASH - Enterprise Maturity Assessment",
+      },
+    ],
+  });
 </script>

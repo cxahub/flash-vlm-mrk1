@@ -8,6 +8,7 @@
     <div
       v-if="parseInt(route.params.id) > 1 && parseInt(route.params.id) <= 15"
     >
+      <!--
       <NavSurvey
         :questionID="parseInt(route.params.id)"
         :questionPrevious="
@@ -16,23 +17,25 @@
         :questionNext="
           questions[parseInt(route.params.id)].header.texts[0].text
         "
-      />
+      />-->
     </div>
     <div v-else-if="parseInt(route.params.id) > 15">
+      <!--
       <NavSurvey
         :questionID="parseInt(route.params.id)"
         :questionPrevious="
           questions[parseInt(route.params.id - 2)].header.texts[0].text
         "
-      />
+      />-->
     </div>
     <div v-else>
+      <!--
       <NavSurvey
         :questionID="parseInt(route.params.id)"
         :questionNext="
           questions[parseInt(route.params.id)].header.texts[0].text
         "
-      />
+      />-->
     </div>
   </div>
 </template>

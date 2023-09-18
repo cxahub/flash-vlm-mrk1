@@ -4,33 +4,43 @@
       <UiLoader icon="flash-icon-bg-white.png" />
     </div>
     <div v-else>
-      <div class="w-full">
-        <div v-for="(q, index) in questions" :key="q.id">
-          <div :class="colWidth ? 'xl:inline-block xl:float-left' : ''">
-            <div v-if="showLink">
-              <NuxtLink
-                :to="`/survey/${
-                  index + 1
-                }/${q.header.texts[0].text.toLowerCase()}`"
-              >
-                <div
-                  class="w-100 text-base xl:text-lg font-bold text-black text-center uppercase border-2 border-gray-600 rounded-full hover:bg-fs-yellow hover:text-black py-2 px-4 my-2 mx-3 cursor-pointer bg-white drop-shadow-lg"
-                >
-                  {{ q.header.texts[0].text }}
-                </div></NuxtLink
-              >
+      <div class="grid grid-rows-1 grid-flow-col gap-4 text-center">
+        <div
+          v-for="(q, index) in questions"
+          :key="q.id"
+          :class="index === 0 ? 'hidden' : ''"
+        >
+          <div v-if="index > 0">
+            <div class="text-2xl text-center font-bold text-fs-yellow pb-8">
+              {{ q.header.texts[0].text }}
             </div>
-            <div v-else>
-              <div
-                class="xl:w-100 text-base xl:text-lg font-bold text-black text-center uppercase border-2 border-gray-600 rounded-full hover:bg-fs-yellow hover:text-black py-2 px-4 my-2 mx-0 bg-white drop-shadow-lg"
-              >
-                {{ q.header.texts[0].text }}
+            <div v-for="(qq, key) in q.groups" :key="key">
+              <div v-if="showLink">
+                <div v-if="index > 0">
+                  <NuxtLink
+                    :to="`/survey/${key + 1}/${encodeURIComponent(
+                      qq.header.texts[0].text.toLowerCase()
+                    )}`"
+                  >
+                    <div
+                      class="text-base xl:text-lg font-bold text-black text-center uppercase border-2 border-fs-light-brown rounded-lg hover:bg-fs-yellow hover:text-black py-2 px-4 my-4 mx-3 cursor-pointer bg-white drop-shadow-lg"
+                    >
+                      {{ qq.header.texts[0].text }}
+                    </div></NuxtLink
+                  >
+                </div>
+              </div>
+              <div v-else>
+                <div
+                  class="xl:w-100 text-base xl:text-lg font-bold text-black text-center uppercase border-2 border-gray-600 rounded-full hover:bg-fs-yellow hover:text-black py-2 px-4 my-2 mx-0 bg-white drop-shadow-lg"
+                >
+                  {{ qq.header.texts[0].text }}
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="clear-both"></div>
     </div>
   </div>
 </template>
@@ -41,9 +51,14 @@ export default {
     showLink: { type: Boolean },
     colWidth: { type: Boolean },
   },
+
   setup() {
     //Get runtime config.
     const config = useRuntimeConfig();
+
+    const incrementIndex = (key) => {
+      return key + 1;
+    };
 
     //Fetch options.
     const options = {
@@ -64,7 +79,7 @@ export default {
         },
       },
       query: {
-        questions: true,
+        groupedquestions: true,
       },
     };
 
@@ -84,6 +99,7 @@ export default {
       config,
       questions,
       pending,
+      incrementIndex,
     };
   },
 };

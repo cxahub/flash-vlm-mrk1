@@ -1,0 +1,3085 @@
+{
+  "id": 14367,
+  "header": {
+    "dispCfg": {
+      "text-align": "left",
+      "font-family": "arial",
+      "font-size": "80%",
+      "color": "#000000"
+    },
+    "texts": [
+      {
+        "id": 32715,
+        "text": "Welcome to your FLASH RETAIL Enterprise Maturity Assessment. This survey features 16 questions about your company’s business from end-to-end. We will deliver immediate, personalized insights (at no cost) to help you accelerate positive business outcomes for your company. Begin by assessing your current retail maturity across three areas:"
+      }
+    ]
+  },
+  "body": {
+    "dispCfg": {
+      "text-align": "left",
+      "font-family": "arial",
+      "font-size": "80%",
+      "color": "#000000"
+    },
+    "texts": [
+      {
+        "id": 32714,
+        "text": "• Customer Experience"
+      },
+      {
+        "id": 32714,
+        "text": "• Management & Operations"
+      },
+      {
+        "id": 32714,
+        "text": "• Organization & Culture"
+      }
+    ]
+  },
+  "footer": {
+    "dispCfg": {
+      "text-align": "left",
+      "font-family": "arial",
+      "font-size": "80%",
+      "color": "#000000"
+    },
+    "texts": [
+      {
+        "id": 32713,
+        "text": "Survey completion instructions:"
+      },
+      {
+        "id": 32713,
+        "text": "•Select one or more of the following options for each question that applies to your company."
+      },
+      {
+        "id": 32713,
+        "text": "•If the answer is not provided, you have more detail to include, or the question is not applicable, select “Additional comments” and type your comments in the box."
+      },
+      {
+        "id": 32713,
+        "text": "•For responses asking for a percent, indicate numbers only without “%” sign (e.g., 20, NOT 0.2 or 20%)."
+      },
+      {
+        "id": 32713,
+        "text": "•You must complete at least 5 questions to submit, and you will only receive results on the questions answered. You can come back at any time to complete and resubmit your survey for more comprehensive results. You can also invite a colleague to collaborate and answer questions to help you complete the survey questions."
+      },
+      {
+        "id": 32713,
+        "text": ""
+      },
+      {
+        "id": 32713,
+        "text": "By entering data in this survey, you agree to the VLM terms and conditions and privacy policy."
+      }
+    ]
+  },
+  "preSurveyAssets": {
+    "org_info": {
+      "org_level": {
+        "unique_id": 2241658,
+        "level_type": 0
+      }
+    },
+    "currency": {
+      "unique_id": 2241659
+    },
+    "geo_info": {
+      "geography": {
+        "unique_id": 2241660,
+        "geo_type": 0
+      }
+    },
+    "industry": {
+      "unique_id": 2241661
+    },
+    "sub_industry": {
+      "unique_id": 2241661
+    },
+    "userlist": {
+      "unique_id": 2241662,
+      "values": [
+        {
+          "first_name": "John",
+          "last_name": "McCoy",
+          "email": "flash@sap.com",
+          "userid": 140302,
+          "showsurveyanswers": 1,
+          "isdeleted": 0,
+          "isupdated": 0
+        }
+      ]
+    },
+    "purpose": {
+      "unique_id": 2241664
+    },
+    "survey_info": {
+      "unique_id": 2241663,
+      "id": "77",
+      "name": "Flash Retail Assessment",
+      "delegated": false,
+      "completed": "0",
+      "individual": "1",
+      "statuscompleted": false
+    },
+    "category": {
+      "unique_id": 2241656,
+      "id": "4",
+      "name": "Manufacturing"
+    },
+    "surveyowner": {
+      "unique_id": 2241654,
+      "values": [
+        {
+          "first_name": "John",
+          "last_name": "McCoy",
+          "email": "flash@sap.com",
+          "userid": 140302,
+          "showsurveyanswers": 1,
+          "isdeleted": 0,
+          "isupdated": 0
+        }
+      ]
+    },
+    "completionstatus": {
+      "unique_id": 2241657,
+      "completionpercentage": "0"
+    },
+    "sapsurveyowner": {
+      "unique_id": 2241655,
+      "values": [
+        {
+          "first_name": "John",
+          "last_name": "McCoy",
+          "email": "flash@sap.com",
+          "userid": 140302,
+          "showsurveyanswers": 1,
+          "isdeleted": 0,
+          "isupdated": 0
+        }
+      ]
+    }
+  },
+  "title": {
+    "dispCfg": {
+      "text-align": "center",
+      "font-family": "arial",
+      "font-size": "80%",
+      "color": "#000000",
+      "font-weight": "bold"
+    },
+    "texts": [
+      {
+        "id": 32679,
+        "text": "Flash Retail Assessment"
+      }
+    ]
+  },
+  "areas": [
+    {
+      "groups": [
+        {
+          "id": 21639,
+          "header": {
+            "dispCfg": {
+              "text-align": "center",
+              "font-family": "arial",
+              "font-size": "80%",
+              "color": "#000000",
+              "font-weight": "bold"
+            },
+            "texts": [
+              {
+                "id": 32716,
+                "text": "Business Function"
+              }
+            ]
+          },
+          "questions": [
+            {
+              "id": 2241665,
+              "body": {
+                "dispCfg": {
+                  "text-align": "left",
+                  "font-family": "arial",
+                  "font-size": "80%",
+                  "color": "#000000"
+                },
+                "texts": [
+                  {
+                    "id": 32742,
+                    "text": "Please select the primary business function that best represents your department or area within the organization:"
+                  }
+                ]
+              },
+              "media": [],
+              "delegateTo": {
+                "id": 140302,
+                "first_name": "John",
+                "last_name": "McCoy",
+                "email": "flash@sap.com",
+                "phone": "",
+                "desc": ""
+              },
+              "answers": [
+                {
+                  "id": 2241689,
+                  "body": {
+                    "dispCfg": {
+                      "control": "vradio",
+                      "text-align": "left",
+                      "font-family": "arial",
+                      "font-size": "80%",
+                      "color": "#000000"
+                    },
+                    "ctrlCfg": {
+                      "mandatory": false,
+                      "id": 32760
+                    },
+                    "texts": [
+                      {
+                        "id": 32760,
+                        "text": "Commerce"
+                      },
+                      {
+                        "id": 32760,
+                        "text": "CRM"
+                      },
+                      {
+                        "id": 32760,
+                        "text": "Customer Experience"
+                      },
+                      {
+                        "id": 32760,
+                        "text": "Data & Analytics"
+                      },
+                      {
+                        "id": 32760,
+                        "text": "Digital"
+                      },
+                      {
+                        "id": 32760,
+                        "text": "Finance"
+                      },
+                      {
+                        "id": 32760,
+                        "text": "Information Technology"
+                      },
+                      {
+                        "id": 32760,
+                        "text": "Marketing"
+                      },
+                      {
+                        "id": 32760,
+                        "text": "Merchandising"
+                      },
+                      {
+                        "id": 32760,
+                        "text": "Partner"
+                      },
+                      {
+                        "id": 32760,
+                        "text": "Supply Chain"
+                      },
+                      {
+                        "id": 32760,
+                        "text": "Transformation"
+                      },
+                      {
+                        "id": 32760,
+                        "text": "Other"
+                      }
+                    ]
+                  },
+                  "options": [
+                    {
+                      "id": 1,
+                      "text": "Commerce",
+                      "hasInput": false,
+                      "inputType": ""
+                    },
+                    {
+                      "id": 2,
+                      "text": "CRM",
+                      "hasInput": false,
+                      "inputType": ""
+                    },
+                    {
+                      "id": 3,
+                      "text": "Customer Experience",
+                      "hasInput": false,
+                      "inputType": ""
+                    },
+                    {
+                      "id": 4,
+                      "text": "Data & Analytics",
+                      "hasInput": false,
+                      "inputType": ""
+                    },
+                    {
+                      "id": 5,
+                      "text": "Digital",
+                      "hasInput": false,
+                      "inputType": ""
+                    },
+                    {
+                      "id": 6,
+                      "text": "Finance",
+                      "hasInput": false,
+                      "inputType": ""
+                    },
+                    {
+                      "id": 7,
+                      "text": "Information Technology",
+                      "hasInput": false,
+                      "inputType": ""
+                    },
+                    {
+                      "id": 8,
+                      "text": "Marketing",
+                      "hasInput": false,
+                      "inputType": ""
+                    },
+                    {
+                      "id": 9,
+                      "text": "Merchandising",
+                      "hasInput": false,
+                      "inputType": ""
+                    },
+                    {
+                      "id": 10,
+                      "text": "Partner",
+                      "hasInput": false,
+                      "inputType": ""
+                    },
+                    {
+                      "id": 11,
+                      "text": "Supply Chain",
+                      "hasInput": false,
+                      "inputType": ""
+                    },
+                    {
+                      "id": 12,
+                      "text": "Transformation",
+                      "hasInput": false,
+                      "inputType": ""
+                    },
+                    {
+                      "id": 13,
+                      "text": "Other",
+                      "hasInput": false,
+                      "inputType": ""
+                    }
+                  ],
+                  "media": [],
+                  "value": ""
+                }
+              ],
+              "showGroup": 3,
+              "page": 2,
+              "likeCount": 0,
+              "dislikeCount": 0,
+              "commentCount": 0,
+              "likeStatus": 0,
+              "userCommented": 0
+            }
+          ]
+        },
+        {
+          "id": 21640,
+          "header": {
+            "dispCfg": {
+              "text-align": "center",
+              "font-family": "arial",
+              "font-size": "80%",
+              "color": "#000000",
+              "font-weight": "bold"
+            },
+            "texts": [
+              {
+                "id": 32717,
+                "text": "Job Role"
+              }
+            ]
+          },
+          "questions": [
+            {
+              "id": 2241666,
+              "body": {
+                "dispCfg": {
+                  "text-align": "left",
+                  "font-family": "arial",
+                  "font-size": "80%",
+                  "color": "#000000"
+                },
+                "texts": [
+                  {
+                    "id": 32743,
+                    "text": "Please specify your primary job role from the choices provided below:"
+                  }
+                ]
+              },
+              "media": [],
+              "delegateTo": {
+                "id": 140302,
+                "first_name": "John",
+                "last_name": "McCoy",
+                "email": "flash@sap.com",
+                "phone": "",
+                "desc": ""
+              },
+              "answers": [
+                {
+                  "id": 2241690,
+                  "body": {
+                    "dispCfg": {
+                      "control": "vradio",
+                      "text-align": "left",
+                      "font-family": "arial",
+                      "font-size": "80%",
+                      "color": "#000000"
+                    },
+                    "ctrlCfg": {
+                      "mandatory": false,
+                      "id": 32761
+                    },
+                    "texts": [
+                      {
+                        "id": 32761,
+                        "text": "C-Suite"
+                      },
+                      {
+                        "id": 32761,
+                        "text": "Individual Contributor"
+                      },
+                      {
+                        "id": 32761,
+                        "text": "Sr. Manager/Manager"
+                      },
+                      {
+                        "id": 32761,
+                        "text": "SVP/VP"
+                      },
+                      {
+                        "id": 32761,
+                        "text": "Other"
+                      }
+                    ]
+                  },
+                  "options": [
+                    {
+                      "id": 1,
+                      "text": "C-Suite",
+                      "hasInput": false,
+                      "inputType": ""
+                    },
+                    {
+                      "id": 2,
+                      "text": "Individual Contributor",
+                      "hasInput": false,
+                      "inputType": ""
+                    },
+                    {
+                      "id": 3,
+                      "text": "Sr. Manager/Manager",
+                      "hasInput": false,
+                      "inputType": ""
+                    },
+                    {
+                      "id": 4,
+                      "text": "SVP/VP",
+                      "hasInput": false,
+                      "inputType": ""
+                    },
+                    {
+                      "id": 5,
+                      "text": "Other",
+                      "hasInput": false,
+                      "inputType": ""
+                    }
+                  ],
+                  "media": [],
+                  "value": ""
+                }
+              ],
+              "showGroup": 3,
+              "page": 2,
+              "likeCount": 0,
+              "dislikeCount": 0,
+              "commentCount": 0,
+              "likeStatus": 0,
+              "userCommented": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 21683,
+      "header": {
+        "dispCfg": {
+          "text-align": "center",
+          "font-family": "arial",
+          "font-size": "80%",
+          "color": "#000000",
+          "font-weight": "bold"
+        },
+        "texts": [
+          {
+            "id": 32782,
+            "text": "Customer Experience"
+          }
+        ]
+      },
+      "groups": [
+        {
+          "id": 21577,
+          "header": {
+            "dispCfg": {
+              "text-align": "center",
+              "font-family": "arial",
+              "font-size": "80%",
+              "color": "#000000",
+              "font-weight": "bold"
+            },
+            "texts": [
+              {
+                "id": 32518,
+                "text": "Customer Centricity"
+              }
+            ]
+          },
+          "body": {
+            "dispCfg": {
+              "text-align": "left",
+              "font-family": "arial",
+              "font-size": "80%",
+              "color": "#000000"
+            },
+            "texts": [
+              {
+                "id": 32718,
+                "text": "Select one or more that apply to your enterprise:"
+              }
+            ]
+          },
+          "questions": [
+            {
+              "id": 2241667,
+              "body": {
+                "dispCfg": {
+                  "text-align": "left",
+                  "font-family": "arial",
+                  "font-size": "80%",
+                  "color": "#000000"
+                },
+                "texts": [
+                  {
+                    "id": 32744,
+                    "text": "How does your enterprise leverage customer data to drive optimal business outcomes?"
+                  }
+                ]
+              },
+              "media": [],
+              "delegateTo": {
+                "id": 140302,
+                "first_name": "John",
+                "last_name": "McCoy",
+                "email": "flash@sap.com",
+                "phone": "",
+                "desc": ""
+              },
+              "answers": [
+                {
+                  "id": 2241691,
+                  "body": {
+                    "dispCfg": {
+                      "control": "vcheck",
+                      "font-size": "80%"
+                    },
+                    "ctrlCfg": {
+                      "mandatory": false,
+                      "id": 32762
+                    },
+                    "texts": [
+                      {
+                        "id": 32762,
+                        "text": "There is a clear, documented focus on “Customers First” to improve satisfaction, loyalty and advocacy"
+                      },
+                      {
+                        "id": 32762,
+                        "text": "Real-time customer service is provided across multiple channels to deliver positive outcomes"
+                      },
+                      {
+                        "id": 32762,
+                        "text": "A customer feedback program is embedded throughout the customer journey"
+                      },
+                      {
+                        "id": 32762,
+                        "text": "Customer profile data is unified across all touchpoints (e.g., in-store, online, in-app, service, etc.), accessible by teams, and utilized to improve customer experiences"
+                      },
+                      {
+                        "id": 32762,
+                        "text": "Customers can control their personal data and know how that data will be used and protected"
+                      },
+                      {
+                        "id": 32762,
+                        "text": "None of these apply"
+                      }
+                    ]
+                  },
+                  "options": [
+                    {
+                      "id": 1,
+                      "text": "There is a clear, documented focus on “Customers First” to improve satisfaction, loyalty and advocacy",
+                      "hasInput": false,
+                      "inputType": ""
+                    },
+                    {
+                      "id": 2,
+                      "text": "Real-time customer service is provided across multiple channels to deliver positive outcomes",
+                      "hasInput": false,
+                      "inputType": ""
+                    },
+                    {
+                      "id": 3,
+                      "text": "A customer feedback program is embedded throughout the customer journey",
+                      "hasInput": false,
+                      "inputType": ""
+                    },
+                    {
+                      "id": 4,
+                      "text": "Customer profile data is unified across all touchpoints (e.g., in-store, online, in-app, service, etc.), accessible by teams, and utilized to improve customer experiences",
+                      "hasInput": false,
+                      "inputType": ""
+                    },
+                    {
+                      "id": 5,
+                      "text": "Customers can control their personal data and know how that data will be used and protected",
+                      "hasInput": false,
+                      "inputType": ""
+                    },
+                    {
+                      "id": 6,
+                      "text": "None of these apply",
+                      "hasInput": false,
+                      "inputType": ""
+                    }
+                  ],
+                  "media": [],
+                  "value": ""
+                }
+              ],
+              "showArea": 3,
+              "showGroup": 3,
+              "page": 3,
+              "likeCount": 0,
+              "dislikeCount": 0,
+              "commentCount": 0,
+              "likeStatus": 0,
+              "userCommented": 0
+            }
+          ]
+        },
+        {
+          "id": 21588,
+          "header": {
+            "dispCfg": {
+              "text-align": "center",
+              "font-family": "arial",
+              "font-size": "80%",
+              "color": "#000000",
+              "font-weight": "bold"
+            },
+            "texts": [
+              {
+                "id": 32540,
+                "text": "Commerce Experience"
+              }
+            ]
+          },
+          "body": {
+            "dispCfg": {
+              "text-align": "left",
+              "font-family": "arial",
+              "font-size": "80%",
+              "color": "#000000"
+            },
+            "texts": [
+              {
+                "id": 32719,
+                "text": "Select one or more that apply to your enterprise:"
+              }
+            ]
+          },
+          "questions": [
+            {
+              "id": 2241668,
+              "body": {
+                "dispCfg": {
+                  "text-align": "left",
+                  "font-family": "arial",
+                  "font-size": "80%",
+                  "color": "#000000"
+                },
+                "texts": [
+                  {
+                    "id": 32745,
+                    "text": "Does your enterprise offer a streamlined commerce experience to optimize conversion and revenue?"
+                  }
+                ]
+              },
+              "media": [],
+              "delegateTo": {
+                "id": 140302,
+                "first_name": "John",
+                "last_name": "McCoy",
+                "email": "flash@sap.com",
+                "phone": "",
+                "desc": ""
+              },
+              "answers": [
+                {
+                  "id": 2241692,
+                  "body": {
+                    "dispCfg": {
+                      "control": "vcheck",
+                      "font-size": "80%"
+                    },
+                    "ctrlCfg": {
+                      "mandatory": false,
+                      "id": 32763
+                    },
+                    "texts": [
+                      {
+                        "id": 32763,
+                        "text": "Product pages have comprehensive information, fulfillment and payment details to make an informed purchase decision"
+                      },
+                      {
+                        "id": 32763,
+                        "text": "Dynamic search surfaces accurate results based on product information taxonomy and consumer behavior"
+                      },
+                      {
+                        "id": 32763,
+                        "text": "User-generated information, such as ratings and reviews, questions and answers, and customer imagery, exist to provide product credibility"
+                      },
+                      {
+                        "id": 32763,
+                        "text": "A single-page, simplified checkout process exists and includes multiple payment and fulfillment options"
+                      },
+                      {
+                        "id": 32763,
+                        "text": "Loyalty program benefits are integrated throughout customer’s purchase journey"
+                      },
+                      {
+                        "id": 32763,
+                        "text": "None of these apply"
+                      }
+                    ]
+                  },
+                  "options": [
+                    {
+                      "id": 1,
+                      "text": "Product pages have comprehensive information, fulfillment and payment details to make an informed purchase decision",
+                      "hasInput": false,
+                      "inputType": ""
+                    },
+                    {
+                      "id": 2,
+                      "text": "Dynamic search surfaces accurate results based on product information taxonomy and consumer behavior",
+                      "hasInput": false,
+                      "inputType": ""
+                    },
+                    {
+                      "id": 3,
+                      "text": "User-generated information, such as ratings and reviews, questions and answers, and customer imagery, exist to provide product credibility",
+                      "hasInput": false,
+                      "inputType": ""
+                    },
+                    {
+                      "id": 4,
+                      "text": "A single-page, simplified checkout process exists and includes multiple payment and fulfillment options",
+                      "hasInput": false,
+                      "inputType": ""
+                    },
+                    {
+                      "id": 5,
+                      "text": "Loyalty program benefits are integrated throughout customer’s purchase journey",
+                      "hasInput": false,
+                      "inputType": ""
+                    },
+                    {
+                      "id": 6,
+                      "text": "None of these apply",
+                      "hasInput": false,
+                      "inputType": ""
+                    }
+                  ],
+                  "media": [],
+                  "value": ""
+                }
+              ],
+              "showGroup": 3,
+              "page": 4,
+              "likeCount": 0,
+              "dislikeCount": 0,
+              "commentCount": 0,
+              "likeStatus": 0,
+              "userCommented": 0
+            }
+          ]
+        },
+        {
+          "id": 21641,
+          "header": {
+            "dispCfg": {
+              "text-align": "center",
+              "font-family": "arial",
+              "font-size": "80%",
+              "color": "#000000",
+              "font-weight": "bold"
+            },
+            "texts": [
+              {
+                "id": 32721,
+                "text": "Omnichannel Experience"
+              }
+            ]
+          },
+          "body": {
+            "dispCfg": {
+              "text-align": "left",
+              "font-family": "arial",
+              "font-size": "80%",
+              "color": "#000000"
+            },
+            "texts": [
+              {
+                "id": 32720,
+                "text": "Select one or more that apply to your enterprise:"
+              }
+            ]
+          },
+          "questions": [
+            {
+              "id": 2241669,
+              "body": {
+                "dispCfg": {
+                  "text-align": "left",
+                  "font-family": "arial",
+                  "font-size": "80%",
+                  "color": "#000000"
+                },
+                "texts": [
+                  {
+                    "id": 32746,
+                    "text": "Does your company provide a unified commerce experience so customers receive products when, where, and how they want them?"
+                  }
+                ]
+              },
+              "media": [],
+              "delegateTo": {
+                "id": 140302,
+                "first_name": "John",
+                "last_name": "McCoy",
+                "email": "flash@sap.com",
+                "phone": "",
+                "desc": ""
+              },
+              "answers": [
+                {
+                  "id": 2241693,
+                  "body": {
+                    "dispCfg": {
+                      "control": "vcheck",
+                      "font-size": "80%"
+                    },
+                    "ctrlCfg": {
+                      "mandatory": false,
+                      "id": 32764
+                    },
+                    "texts": [
+                      {
+                        "id": 32764,
+                        "text": "Inventory is visible across all channels (e.g., on-site, in-store, app) to help customers make purchase decisions"
+                      },
+                      {
+                        "id": 32764,
+                        "text": "Inventory is available across all channels, and products out of stock in one channel can be delivered to the customer from another channel"
+                      },
+                      {
+                        "id": 32764,
+                        "text": "Omnichannel shipping and delivery options are available (i.e., buy online and pick up in store, deliver from store, ship to home)"
+                      },
+                      {
+                        "id": 32764,
+                        "text": "Customers with an account can transition their shopping cart from one channel to another when signed in"
+                      },
+                      {
+                        "id": 32764,
+                        "text": "Additional shopping options exist beyond in-store and direct site (e.g., app, social media, live video stream, marketplace)"
+                      },
+                      {
+                        "id": 32764,
+                        "text": "None of these apply"
+                      }
+                    ]
+                  },
+                  "options": [
+                    {
+                      "id": 1,
+                      "text": "Inventory is visible across all channels (e.g., on-site, in-store, app) to help customers make purchase decisions",
+                      "hasInput": false,
+                      "inputType": ""
+                    },
+                    {
+                      "id": 2,
+                      "text": "Inventory is available across all channels, and products out of stock in one channel can be delivered to the customer from another channel",
+                      "hasInput": false,
+                      "inputType": ""
+                    },
+                    {
+                      "id": 3,
+                      "text": "Omnichannel shipping and delivery options are available (i.e., buy online and pick up in store, deliver from store, ship to home)",
+                      "hasInput": false,
+                      "inputType": ""
+                    },
+                    {
+                      "id": 4,
+                      "text": "Customers with an account can transition their shopping cart from one channel to another when signed in",
+                      "hasInput": false,
+                      "inputType": ""
+                    },
+                    {
+                      "id": 5,
+                      "text": "Additional shopping options exist beyond in-store and direct site (e.g., app, social media, live video stream, marketplace)",
+                      "hasInput": false,
+                      "inputType": ""
+                    },
+                    {
+                      "id": 6,
+                      "text": "None of these apply",
+                      "hasInput": false,
+                      "inputType": ""
+                    }
+                  ],
+                  "media": [],
+                  "value": ""
+                }
+              ],
+              "showGroup": 3,
+              "page": 5,
+              "likeCount": 0,
+              "dislikeCount": 0,
+              "commentCount": 0,
+              "likeStatus": 0,
+              "userCommented": 0
+            }
+          ]
+        },
+        {
+          "id": 21586,
+          "header": {
+            "dispCfg": {
+              "text-align": "center",
+              "font-family": "arial",
+              "font-size": "80%",
+              "color": "#000000",
+              "font-weight": "bold"
+            },
+            "texts": [
+              {
+                "id": 32536,
+                "text": "Personalization"
+              }
+            ]
+          },
+          "body": {
+            "dispCfg": {
+              "text-align": "left",
+              "font-family": "arial",
+              "font-size": "80%",
+              "color": "#000000"
+            },
+            "texts": [
+              {
+                "id": 32722,
+                "text": "Select one or more that apply to your enterprise:"
+              }
+            ]
+          },
+          "questions": [
+            {
+              "id": 2241670,
+              "body": {
+                "dispCfg": {
+                  "text-align": "left",
+                  "font-family": "arial",
+                  "font-size": "80%",
+                  "color": "#000000"
+                },
+                "texts": [
+                  {
+                    "id": 32747,
+                    "text": "Does your company provide relevant customer experiences to build long-lasting relationships?"
+                  }
+                ]
+              },
+              "media": [],
+              "delegateTo": {
+                "id": 140302,
+                "first_name": "John",
+                "last_name": "McCoy",
+                "email": "flash@sap.com",
+                "phone": "",
+                "desc": ""
+              },
+              "answers": [
+                {
+                  "id": 2241683,
+                  "body": {
+                    "dispCfg": {
+                      "control": "vcheck",
+                      "font-size": "80%"
+                    },
+                    "ctrlCfg": {
+                      "mandatory": false,
+                      "id": 32765
+                    },
+                    "texts": [
+                      {
+                        "id": 32765,
+                        "text": "Behavioral data is used to deliver relevant search results and product recommendations"
+                      },
+                      {
+                        "id": 32765,
+                        "text": "Customer-provided data and transactional data is used to personalize purchase, loyalty and marketing experiences"
+                      },
+                      {
+                        "id": 32765,
+                        "text": "All customer data is integrated and used to personalize customer service experiences"
+                      },
+                      {
+                        "id": 32765,
+                        "text": "A consistent, personalized experience is delivered across all customer engagements, purchase and marketing channels (i.e., email, organic/paid search, paid social, display/video ads)"
+                      },
+                      {
+                        "id": 32765,
+                        "text": "AI and/or machine learning is used to optimize personalization"
+                      },
+                      {
+                        "id": 32765,
+                        "text": "None of these apply"
+                      }
+                    ]
+                  },
+                  "options": [
+                    {
+                      "id": 1,
+                      "text": "Behavioral data is used to deliver relevant search results and product recommendations",
+                      "hasInput": false,
+                      "inputType": ""
+                    },
+                    {
+                      "id": 2,
+                      "text": "Customer-provided data and transactional data is used to personalize purchase, loyalty and marketing experiences",
+                      "hasInput": false,
+                      "inputType": ""
+                    },
+                    {
+                      "id": 3,
+                      "text": "All customer data is integrated and used to personalize customer service experiences",
+                      "hasInput": false,
+                      "inputType": ""
+                    },
+                    {
+                      "id": 4,
+                      "text": "A consistent, personalized experience is delivered across all customer engagements, purchase and marketing channels (i.e., email, organic/paid search, paid social, display/video ads)",
+                      "hasInput": false,
+                      "inputType": ""
+                    },
+                    {
+                      "id": 5,
+                      "text": "AI and/or machine learning is used to optimize personalization",
+                      "hasInput": false,
+                      "inputType": ""
+                    },
+                    {
+                      "id": 6,
+                      "text": "None of these apply",
+                      "hasInput": false,
+                      "inputType": ""
+                    }
+                  ],
+                  "media": [],
+                  "value": ""
+                }
+              ],
+              "showGroup": 3,
+              "page": 6,
+              "likeCount": 0,
+              "dislikeCount": 0,
+              "commentCount": 0,
+              "likeStatus": 0,
+              "userCommented": 0
+            }
+          ]
+        },
+        {
+          "id": 21590,
+          "header": {
+            "dispCfg": {
+              "text-align": "center",
+              "font-family": "arial",
+              "font-size": "80%",
+              "color": "#000000",
+              "font-weight": "bold"
+            },
+            "texts": [
+              {
+                "id": 32544,
+                "text": "Content Management"
+              }
+            ]
+          },
+          "body": {
+            "dispCfg": {
+              "text-align": "left",
+              "font-family": "arial",
+              "font-size": "80%",
+              "color": "#000000"
+            },
+            "texts": [
+              {
+                "id": 32723,
+                "text": "Select one or more that apply to your enterprise:"
+              }
+            ]
+          },
+          "questions": [
+            {
+              "id": 2241671,
+              "body": {
+                "dispCfg": {
+                  "text-align": "left",
+                  "font-family": "arial",
+                  "font-size": "80%",
+                  "color": "#000000"
+                },
+                "texts": [
+                  {
+                    "id": 32748,
+                    "text": "Does your enterprise have a unified process for leveraging content across businesses and channels?"
+                  }
+                ]
+              },
+              "media": [],
+              "delegateTo": {
+                "id": 140302,
+                "first_name": "John",
+                "last_name": "McCoy",
+                "email": "flash@sap.com",
+                "phone": "",
+                "desc": ""
+              },
+              "answers": [
+                {
+                  "id": 2241694,
+                  "body": {
+                    "dispCfg": {
+                      "control": "vcheck",
+                      "font-size": "80%"
+                    },
+                    "ctrlCfg": {
+                      "mandatory": false,
+                      "id": 32766
+                    },
+                    "texts": [
+                      {
+                        "id": 32766,
+                        "text": "Influencers, customers and/or employees are utilized as a diversified content source"
+                      },
+                      {
+                        "id": 32766,
+                        "text": "A strategy exists to deliver consistent, accurate and relevant content during each step of a customer’s journey"
+                      },
+                      {
+                        "id": 32766,
+                        "text": "Processes exist for aggregating content and sourcing, creating, and storing it for sharing and re-use across all endpoints"
+                      },
+                      {
+                        "id": 32766,
+                        "text": "Content is tracked and measured to adjust its performance in driving business objectives"
+                      },
+                      {
+                        "id": 32766,
+                        "text": "Content is accurately personalized across touchpoints in the customer’s journey"
+                      },
+                      {
+                        "id": 32766,
+                        "text": "None of these apply"
+                      }
+                    ]
+                  },
+                  "options": [
+                    {
+                      "id": 1,
+                      "text": "Influencers, customers and/or employees are utilized as a diversified content source",
+                      "hasInput": false,
+                      "inputType": ""
+                    },
+                    {
+                      "id": 2,
+                      "text": "A strategy exists to deliver consistent, accurate and relevant content during each step of a customer’s journey",
+                      "hasInput": false,
+                      "inputType": ""
+                    },
+                    {
+                      "id": 3,
+                      "text": "Processes exist for aggregating content and sourcing, creating, and storing it for sharing and re-use across all endpoints",
+                      "hasInput": false,
+                      "inputType": ""
+                    },
+                    {
+                      "id": 4,
+                      "text": "Content is tracked and measured to adjust its performance in driving business objectives",
+                      "hasInput": false,
+                      "inputType": ""
+                    },
+                    {
+                      "id": 5,
+                      "text": "Content is accurately personalized across touchpoints in the customer’s journey",
+                      "hasInput": false,
+                      "inputType": ""
+                    },
+                    {
+                      "id": 6,
+                      "text": "None of these apply",
+                      "hasInput": false,
+                      "inputType": ""
+                    }
+                  ],
+                  "media": [],
+                  "value": ""
+                }
+              ],
+              "showGroup": 3,
+              "page": 7,
+              "likeCount": 0,
+              "dislikeCount": 0,
+              "commentCount": 0,
+              "likeStatus": 0,
+              "userCommented": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 21684,
+      "header": {
+        "dispCfg": {
+          "text-align": "center",
+          "font-family": "arial",
+          "font-size": "80%",
+          "color": "#000000",
+          "font-weight": "bold"
+        },
+        "texts": [
+          {
+            "id": 32783,
+            "text": "Management & Operations"
+          }
+        ]
+      },
+      "groups": [
+        {
+          "id": 21578,
+          "header": {
+            "dispCfg": {
+              "text-align": "center",
+              "font-family": "arial",
+              "font-size": "80%",
+              "color": "#000000",
+              "font-weight": "bold"
+            },
+            "texts": [
+              {
+                "id": 32520,
+                "text": "Data-Driven Management"
+              }
+            ]
+          },
+          "body": {
+            "dispCfg": {
+              "text-align": "left",
+              "font-family": "arial",
+              "font-size": "80%",
+              "color": "#000000"
+            },
+            "texts": [
+              {
+                "id": 32724,
+                "text": "Select one or more that apply to your enterprise:"
+              }
+            ]
+          },
+          "questions": [
+            {
+              "id": 2241672,
+              "body": {
+                "dispCfg": {
+                  "text-align": "left",
+                  "font-family": "arial",
+                  "font-size": "80%",
+                  "color": "#000000"
+                },
+                "texts": [
+                  {
+                    "id": 32749,
+                    "text": "Does your enterprise interconnect data from its value network (customer, suppliers, workforce, and assets)?"
+                  }
+                ]
+              },
+              "media": [],
+              "delegateTo": {
+                "id": 140302,
+                "first_name": "John",
+                "last_name": "McCoy",
+                "email": "flash@sap.com",
+                "phone": "",
+                "desc": ""
+              },
+              "answers": [
+                {
+                  "id": 2241695,
+                  "body": {
+                    "dispCfg": {
+                      "control": "vcheck",
+                      "font-size": "80%"
+                    },
+                    "ctrlCfg": {
+                      "mandatory": false,
+                      "id": 32767
+                    },
+                    "texts": [
+                      {
+                        "id": 32767,
+                        "text": "Behavioral customer experience data is captured in real-time and ingested into a master data system"
+                      },
+                      {
+                        "id": 32767,
+                        "text": "Business transactional data is processed in real-time and stored in a master data system"
+                      },
+                      {
+                        "id": 32767,
+                        "text": "All data from customer experience data, human resources data, transactional data, and master data is integrated into centralized repository"
+                      },
+                      {
+                        "id": 32767,
+                        "text": "Data and analytics are available for business stakeholders to make fact-based decisions"
+                      },
+                      {
+                        "id": 32767,
+                        "text": "Advanced analytics are applied to data to uncover hidden insights and make advanced predictions"
+                      },
+                      {
+                        "id": 32767,
+                        "text": "None of these apply"
+                      }
+                    ]
+                  },
+                  "options": [
+                    {
+                      "id": 1,
+                      "text": "Behavioral customer experience data is captured in real-time and ingested into a master data system",
+                      "hasInput": false,
+                      "inputType": ""
+                    },
+                    {
+                      "id": 2,
+                      "text": "Business transactional data is processed in real-time and stored in a master data system",
+                      "hasInput": false,
+                      "inputType": ""
+                    },
+                    {
+                      "id": 3,
+                      "text": "All data from customer experience data, human resources data, transactional data, and master data is integrated into centralized repository",
+                      "hasInput": false,
+                      "inputType": ""
+                    },
+                    {
+                      "id": 4,
+                      "text": "Data and analytics are available for business stakeholders to make fact-based decisions",
+                      "hasInput": false,
+                      "inputType": ""
+                    },
+                    {
+                      "id": 5,
+                      "text": "Advanced analytics are applied to data to uncover hidden insights and make advanced predictions",
+                      "hasInput": false,
+                      "inputType": ""
+                    },
+                    {
+                      "id": 6,
+                      "text": "None of these apply",
+                      "hasInput": false,
+                      "inputType": ""
+                    }
+                  ],
+                  "media": [],
+                  "value": ""
+                }
+              ],
+              "showArea": 3,
+              "showGroup": 3,
+              "page": 8,
+              "likeCount": 0,
+              "dislikeCount": 0,
+              "commentCount": 0,
+              "likeStatus": 0,
+              "userCommented": 0
+            }
+          ]
+        },
+        {
+          "id": 21642,
+          "header": {
+            "dispCfg": {
+              "text-align": "center",
+              "font-family": "arial",
+              "font-size": "80%",
+              "color": "#000000",
+              "font-weight": "bold"
+            },
+            "texts": [
+              {
+                "id": 32726,
+                "text": "Merchandise Planning"
+              }
+            ]
+          },
+          "body": {
+            "dispCfg": {
+              "text-align": "left",
+              "font-family": "arial",
+              "font-size": "80%",
+              "color": "#000000"
+            },
+            "texts": [
+              {
+                "id": 32725,
+                "text": "Select one or more that apply to your enterprise:"
+              }
+            ]
+          },
+          "questions": [
+            {
+              "id": 2241673,
+              "body": {
+                "dispCfg": {
+                  "text-align": "left",
+                  "font-family": "arial",
+                  "font-size": "80%",
+                  "color": "#000000"
+                },
+                "texts": [
+                  {
+                    "id": 32750,
+                    "text": "How does your company optimize product sales based on availability, customer activity and demand?"
+                  }
+                ]
+              },
+              "media": [],
+              "delegateTo": {
+                "id": 140302,
+                "first_name": "John",
+                "last_name": "McCoy",
+                "email": "flash@sap.com",
+                "phone": "",
+                "desc": ""
+              },
+              "answers": [
+                {
+                  "id": 2241696,
+                  "body": {
+                    "dispCfg": {
+                      "control": "vcheck",
+                      "font-size": "80%"
+                    },
+                    "ctrlCfg": {
+                      "mandatory": false,
+                      "id": 32768
+                    },
+                    "texts": [
+                      {
+                        "id": 32768,
+                        "text": "Assortment and inventory planning is based on historical purchase data, product and storage/retail space availability"
+                      },
+                      {
+                        "id": 32768,
+                        "text": "Product data is collected in real time across sales channels and locations to use in planning and demand forecasting"
+                      },
+                      {
+                        "id": 32768,
+                        "text": "Assortment and replenishment planning is based on real-time stock information and changes in customer preferences and channels"
+                      },
+                      {
+                        "id": 32768,
+                        "text": "Price and promotion optimization across all channels and locations is based on financial objectives, customer and product availability data"
+                      },
+                      {
+                        "id": 32768,
+                        "text": "Assortments are localized and personalized using customer segment data with predictive analytics"
+                      },
+                      {
+                        "id": 32768,
+                        "text": "None of these apply"
+                      }
+                    ]
+                  },
+                  "options": [
+                    {
+                      "id": 1,
+                      "text": "Assortment and inventory planning is based on historical purchase data, product and storage/retail space availability",
+                      "hasInput": false,
+                      "inputType": ""
+                    },
+                    {
+                      "id": 2,
+                      "text": "Product data is collected in real time across sales channels and locations to use in planning and demand forecasting",
+                      "hasInput": false,
+                      "inputType": ""
+                    },
+                    {
+                      "id": 3,
+                      "text": "Assortment and replenishment planning is based on real-time stock information and changes in customer preferences and channels",
+                      "hasInput": false,
+                      "inputType": ""
+                    },
+                    {
+                      "id": 4,
+                      "text": "Price and promotion optimization across all channels and locations is based on financial objectives, customer and product availability data",
+                      "hasInput": false,
+                      "inputType": ""
+                    },
+                    {
+                      "id": 5,
+                      "text": "Assortments are localized and personalized using customer segment data with predictive analytics",
+                      "hasInput": false,
+                      "inputType": ""
+                    },
+                    {
+                      "id": 6,
+                      "text": "None of these apply",
+                      "hasInput": false,
+                      "inputType": ""
+                    }
+                  ],
+                  "media": [],
+                  "value": ""
+                }
+              ],
+              "showGroup": 3,
+              "page": 9,
+              "likeCount": 0,
+              "dislikeCount": 0,
+              "commentCount": 0,
+              "likeStatus": 0,
+              "userCommented": 0
+            }
+          ]
+        },
+        {
+          "id": 21643,
+          "header": {
+            "dispCfg": {
+              "text-align": "center",
+              "font-family": "arial",
+              "font-size": "80%",
+              "color": "#000000",
+              "font-weight": "bold"
+            },
+            "texts": [
+              {
+                "id": 32728,
+                "text": "Supply Chain Operations"
+              }
+            ]
+          },
+          "body": {
+            "dispCfg": {
+              "text-align": "left",
+              "font-family": "arial",
+              "font-size": "80%",
+              "color": "#000000"
+            },
+            "texts": [
+              {
+                "id": 32727,
+                "text": "Select one or more that apply to your enterprise:"
+              }
+            ]
+          },
+          "questions": [
+            {
+              "id": 2241674,
+              "body": {
+                "dispCfg": {
+                  "text-align": "left",
+                  "font-family": "arial",
+                  "font-size": "80%",
+                  "color": "#000000"
+                },
+                "texts": [
+                  {
+                    "id": 32751,
+                    "text": "Does your company have digitalized processes that enable customers to receive products and services at the cost, time and location they prefer?"
+                  }
+                ]
+              },
+              "media": [],
+              "delegateTo": {
+                "id": 140302,
+                "first_name": "John",
+                "last_name": "McCoy",
+                "email": "flash@sap.com",
+                "phone": "",
+                "desc": ""
+              },
+              "answers": [
+                {
+                  "id": 2241697,
+                  "body": {
+                    "dispCfg": {
+                      "control": "vcheck",
+                      "font-size": "80%"
+                    },
+                    "ctrlCfg": {
+                      "mandatory": false,
+                      "id": 32769
+                    },
+                    "texts": [
+                      {
+                        "id": 32769,
+                        "text": "Right-sized inventory fulfills omnichannel demands and avoids stock-out situations"
+                      },
+                      {
+                        "id": 32769,
+                        "text": "Efficient and flexible transportation adjusts to changing demand and supply patterns"
+                      },
+                      {
+                        "id": 32769,
+                        "text": "End-to-end management of reverse (returns) logistics improves customer satisfaction and reduces churn"
+                      },
+                      {
+                        "id": 32769,
+                        "text": "Data-driven insights lead to optimized decisions, reducing risk of retail demand miscalculations"
+                      },
+                      {
+                        "id": 32769,
+                        "text": "Network partners collaborate closely to provide end-to-end supply chain visibility"
+                      },
+                      {
+                        "id": 32769,
+                        "text": "None of these apply"
+                      }
+                    ]
+                  },
+                  "options": [
+                    {
+                      "id": 1,
+                      "text": "Right-sized inventory fulfills omnichannel demands and avoids stock-out situations",
+                      "hasInput": false,
+                      "inputType": ""
+                    },
+                    {
+                      "id": 2,
+                      "text": "Efficient and flexible transportation adjusts to changing demand and supply patterns",
+                      "hasInput": false,
+                      "inputType": ""
+                    },
+                    {
+                      "id": 3,
+                      "text": "End-to-end management of reverse (returns) logistics improves customer satisfaction and reduces churn",
+                      "hasInput": false,
+                      "inputType": ""
+                    },
+                    {
+                      "id": 4,
+                      "text": "Data-driven insights lead to optimized decisions, reducing risk of retail demand miscalculations",
+                      "hasInput": false,
+                      "inputType": ""
+                    },
+                    {
+                      "id": 5,
+                      "text": "Network partners collaborate closely to provide end-to-end supply chain visibility",
+                      "hasInput": false,
+                      "inputType": ""
+                    },
+                    {
+                      "id": 6,
+                      "text": "None of these apply",
+                      "hasInput": false,
+                      "inputType": ""
+                    }
+                  ],
+                  "media": [],
+                  "value": ""
+                }
+              ],
+              "showGroup": 3,
+              "page": 10,
+              "likeCount": 0,
+              "dislikeCount": 0,
+              "commentCount": 0,
+              "likeStatus": 0,
+              "userCommented": 0
+            }
+          ]
+        },
+        {
+          "id": 21580,
+          "header": {
+            "dispCfg": {
+              "text-align": "center",
+              "font-family": "arial",
+              "font-size": "80%",
+              "color": "#000000",
+              "font-weight": "bold"
+            },
+            "texts": [
+              {
+                "id": 32524,
+                "text": "Financial Management"
+              }
+            ]
+          },
+          "body": {
+            "dispCfg": {
+              "text-align": "left",
+              "font-family": "arial",
+              "font-size": "80%",
+              "color": "#000000"
+            },
+            "texts": [
+              {
+                "id": 32729,
+                "text": "Select one or more that apply to your enterprise:"
+              }
+            ]
+          },
+          "questions": [
+            {
+              "id": 2241675,
+              "body": {
+                "dispCfg": {
+                  "text-align": "left",
+                  "font-family": "arial",
+                  "font-size": "80%",
+                  "color": "#000000"
+                },
+                "texts": [
+                  {
+                    "id": 32752,
+                    "text": "Does your company have optimized financial management processes to drive cost efficiency, profit maximization and cash/liquidity management?"
+                  }
+                ]
+              },
+              "media": [],
+              "delegateTo": {
+                "id": 140302,
+                "first_name": "John",
+                "last_name": "McCoy",
+                "email": "flash@sap.com",
+                "phone": "",
+                "desc": ""
+              },
+              "answers": [
+                {
+                  "id": 2241698,
+                  "body": {
+                    "dispCfg": {
+                      "control": "vcheck",
+                      "font-size": "80%"
+                    },
+                    "ctrlCfg": {
+                      "mandatory": false,
+                      "id": 32770
+                    },
+                    "texts": [
+                      {
+                        "id": 32770,
+                        "text": "A Single Source of Truth exists for all transactions at the location, division and line of business level for consistent financial information"
+                      },
+                      {
+                        "id": 32770,
+                        "text": "Revenue information is detailed to understand all factors contributing to the growth of the business (same-store, channel, product mix, etc.)"
+                      },
+                      {
+                        "id": 32770,
+                        "text": "Customer profitability is analyzed to drive customer acquisition and retention strategies that lead to higher revenues and lower costs"
+                      },
+                      {
+                        "id": 32770,
+                        "text": "Macro business metrics are analyzed to understand target customer buying trends, segments and behaviors"
+                      },
+                      {
+                        "id": 32770,
+                        "text": "Sales Channel views show real-time profitability to address challenges that influence mix, line, and channel course corrections"
+                      },
+                      {
+                        "id": 32770,
+                        "text": "None of these apply"
+                      }
+                    ]
+                  },
+                  "options": [
+                    {
+                      "id": 1,
+                      "text": "A Single Source of Truth exists for all transactions at the location, division and line of business level for consistent financial information",
+                      "hasInput": false,
+                      "inputType": ""
+                    },
+                    {
+                      "id": 2,
+                      "text": "Revenue information is detailed to understand all factors contributing to the growth of the business (same-store, channel, product mix, etc.)",
+                      "hasInput": false,
+                      "inputType": ""
+                    },
+                    {
+                      "id": 3,
+                      "text": "Customer profitability is analyzed to drive customer acquisition and retention strategies that lead to higher revenues and lower costs",
+                      "hasInput": false,
+                      "inputType": ""
+                    },
+                    {
+                      "id": 4,
+                      "text": "Macro business metrics are analyzed to understand target customer buying trends, segments and behaviors",
+                      "hasInput": false,
+                      "inputType": ""
+                    },
+                    {
+                      "id": 5,
+                      "text": "Sales Channel views show real-time profitability to address challenges that influence mix, line, and channel course corrections",
+                      "hasInput": false,
+                      "inputType": ""
+                    },
+                    {
+                      "id": 6,
+                      "text": "None of these apply",
+                      "hasInput": false,
+                      "inputType": ""
+                    }
+                  ],
+                  "media": [],
+                  "value": ""
+                }
+              ],
+              "showGroup": 3,
+              "page": 11,
+              "likeCount": 0,
+              "dislikeCount": 0,
+              "commentCount": 0,
+              "likeStatus": 0,
+              "userCommented": 0
+            }
+          ]
+        },
+        {
+          "id": 21583,
+          "header": {
+            "dispCfg": {
+              "text-align": "center",
+              "font-family": "arial",
+              "font-size": "80%",
+              "color": "#000000",
+              "font-weight": "bold"
+            },
+            "texts": [
+              {
+                "id": 32530,
+                "text": "Planning & Performance"
+              }
+            ]
+          },
+          "body": {
+            "dispCfg": {
+              "text-align": "left",
+              "font-family": "arial",
+              "font-size": "80%",
+              "color": "#000000"
+            },
+            "texts": [
+              {
+                "id": 32730,
+                "text": "Select one or more that apply to your enterprise:"
+              }
+            ]
+          },
+          "questions": [
+            {
+              "id": 2241676,
+              "body": {
+                "dispCfg": {
+                  "text-align": "left",
+                  "font-family": "arial",
+                  "font-size": "80%",
+                  "color": "#000000"
+                },
+                "texts": [
+                  {
+                    "id": 32753,
+                    "text": "Does your enterprise have short-term and long-term performance goals that are planned, measured, and reported against consistently?"
+                  }
+                ]
+              },
+              "media": [],
+              "delegateTo": {
+                "id": 140302,
+                "first_name": "John",
+                "last_name": "McCoy",
+                "email": "flash@sap.com",
+                "phone": "",
+                "desc": ""
+              },
+              "answers": [
+                {
+                  "id": 2241699,
+                  "body": {
+                    "dispCfg": {
+                      "control": "vcheck",
+                      "font-size": "80%"
+                    },
+                    "ctrlCfg": {
+                      "mandatory": false,
+                      "id": 32771
+                    },
+                    "texts": [
+                      {
+                        "id": 32771,
+                        "text": "Long-term organizational goals are broken down into a detailed P&L and financial plan to drive the direction of the business"
+                      },
+                      {
+                        "id": 32771,
+                        "text": "Specific goals/budgets are set for each part of the business (eCommerce, Store Operations, Marketing, Logistics, etc.) and roll up to the larger financial plan"
+                      },
+                      {
+                        "id": 32771,
+                        "text": "Performance against financial plans is reviewed by key business stakeholders on a regular basis (at least monthly)"
+                      },
+                      {
+                        "id": 32771,
+                        "text": "Financial plans are re-forecasted regularly based on performance and changing circumstances (both internal and external circumstances)"
+                      },
+                      {
+                        "id": 32771,
+                        "text": "Operational adjustments are made based on the performance against financial plans"
+                      },
+                      {
+                        "id": 32771,
+                        "text": "None of these apply"
+                      }
+                    ]
+                  },
+                  "options": [
+                    {
+                      "id": 1,
+                      "text": "Long-term organizational goals are broken down into a detailed P&L and financial plan to drive the direction of the business",
+                      "hasInput": false,
+                      "inputType": ""
+                    },
+                    {
+                      "id": 2,
+                      "text": "Specific goals/budgets are set for each part of the business (eCommerce, Store Operations, Marketing, Logistics, etc.) and roll up to the larger financial plan",
+                      "hasInput": false,
+                      "inputType": ""
+                    },
+                    {
+                      "id": 3,
+                      "text": "Performance against financial plans is reviewed by key business stakeholders on a regular basis (at least monthly)",
+                      "hasInput": false,
+                      "inputType": ""
+                    },
+                    {
+                      "id": 4,
+                      "text": "Financial plans are re-forecasted regularly based on performance and changing circumstances (both internal and external circumstances)",
+                      "hasInput": false,
+                      "inputType": ""
+                    },
+                    {
+                      "id": 5,
+                      "text": "Operational adjustments are made based on the performance against financial plans",
+                      "hasInput": false,
+                      "inputType": ""
+                    },
+                    {
+                      "id": 6,
+                      "text": "None of these apply",
+                      "hasInput": false,
+                      "inputType": ""
+                    }
+                  ],
+                  "media": [],
+                  "value": ""
+                }
+              ],
+              "showGroup": 3,
+              "page": 12,
+              "likeCount": 0,
+              "dislikeCount": 0,
+              "commentCount": 0,
+              "likeStatus": 0,
+              "userCommented": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 21685,
+      "header": {
+        "dispCfg": {
+          "text-align": "center",
+          "font-family": "arial",
+          "font-size": "80%",
+          "color": "#000000",
+          "font-weight": "bold"
+        },
+        "texts": [
+          {
+            "id": 32784,
+            "text": "Organization & Culture"
+          }
+        ]
+      },
+      "groups": [
+        {
+          "id": 21644,
+          "header": {
+            "dispCfg": {
+              "text-align": "center",
+              "font-family": "arial",
+              "font-size": "80%",
+              "color": "#000000",
+              "font-weight": "bold"
+            },
+            "texts": [
+              {
+                "id": 32732,
+                "text": "Business Strategy"
+              }
+            ]
+          },
+          "body": {
+            "dispCfg": {
+              "text-align": "left",
+              "font-family": "arial",
+              "font-size": "80%",
+              "color": "#000000"
+            },
+            "texts": [
+              {
+                "id": 32731,
+                "text": "Select one or more that apply to your enterprise:"
+              }
+            ]
+          },
+          "questions": [
+            {
+              "id": 2241677,
+              "body": {
+                "dispCfg": {
+                  "text-align": "left",
+                  "font-family": "arial",
+                  "font-size": "80%",
+                  "color": "#000000"
+                },
+                "texts": [
+                  {
+                    "id": 32754,
+                    "text": "Does your enterprise have a foundation for growth that drives the direction of the company?"
+                  }
+                ]
+              },
+              "media": [],
+              "delegateTo": {
+                "id": 140302,
+                "first_name": "John",
+                "last_name": "McCoy",
+                "email": "flash@sap.com",
+                "phone": "",
+                "desc": ""
+              },
+              "answers": [
+                {
+                  "id": 2241700,
+                  "body": {
+                    "dispCfg": {
+                      "control": "vcheck",
+                      "font-size": "80%"
+                    },
+                    "ctrlCfg": {
+                      "mandatory": false,
+                      "id": 32772
+                    },
+                    "texts": [
+                      {
+                        "id": 32772,
+                        "text": "A defined business strategy covering all products, services and markets is leveraged often across the company and updated regularly"
+                      },
+                      {
+                        "id": 32772,
+                        "text": "A distinct competitive advantage exists that drives a differentiated customer experience"
+                      },
+                      {
+                        "id": 32772,
+                        "text": "Clear mission, vision and experience principles are tied to employee goals and actioned across all business capabilities"
+                      },
+                      {
+                        "id": 32772,
+                        "text": "Frequent management communication and employee activation of the strategy, mission, vision and experience principles exist"
+                      },
+                      {
+                        "id": 32772,
+                        "text": "Established and clear goals, KPIs and benchmarks exist with monthly monitoring and reporting at the company, team and individual level"
+                      },
+                      {
+                        "id": 32772,
+                        "text": "None of these apply"
+                      }
+                    ]
+                  },
+                  "options": [
+                    {
+                      "id": 1,
+                      "text": "A defined business strategy covering all products, services and markets is leveraged often across the company and updated regularly",
+                      "hasInput": false,
+                      "inputType": ""
+                    },
+                    {
+                      "id": 2,
+                      "text": "A distinct competitive advantage exists that drives a differentiated customer experience",
+                      "hasInput": false,
+                      "inputType": ""
+                    },
+                    {
+                      "id": 3,
+                      "text": "Clear mission, vision and experience principles are tied to employee goals and actioned across all business capabilities",
+                      "hasInput": false,
+                      "inputType": ""
+                    },
+                    {
+                      "id": 4,
+                      "text": "Frequent management communication and employee activation of the strategy, mission, vision and experience principles exist",
+                      "hasInput": false,
+                      "inputType": ""
+                    },
+                    {
+                      "id": 5,
+                      "text": "Established and clear goals, KPIs and benchmarks exist with monthly monitoring and reporting at the company, team and individual level",
+                      "hasInput": false,
+                      "inputType": ""
+                    },
+                    {
+                      "id": 6,
+                      "text": "None of these apply",
+                      "hasInput": false,
+                      "inputType": ""
+                    }
+                  ],
+                  "media": [],
+                  "value": ""
+                }
+              ],
+              "showArea": 3,
+              "showGroup": 3,
+              "page": 13,
+              "likeCount": 0,
+              "dislikeCount": 0,
+              "commentCount": 0,
+              "likeStatus": 0,
+              "userCommented": 0
+            }
+          ]
+        },
+        {
+          "id": 21587,
+          "header": {
+            "dispCfg": {
+              "text-align": "center",
+              "font-family": "arial",
+              "font-size": "80%",
+              "color": "#000000",
+              "font-weight": "bold"
+            },
+            "texts": [
+              {
+                "id": 32538,
+                "text": "Sustainability Operations"
+              }
+            ]
+          },
+          "body": {
+            "dispCfg": {
+              "text-align": "left",
+              "font-family": "arial",
+              "font-size": "80%",
+              "color": "#000000"
+            },
+            "texts": [
+              {
+                "id": 32733,
+                "text": "Select one or more that apply to your enterprise:"
+              }
+            ]
+          },
+          "questions": [
+            {
+              "id": 2241678,
+              "body": {
+                "dispCfg": {
+                  "text-align": "left",
+                  "font-family": "arial",
+                  "font-size": "80%",
+                  "color": "#000000"
+                },
+                "texts": [
+                  {
+                    "id": 32755,
+                    "text": "Does your enterprise have a purpose-led strategy that creates business value and cost savings, and reduces environmental impact?"
+                  }
+                ]
+              },
+              "media": [],
+              "delegateTo": {
+                "id": 140302,
+                "first_name": "John",
+                "last_name": "McCoy",
+                "email": "flash@sap.com",
+                "phone": "",
+                "desc": ""
+              },
+              "answers": [
+                {
+                  "id": 2241701,
+                  "body": {
+                    "dispCfg": {
+                      "control": "vcheck",
+                      "font-size": "80%"
+                    },
+                    "ctrlCfg": {
+                      "mandatory": false,
+                      "id": 32773
+                    },
+                    "texts": [
+                      {
+                        "id": 32773,
+                        "text": "There is a commitment to executing and measuring specific ESG (environmental, social and governance) targets"
+                      },
+                      {
+                        "id": 32773,
+                        "text": "The company is transparent about its ESG policies, actions and goals and how they benefit the customer, community and environment"
+                      },
+                      {
+                        "id": 32773,
+                        "text": "Circular business processes exist to reduce and re-use materials, end-products and/or packaging"
+                      },
+                      {
+                        "id": 32773,
+                        "text": "Donations to charitable causes are made by the company, and customers are encouraged to participate"
+                      },
+                      {
+                        "id": 32773,
+                        "text": "ESG initiatives and progress are proactively communicated to customers and stakeholders"
+                      },
+                      {
+                        "id": 32773,
+                        "text": "None of these apply"
+                      }
+                    ]
+                  },
+                  "options": [
+                    {
+                      "id": 1,
+                      "text": "There is a commitment to executing and measuring specific ESG (environmental, social and governance) targets",
+                      "hasInput": false,
+                      "inputType": ""
+                    },
+                    {
+                      "id": 2,
+                      "text": "The company is transparent about its ESG policies, actions and goals and how they benefit the customer, community and environment",
+                      "hasInput": false,
+                      "inputType": ""
+                    },
+                    {
+                      "id": 3,
+                      "text": "Circular business processes exist to reduce and re-use materials, end-products and/or packaging",
+                      "hasInput": false,
+                      "inputType": ""
+                    },
+                    {
+                      "id": 4,
+                      "text": "Donations to charitable causes are made by the company, and customers are encouraged to participate",
+                      "hasInput": false,
+                      "inputType": ""
+                    },
+                    {
+                      "id": 5,
+                      "text": "ESG initiatives and progress are proactively communicated to customers and stakeholders",
+                      "hasInput": false,
+                      "inputType": ""
+                    },
+                    {
+                      "id": 6,
+                      "text": "None of these apply",
+                      "hasInput": false,
+                      "inputType": ""
+                    }
+                  ],
+                  "media": [],
+                  "value": ""
+                }
+              ],
+              "showGroup": 3,
+              "page": 14,
+              "likeCount": 0,
+              "dislikeCount": 0,
+              "commentCount": 0,
+              "likeStatus": 0,
+              "userCommented": 0
+            }
+          ]
+        },
+        {
+          "id": 21645,
+          "header": {
+            "dispCfg": {
+              "text-align": "center",
+              "font-family": "arial",
+              "font-size": "80%",
+              "color": "#000000",
+              "font-weight": "bold"
+            },
+            "texts": [
+              {
+                "id": 32735,
+                "text": "Workforce Management"
+              }
+            ]
+          },
+          "body": {
+            "dispCfg": {
+              "text-align": "left",
+              "font-family": "arial",
+              "font-size": "80%",
+              "color": "#000000"
+            },
+            "texts": [
+              {
+                "id": 32734,
+                "text": "Select one or more that apply to your enterprise:"
+              }
+            ]
+          },
+          "questions": [
+            {
+              "id": 2241679,
+              "body": {
+                "dispCfg": {
+                  "text-align": "left",
+                  "font-family": "arial",
+                  "font-size": "80%",
+                  "color": "#000000"
+                },
+                "texts": [
+                  {
+                    "id": 32756,
+                    "text": "Is your company effective in managing current and future talent needs?"
+                  }
+                ]
+              },
+              "media": [],
+              "delegateTo": {
+                "id": 140302,
+                "first_name": "John",
+                "last_name": "McCoy",
+                "email": "flash@sap.com",
+                "phone": "",
+                "desc": ""
+              },
+              "answers": [
+                {
+                  "id": 2241702,
+                  "body": {
+                    "dispCfg": {
+                      "control": "vcheck",
+                      "font-size": "80%"
+                    },
+                    "ctrlCfg": {
+                      "mandatory": false,
+                      "id": 32774
+                    },
+                    "texts": [
+                      {
+                        "id": 32774,
+                        "text": "We have the ability to find and hire the talent we need to support our business operations"
+                      },
+                      {
+                        "id": 32774,
+                        "text": "New hires are onboarded efficiently and effectively to increase speed to full productivity"
+                      },
+                      {
+                        "id": 32774,
+                        "text": "Employees are provided with the training and development resources they need to perform their current jobs and take on future job assignments"
+                      },
+                      {
+                        "id": 32774,
+                        "text": "Employees are regularly reviewed against well-defined performance expectations associated with their job role"
+                      },
+                      {
+                        "id": 32774,
+                        "text": "Employees clearly understand how their actions and performance influence company compensation and promotion decisions"
+                      },
+                      {
+                        "id": 32774,
+                        "text": "None of these apply"
+                      }
+                    ]
+                  },
+                  "options": [
+                    {
+                      "id": 1,
+                      "text": "We have the ability to find and hire the talent we need to support our business operations",
+                      "hasInput": false,
+                      "inputType": ""
+                    },
+                    {
+                      "id": 2,
+                      "text": "New hires are onboarded efficiently and effectively to increase speed to full productivity",
+                      "hasInput": false,
+                      "inputType": ""
+                    },
+                    {
+                      "id": 3,
+                      "text": "Employees are provided with the training and development resources they need to perform their current jobs and take on future job assignments",
+                      "hasInput": false,
+                      "inputType": ""
+                    },
+                    {
+                      "id": 4,
+                      "text": "Employees are regularly reviewed against well-defined performance expectations associated with their job role",
+                      "hasInput": false,
+                      "inputType": ""
+                    },
+                    {
+                      "id": 5,
+                      "text": "Employees clearly understand how their actions and performance influence company compensation and promotion decisions",
+                      "hasInput": false,
+                      "inputType": ""
+                    },
+                    {
+                      "id": 6,
+                      "text": "None of these apply",
+                      "hasInput": false,
+                      "inputType": ""
+                    }
+                  ],
+                  "media": [],
+                  "value": ""
+                }
+              ],
+              "showGroup": 3,
+              "page": 15,
+              "likeCount": 0,
+              "dislikeCount": 0,
+              "commentCount": 0,
+              "likeStatus": 0,
+              "userCommented": 0
+            }
+          ]
+        },
+        {
+          "id": 21646,
+          "header": {
+            "dispCfg": {
+              "text-align": "center",
+              "font-family": "arial",
+              "font-size": "80%",
+              "color": "#000000",
+              "font-weight": "bold"
+            },
+            "texts": [
+              {
+                "id": 32737,
+                "text": "HR Operations"
+              }
+            ]
+          },
+          "body": {
+            "dispCfg": {
+              "text-align": "left",
+              "font-family": "arial",
+              "font-size": "80%",
+              "color": "#000000"
+            },
+            "texts": [
+              {
+                "id": 32736,
+                "text": "Select one or more that apply to your enterprise:"
+              }
+            ]
+          },
+          "questions": [
+            {
+              "id": 2241680,
+              "body": {
+                "dispCfg": {
+                  "text-align": "left",
+                  "font-family": "arial",
+                  "font-size": "80%",
+                  "color": "#000000"
+                },
+                "texts": [
+                  {
+                    "id": 32757,
+                    "text": "Does your organization have efficient and effective HR operations that reflect leading practices?"
+                  }
+                ]
+              },
+              "media": [],
+              "delegateTo": {
+                "id": 140302,
+                "first_name": "John",
+                "last_name": "McCoy",
+                "email": "flash@sap.com",
+                "phone": "",
+                "desc": ""
+              },
+              "answers": [
+                {
+                  "id": 2241703,
+                  "body": {
+                    "dispCfg": {
+                      "control": "vcheck",
+                      "font-size": "80%"
+                    },
+                    "ctrlCfg": {
+                      "mandatory": false,
+                      "id": 32775
+                    },
+                    "texts": [
+                      {
+                        "id": 32775,
+                        "text": "The organization is structured so that team roles, responsibilities and accountabilities support the needs of the business"
+                      },
+                      {
+                        "id": 32775,
+                        "text": "Managers can easily access HR data to create, update, and publish reports they need to make decisions"
+                      },
+                      {
+                        "id": 32775,
+                        "text": "HR systems integrate with non-HR systems such as finance, security access, procurement, and supply chain to support business operations"
+                      },
+                      {
+                        "id": 32775,
+                        "text": "HR processes are automated so employees do not spend time doing repetitive, non-value added administrative tasks"
+                      },
+                      {
+                        "id": 32775,
+                        "text": "Processes are in place to ensure HR practices comply with local regulations and laws in all countries of operation"
+                      },
+                      {
+                        "id": 32775,
+                        "text": "None of these apply"
+                      }
+                    ]
+                  },
+                  "options": [
+                    {
+                      "id": 1,
+                      "text": "The organization is structured so that team roles, responsibilities and accountabilities support the needs of the business",
+                      "hasInput": false,
+                      "inputType": ""
+                    },
+                    {
+                      "id": 2,
+                      "text": "Managers can easily access HR data to create, update, and publish reports they need to make decisions",
+                      "hasInput": false,
+                      "inputType": ""
+                    },
+                    {
+                      "id": 3,
+                      "text": "HR systems integrate with non-HR systems such as finance, security access, procurement, and supply chain to support business operations",
+                      "hasInput": false,
+                      "inputType": ""
+                    },
+                    {
+                      "id": 4,
+                      "text": "HR processes are automated so employees do not spend time doing repetitive, non-value added administrative tasks",
+                      "hasInput": false,
+                      "inputType": ""
+                    },
+                    {
+                      "id": 5,
+                      "text": "Processes are in place to ensure HR practices comply with local regulations and laws in all countries of operation",
+                      "hasInput": false,
+                      "inputType": ""
+                    },
+                    {
+                      "id": 6,
+                      "text": "None of these apply",
+                      "hasInput": false,
+                      "inputType": ""
+                    }
+                  ],
+                  "media": [],
+                  "value": ""
+                }
+              ],
+              "showGroup": 3,
+              "page": 16,
+              "likeCount": 0,
+              "dislikeCount": 0,
+              "commentCount": 0,
+              "likeStatus": 0,
+              "userCommented": 0
+            }
+          ]
+        },
+        {
+          "id": 21647,
+          "header": {
+            "dispCfg": {
+              "text-align": "center",
+              "font-family": "arial",
+              "font-size": "80%",
+              "color": "#000000",
+              "font-weight": "bold"
+            },
+            "texts": [
+              {
+                "id": 32739,
+                "text": "Building Culture"
+              }
+            ]
+          },
+          "body": {
+            "dispCfg": {
+              "text-align": "left",
+              "font-family": "arial",
+              "font-size": "80%",
+              "color": "#000000"
+            },
+            "texts": [
+              {
+                "id": 32738,
+                "text": "Select one or more that apply to your enterprise:"
+              }
+            ]
+          },
+          "questions": [
+            {
+              "id": 2241681,
+              "body": {
+                "dispCfg": {
+                  "text-align": "left",
+                  "font-family": "arial",
+                  "font-size": "80%",
+                  "color": "#000000"
+                },
+                "texts": [
+                  {
+                    "id": 32758,
+                    "text": "Does your company have a culture that promotes innovation, collaboration, diversity and inclusion?"
+                  }
+                ]
+              },
+              "media": [],
+              "delegateTo": {
+                "id": 140302,
+                "first_name": "John",
+                "last_name": "McCoy",
+                "email": "flash@sap.com",
+                "phone": "",
+                "desc": ""
+              },
+              "answers": [
+                {
+                  "id": 2241704,
+                  "body": {
+                    "dispCfg": {
+                      "control": "vcheck",
+                      "font-size": "80%"
+                    },
+                    "ctrlCfg": {
+                      "mandatory": false,
+                      "id": 32776
+                    },
+                    "texts": [
+                      {
+                        "id": 32776,
+                        "text": "Strategic goals are tied to non-monetary objectives such as employee well-being, workforce diversity and environmental sustainability"
+                      },
+                      {
+                        "id": 32776,
+                        "text": "The organization effectively supports the use of remote and hybrid working models"
+                      },
+                      {
+                        "id": 32776,
+                        "text": "Employee feedback data is used to improve experience"
+                      },
+                      {
+                        "id": 32776,
+                        "text": "Leadership strategy and decisions are communicated transparently so employees understand how they impact their roles"
+                      },
+                      {
+                        "id": 32776,
+                        "text": "Culture encourages innovation, experimentation and testing without fear of failure"
+                      },
+                      {
+                        "id": 32776,
+                        "text": "None of these apply"
+                      }
+                    ]
+                  },
+                  "options": [
+                    {
+                      "id": 1,
+                      "text": "Strategic goals are tied to non-monetary objectives such as employee well-being, workforce diversity and environmental sustainability",
+                      "hasInput": false,
+                      "inputType": ""
+                    },
+                    {
+                      "id": 2,
+                      "text": "The organization effectively supports the use of remote and hybrid working models",
+                      "hasInput": false,
+                      "inputType": ""
+                    },
+                    {
+                      "id": 3,
+                      "text": "Employee feedback data is used to improve experience",
+                      "hasInput": false,
+                      "inputType": ""
+                    },
+                    {
+                      "id": 4,
+                      "text": "Leadership strategy and decisions are communicated transparently so employees understand how they impact their roles",
+                      "hasInput": false,
+                      "inputType": ""
+                    },
+                    {
+                      "id": 5,
+                      "text": "Culture encourages innovation, experimentation and testing without fear of failure",
+                      "hasInput": false,
+                      "inputType": ""
+                    },
+                    {
+                      "id": 6,
+                      "text": "None of these apply",
+                      "hasInput": false,
+                      "inputType": ""
+                    }
+                  ],
+                  "media": [],
+                  "value": ""
+                }
+              ],
+              "showGroup": 3,
+              "page": 17,
+              "likeCount": 0,
+              "dislikeCount": 0,
+              "commentCount": 0,
+              "likeStatus": 0,
+              "userCommented": 0
+            }
+          ]
+        },
+        {
+          "id": 21648,
+          "header": {
+            "dispCfg": {
+              "text-align": "center",
+              "font-family": "arial",
+              "font-size": "80%",
+              "color": "#000000",
+              "font-weight": "bold"
+            },
+            "texts": [
+              {
+                "id": 32741,
+                "text": "Business Priorities"
+              }
+            ]
+          },
+          "body": {
+            "dispCfg": {
+              "text-align": "left",
+              "font-family": "arial",
+              "font-size": "80%",
+              "color": "#000000"
+            },
+            "texts": [
+              {
+                "id": 32740,
+                "text": "Indicate percent of company’s focus (sum to total 100%):"
+              }
+            ]
+          },
+          "questions": [
+            {
+              "id": 2241682,
+              "body": {
+                "dispCfg": {
+                  "text-align": "left",
+                  "font-family": "arial",
+                  "font-size": "80%",
+                  "color": "#000000"
+                },
+                "texts": [
+                  {
+                    "id": 32759,
+                    "text": "What percent of your goals are currently driving your business strategy?"
+                  }
+                ]
+              },
+              "media": [],
+              "delegateTo": {
+                "id": 140302,
+                "first_name": "John",
+                "last_name": "McCoy",
+                "email": "flash@sap.com",
+                "phone": "",
+                "desc": ""
+              },
+              "answers": [
+                {
+                  "id": 2241684,
+                  "header": {
+                    "dispCfg": {
+                      "text-align": "center",
+                      "font-family": "arial",
+                      "font-size": "60%",
+                      "color": "#000000"
+                    },
+                    "ctrlCfg": {
+                      "responseType": "numeric",
+                      "mandatory": false,
+                      "minLimit": 0,
+                      "maxLimit": 100,
+                      "id": 32697
+                    },
+                    "texts": [
+                      {
+                        "id": 32697,
+                        "text": "Core top-line growth (focus on growing revenue and profitability)"
+                      }
+                    ]
+                  },
+                  "body": {
+                    "dispCfg": {
+                      "control": "htextbox",
+                      "font-family": "arial",
+                      "font-size": "80%",
+                      "color": "#000000"
+                    },
+                    "ctrlCfg": {
+                      "responseType": "numeric",
+                      "mandatory": false,
+                      "minLimit": 0,
+                      "maxLimit": 100,
+                      "id": 32777
+                    },
+                    "texts": []
+                  },
+                  "options": [],
+                  "media": [],
+                  "value": ""
+                },
+                {
+                  "id": 2241685,
+                  "header": {
+                    "dispCfg": {
+                      "text-align": "center",
+                      "font-family": "arial",
+                      "font-size": "60%",
+                      "color": "#000000"
+                    },
+                    "ctrlCfg": {
+                      "responseType": "numeric",
+                      "mandatory": false,
+                      "minLimit": 0,
+                      "maxLimit": 100,
+                      "id": 32698
+                    },
+                    "texts": [
+                      {
+                        "id": 32698,
+                        "text": "Cost reduction (focus on managing costs and cost-saving initiatives)"
+                      }
+                    ]
+                  },
+                  "body": {
+                    "dispCfg": {
+                      "control": "htextbox",
+                      "font-family": "arial",
+                      "font-size": "80%",
+                      "color": "#000000"
+                    },
+                    "ctrlCfg": {
+                      "responseType": "numeric",
+                      "mandatory": false,
+                      "minLimit": 0,
+                      "maxLimit": 100,
+                      "id": 32778
+                    },
+                    "texts": []
+                  },
+                  "options": [],
+                  "media": [],
+                  "value": ""
+                },
+                {
+                  "id": 2241686,
+                  "header": {
+                    "dispCfg": {
+                      "text-align": "center",
+                      "font-family": "arial",
+                      "font-size": "60%",
+                      "color": "#000000"
+                    },
+                    "ctrlCfg": {
+                      "responseType": "numeric",
+                      "mandatory": false,
+                      "minLimit": 0,
+                      "maxLimit": 100,
+                      "id": 32699
+                    },
+                    "texts": [
+                      {
+                        "id": 32699,
+                        "text": "Differentiated customer experiences (developing new products/services)"
+                      }
+                    ]
+                  },
+                  "body": {
+                    "dispCfg": {
+                      "control": "htextbox",
+                      "font-family": "arial",
+                      "font-size": "80%",
+                      "color": "#000000"
+                    },
+                    "ctrlCfg": {
+                      "responseType": "numeric",
+                      "mandatory": false,
+                      "minLimit": 0,
+                      "maxLimit": 100,
+                      "id": 32779
+                    },
+                    "texts": []
+                  },
+                  "options": [],
+                  "media": [],
+                  "value": ""
+                },
+                {
+                  "id": 2241687,
+                  "header": {
+                    "dispCfg": {
+                      "text-align": "center",
+                      "font-family": "arial",
+                      "font-size": "60%",
+                      "color": "#000000"
+                    },
+                    "ctrlCfg": {
+                      "responseType": "numeric",
+                      "mandatory": false,
+                      "minLimit": 0,
+                      "maxLimit": 100,
+                      "id": 32700
+                    },
+                    "texts": [
+                      {
+                        "id": 32700,
+                        "text": "Capturing new market or segment opportunities"
+                      }
+                    ]
+                  },
+                  "body": {
+                    "dispCfg": {
+                      "control": "htextbox",
+                      "font-family": "arial",
+                      "font-size": "80%",
+                      "color": "#000000"
+                    },
+                    "ctrlCfg": {
+                      "responseType": "numeric",
+                      "mandatory": false,
+                      "minLimit": 0,
+                      "maxLimit": 100,
+                      "id": 32780
+                    },
+                    "texts": []
+                  },
+                  "options": [],
+                  "media": [],
+                  "value": ""
+                },
+                {
+                  "id": 2241688,
+                  "header": {
+                    "dispCfg": {
+                      "text-align": "center",
+                      "font-family": "arial",
+                      "font-size": "60%",
+                      "color": "#000000"
+                    },
+                    "ctrlCfg": {
+                      "responseType": "numeric",
+                      "mandatory": false,
+                      "minLimit": 0,
+                      "maxLimit": 100,
+                      "id": 32701
+                    },
+                    "texts": [
+                      {
+                        "id": 32701,
+                        "text": "Reactive to industry pressures (guarding company against threats & taking necessary action)"
+                      }
+                    ]
+                  },
+                  "body": {
+                    "dispCfg": {
+                      "control": "htextbox",
+                      "font-family": "arial",
+                      "font-size": "80%",
+                      "color": "#000000"
+                    },
+                    "ctrlCfg": {
+                      "responseType": "numeric",
+                      "mandatory": false,
+                      "minLimit": 0,
+                      "maxLimit": 100,
+                      "id": 32781
+                    },
+                    "texts": []
+                  },
+                  "options": [],
+                  "media": [],
+                  "value": ""
+                }
+              ],
+              "showGroup": 3,
+              "page": 18,
+              "likeCount": 0,
+              "dislikeCount": 0,
+              "commentCount": 0,
+              "likeStatus": 0,
+              "userCommented": 0
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

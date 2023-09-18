@@ -65,6 +65,10 @@ export default defineNuxtConfig({
         process.env.VUE_APP_API_VLM_SURVEY_SAVE_RESPONSE_ROUTE,
       VUE_APP_API_VLM_UNSUBSCRIBE_ROUTE:
         process.env.VUE_APP_API_VLM_UNSUBSCRIBE_ROUTE,
+      VUE_APP_API_VLM_DEFAULT_USERNAME:
+        process.env.VUE_APP_API_VLM_DEFAULT_USERNAME,
+      VUE_APP_API_VLM_DEFAULT_USER_PASSWORD:
+        process.env.VUE_APP_API_VLM_DEFAULT_USER_PASSWORD,
     },
   },
 
