@@ -10,32 +10,42 @@
       Use the button on the right to get started with your assessment.
     </div>
     <div class="py-10 text-center xl:text-right float-right">
-      <UiButton
-        text="Start Survey Now &rarr;"
-        path="/survey/1/customer%20centricity"
-        size="xl"
-      />
+      <NuxtLink
+        to="/survey/1/1/customer%20centricity"
+        class="max-w-max text-black font-bold uppercase rounded-lg cursor-pointer drop-shadow-lg bg-fs-yellow hover:bg-fs-yellow-light text-xl xl:text-2xl py-4 px-4 my-4 xl:py-6 xl:px-6 xl:my-6"
+      >
+        Start Survey Now &rarr;</NuxtLink
+      >
     </div>
+    <!--
     <div class="py-10 text-center xl:text-left">
       <UiButton
         :text="!showSurveyList ? 'Show My Surveys' : 'Hide My Surveys'"
         path=""
         @click="showSurveyList = !showSurveyList"
       />
-    </div>
+    </div>-->
   </div>
   <div v-if="showSurveyList">
     <DashboardSurveyList />
   </div>
   <div v-else>
-    <UiProgressBar />
-    <DashboardQuestions :showLink="true" />
-    <ReportGenerate />
+    <UiProgressBar :completePercentage="complete" />
+    <DashboardQuestions :showLink="true" :completePercentage="complete" />
   </div>
 </template>
 
 <script setup>
 import nuxtStorage from "nuxt-storage";
+
+//Get runtime config.
+const config = useRuntimeConfig();
+
+const token = nuxtStorage.localStorage.getData("token");
+
+if (!token) {
+  navigateTo("/profile?timeout=true");
+}
 
 definePageMeta({
   layout: "dashboard",
@@ -52,11 +62,23 @@ definePageMeta({
 
 const showSurveyList = ref(false);
 
-const authenticated = ref(
-  nuxtStorage.localStorage.getData("authenticated") || false
-);
+const options = {
+  method: "GET",
+  query: {
+    "x-auth-token": nuxtStorage.localStorage.getData("token"),
+    customerSurveyId: useCookie("surveyID").value,
+    completedpercentage: true,
+  },
+};
 
-if (!authenticated.value) {
-  navigateTo("/profile?timeout=true");
-}
+//Fetch data.
+const { data: complete } = useLazyFetch(
+  config.public.VUE_APP_API_URL +
+    "/" +
+    config.public.VUE_APP_API_VLM_SURVEY_ROUTE,
+  {
+    method: options.method,
+    query: options.query,
+  }
+);
 </script>

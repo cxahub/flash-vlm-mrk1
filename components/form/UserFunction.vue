@@ -83,28 +83,22 @@
           <label class="block text-white font-bold py-2"
             ><span class="text-fs-red">*</span> Business Function</label
           >
-          <select class="rounded w-full" v-model="bfName">
+          <select class="rounded w-full" v-model="bfID">
             <option value="">Choose a Business Function...</option>
-            <option
-              v-for="bf in businessfunction"
-              :key="bf.id"
-              :value="bf.bf_name"
-            >
+            <option v-for="bf in businessfunction" :key="bf.id" :value="bf.id">
               {{ bf.bf_name }}
             </option>
-            <option value="Other">Other</option>
           </select>
         </div>
         <div>
           <label class="block text-white font-bold py-2"
             ><span class="text-fs-red">*</span> Job Role</label
           >
-          <select class="rounded w-full" v-model="jrName">
+          <select class="rounded w-full" v-model="jrID">
             <option value="">Choose a Job Role...</option>
-            <option v-for="jr in jobrole" :key="jr.id" :value="jr.jr_name">
+            <option v-for="jr in jobrole" :key="jr.id" :value="jr.id">
               {{ jr.jr_name }}
             </option>
-            <option value="Other">Other</option>
           </select>
         </div>
         <div class="text-sm xl:text-base text-white py-4">
@@ -200,8 +194,6 @@
 </template>
 
 <script setup>
-import nuxtStorage from "nuxt-storage";
-
 //Get runtime config.
 const config = useRuntimeConfig();
 
@@ -241,8 +233,8 @@ let lastName = ref("");
 let email = ref("");
 let password = ref("");
 let company = ref("");
-let bfName = ref("");
-let jrName = ref("");
+let bfID = ref(0);
+let jrID = ref(0);
 
 let results = ref("");
 let showRegistering = ref(false);
@@ -253,6 +245,11 @@ const onSubmit = () => {
       showRegistering.value = false;
       results.value = result;
       if (results.value.success) {
+        //Cookie
+        const rememberUser = useCookie("rememberUser", {
+          maxAge: config.public.VUE_APP_COOKIE_EXPIRES,
+        });
+        rememberUser.value = email.value;
         navigateTo("/profile?registration=true");
       }
     })
@@ -264,17 +261,16 @@ const onSubmit = () => {
 async function formRequest() {
   //Show registering.
   showRegistering.value = true;
-  //First store the business function and job role to be entered into the survey questions.
-  nuxtStorage.localStorage.setData(
-    "businessfunction",
-    bfName.value,
-    config.public.VUE_APP_COOKIE_EXPIRES
-  );
-  nuxtStorage.localStorage.setData(
-    "jobrole",
-    jrName.value,
-    config.public.VUE_APP_COOKIE_EXPIRES
-  );
+
+  //Set cookies.
+  const businessfunction = useCookie("businessfunction", {
+    maxAge: config.public.VUE_APP_COOKIE_EXPIRES,
+  });
+  const jobrole = useCookie("jobrole", {
+    maxAge: config.public.VUE_APP_COOKIE_EXPIRES,
+  });
+  businessfunction.value = bfID.value;
+  jobrole.value = jrID.value;
 
   //Now call the API.
   return await $fetch(

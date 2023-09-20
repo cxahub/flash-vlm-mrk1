@@ -4,87 +4,87 @@
       <UiLoader icon="flash-icon-bg-white.png" />
     </div>
     <div v-else>
-      <div class="w-full">
-        <div v-for="(q, index) in questions" :key="q.id">
-          <div :class="colWidth ? 'xl:inline-block xl:float-left' : ''">
-            <div v-if="showLink">
-              <NuxtLink
-                :to="`/survey/${
-                  index + 1
-                }/${q.header.texts[0].text.toLowerCase()}`"
-              >
-                <div
-                  class="w-100 text-base xl:text-lg font-bold text-black text-center uppercase border-2 border-gray-600 rounded-full hover:bg-fs-yellow hover:text-black py-2 px-4 my-2 mx-3 cursor-pointer bg-white drop-shadow-lg"
-                >
-                  {{ q.header.texts[0].text }}
-                </div></NuxtLink
-              >
+      <div class="grid grid-rows-1 grid-flow-col gap-4 text-center">
+        <div
+          v-for="(q, index) in questions"
+          :key="q.id"
+          :class="index === 0 ? 'hidden' : ''"
+        >
+          <div v-if="index > 0">
+            <div class="text-2xl text-center font-bold text-fs-yellow pb-8">
+              {{ q.header.texts[0].text }}
             </div>
-            <div v-else>
-              <div
-                class="xl:w-100 text-base xl:text-lg font-bold text-black text-center uppercase border-2 border-gray-600 rounded-full hover:bg-fs-yellow hover:text-black py-2 px-4 my-2 mx-0 bg-white drop-shadow-lg"
-              >
-                {{ q.header.texts[0].text }}
+            <div v-for="(qq, key) in q.groups" :key="key">
+              <div v-if="showLink">
+                <div v-if="index > 0">
+                  <NuxtLink
+                    :to="`/survey/${index}/${key + 1}/${encodeURIComponent(
+                      qq.header.texts[0].text.toLowerCase()
+                    )}`"
+                  >
+                    <div
+                      class="text-base xl:text-lg font-bold text-black text-center uppercase border-2 border-fs-light-brown rounded-lg hover:bg-fs-yellow hover:text-black py-2 px-4 my-4 mx-3 cursor-pointer drop-shadow-lg"
+                      :class="
+                        qq.questions[0].answers[0].value != ''
+                          ? 'bg-fs-yellow'
+                          : ''
+                      "
+                    >
+                      {{ qq.header.texts[0].text }}
+                    </div></NuxtLink
+                  >
+                </div>
+              </div>
+              <div v-else>
+                <div
+                  class="xl:w-100 text-base xl:text-lg font-bold text-black text-center uppercase border-2 border-gray-600 rounded-full hover:bg-fs-yellow hover:text-black py-2 px-4 my-2 mx-0 bg-white drop-shadow-lg"
+                >
+                  {{ qq.header.texts[0].text }}
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="clear-both"></div>
+      <ReportGenerate :completePercentage="completePercentage" />
     </div>
   </div>
 </template>
 
-<script>
-export default {
-  props: {
-    showLink: { type: Boolean },
-    colWidth: { type: Boolean },
-  },
-  setup() {
-    //Get runtime config.
-    const config = useRuntimeConfig();
+<script setup>
+import nuxtStorage from "nuxt-storage";
 
-    //Fetch options.
-    const options = {
-      method: "POST",
-      body: {
-        Response: {
-          userInfo: {
-            firstName: "John",
-            lastName: "McCoy",
-            userType: "Employee",
-            userId: "140302",
-            email: "flash@sap.com",
-          },
-          surveyInfo: {
-            surveyTemplateId: 77,
-            surveyAreaId: 4,
-          },
-        },
-      },
-      query: {
-        questions: true,
-      },
-    };
+const props = defineProps({
+  showLink: { type: Boolean },
+  colWidth: { type: Boolean },
+  completePercentage: { type: Number, default: 0 },
+});
 
-    //Fetch data.
-    const { pending, data: questions } = useLazyFetch(
-      config.public.VUE_APP_API_URL +
-        "/" +
-        config.public.VUE_APP_API_VLM_ENROLL_ROUTE,
-      {
-        method: options.method,
-        body: options.body,
-        query: options.query,
-      }
-    );
+//Get runtime config.
+const config = useRuntimeConfig();
 
-    return {
-      config,
-      questions,
-      pending,
-    };
+const incrementIndex = (key) => {
+  return key + 1;
+};
+
+//Fetch options.
+const options = {
+  method: "GET",
+  query: {
+    "x-auth-token": nuxtStorage.localStorage.getData("token"),
+    customerSurveyId: useCookie("surveyID").value,
+    groupedquestions: true,
   },
 };
+
+//Fetch data.
+const { pending, data: questions } = useLazyFetch(
+  config.public.VUE_APP_API_URL +
+    "/" +
+    config.public.VUE_APP_API_VLM_SURVEY_ROUTE,
+  {
+    method: options.method,
+    query: options.query,
+  }
+);
 </script>

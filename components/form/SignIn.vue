@@ -55,14 +55,24 @@ const route = useRoute();
 const config = useRuntimeConfig();
 
 //Cookie
-const rememberUser = useCookie("rememberUser", { maxAge: 36000 });
+const rememberUser = useCookie("rememberUser", {
+  maxAge: config.public.VUE_APP_COOKIE_EXPIRES,
+});
 rememberUser.value = rememberUser.value || "";
+
+//Token
+const token = nuxtStorage.localStorage.getData("token");
 
 //Form vars.
 let email = ref(rememberUser.value);
 let password = ref("");
 
 let results = ref("");
+let resultsEnroll = ref("");
+const surveyID = useCookie("surveyID", {
+  maxAge: config.public.VUE_APP_COOKIE_EXPIRES,
+});
+surveyID.value = surveyID.value || "";
 let registrationMessage = ref(
   "You have successfully registered. Please Sign In once you have activated your account."
 );
@@ -72,15 +82,28 @@ const onSubmit = () => {
   formRequest()
     .then((result) => {
       results.value = result;
-      console.log(results.value.success);
       if (results.value.success) {
         setCookies(results.value.results[0]);
-        nuxtStorage.localStorage.setData(
-          "authenticated",
-          true,
-          config.public.VUE_APP_COOKIE_EXPIRES
-        );
-        navigateTo("/dashboard");
+
+        //Enroll survey and auth if it doesn't exist.
+        if (surveyID.value === "") {
+          surveyEnrollRequest()
+            .then((resultEnroll) => {
+              resultsEnroll.value = resultEnroll;
+              if (resultsEnroll.value.status) {
+                setSurveyID(
+                  resultsEnroll.value.results.id,
+                  resultsEnroll.value.results
+                );
+              }
+            })
+            .catch((error) => {
+              console.error("Enroll form could not be executed", error);
+            });
+        }
+        setTimeout(function () {
+          navigateTo("/dashboard");
+        }, 2000);
       }
     })
     .catch((error) => {
@@ -103,16 +126,115 @@ async function formRequest() {
   );
 }
 
+//Create survey based on the registration and company name.
+async function surveyEnrollRequest() {
+  return await $fetch(
+    config.public.VUE_APP_API_URL +
+      "/" +
+      config.public.VUE_APP_API_VLM_ENROLL_ROUTE,
+    {
+      method: "POST",
+      body: {
+        Response: {
+          userInfo: {
+            firstName: useCookie("firstName"),
+            lastName: useCookie("lastName"),
+            userType: "Employee", // Can leave it as blank
+            userId: useCookie("userId"),
+            email: useCookie("email"),
+          },
+          surveyInfo: {
+            surveyTemplateId: 77,
+            surveyAreaId: 4,
+          },
+        },
+      },
+      query: {
+        "x-auth-token": nuxtStorage.localStorage.getData("token"),
+      },
+    }
+  );
+}
+
 function setCookies(user) {
   //Update rememberUser cookie
   rememberUser.value = user.email;
 
+  //Set the user token.
+  const token = nuxtStorage.localStorage.setData("token", user.token, 60);
+  token.value = token;
+
   //Create user cookies for use throughout the site.
-  const userID = useCookie("userID", { maxAge: 36000 });
-  const firstName = useCookie("firstName", { maxAge: 36000 });
-  const lastName = useCookie("lastName", { maxAge: 36000 });
+  const userID = useCookie("userId", {
+    maxAge: config.public.VUE_APP_COOKIE_EXPIRES,
+  });
+  const firstName = useCookie("firstName", {
+    maxAge: config.public.VUE_APP_COOKIE_EXPIRES,
+  });
+  const lastName = useCookie("lastName", {
+    maxAge: config.public.VUE_APP_COOKIE_EXPIRES,
+  });
+  const companyName = useCookie("companyName", {
+    maxAge: config.public.VUE_APP_COOKIE_EXPIRES,
+  });
+  const email = useCookie("email", {
+    maxAge: config.public.VUE_APP_COOKIE_EXPIRES,
+  });
   userID.value = user.userId;
   firstName.value = user.firstName;
   lastName.value = user.lastName;
+  companyName.value = user.companyName;
+  email.value = user.email;
+}
+
+function setSurveyID(id, survey) {
+  //Create surveyID cookie.
+  const surveyID = useCookie("surveyID", {
+    maxAge: config.public.VUE_APP_COOKIE_EXPIRES,
+  });
+  surveyID.value = id;
+  //Answer registration questions to instantiate the survey.
+  const companyAnswerID = survey.preSurveyAssets.org_info.org_level.unique_id;
+  console.log("companyAnswerID: " + companyAnswerID);
+  const bfAnswerID = survey.areas[0].groups[0].questions[0].answers[0].id;
+  console.log("bfAnswerID: " + bfAnswerID);
+  const jrAnswerID = survey.areas[0].groups[1].questions[0].answers[0].id;
+  console.log("jrAnswerID: " + jrAnswerID);
+  setRegistrationData(companyAnswerID, useCookie("companyName").value);
+  setRegistrationData(bfAnswerID, useCookie("businessfunction").value);
+  setRegistrationData(jrAnswerID, useCookie("jobrole").value);
+}
+
+//Fetch options.
+const options = {
+  query: {
+    "x-auth-token": nuxtStorage.localStorage.getData("token"),
+    userId: useCookie("userId").value,
+  },
+};
+
+async function setRegistrationData(id, answer) {
+  console.log("setRegistrationData ID: " + id);
+  console.log("setRegistrationData Answer: " + answer);
+  return await $fetch(
+    config.public.VUE_APP_API_URL +
+      "/" +
+      config.public.VUE_APP_API_VLM_SURVEY_SAVE_RESPONSE_ROUTE,
+    {
+      method: "POST",
+      body: {
+        Response: [
+          {
+            response_value: answer.toString(),
+            unique_id: parseInt(id),
+            assignee_id: null,
+            assignee_email: null,
+            emailpayload: null,
+          },
+        ],
+      },
+      query: options.query,
+    }
+  );
 }
 </script>

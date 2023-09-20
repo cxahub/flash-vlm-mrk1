@@ -42,24 +42,26 @@
         :class="showMenu ? 'flex min-h-screen' : 'hidden'"
         class="flex-col mt-8 space-y-4 xl:flex xl:space-y-0 xl:flex-row xl:items-center xl:space-x-10 xl:mt-0"
       >
-        <div v-if="authenticated">
+        <div v-if="token">
           <li
             class="font-roboto-condensed text-base font-light text-white hover:text-fs-yellow"
           >
             Welcome {{ userName }}
           </li>
         </div>
-        <li
-          class="font-roboto-condensed text-base font-light text-white hover:text-fs-yellow"
-        >
-          <NuxtLink
-            to="/"
-            activeClass="text-fs-yellow"
-            @click="showMenu = false"
-            >Home</NuxtLink
+        <div v-if="!token">
+          <li
+            class="font-roboto-condensed text-base font-light text-white hover:text-fs-yellow"
           >
-        </li>
-        <div v-if="authenticated">
+            <NuxtLink
+              to="/"
+              activeClass="text-fs-yellow"
+              @click="showMenu = false"
+              >Home</NuxtLink
+            >
+          </li>
+        </div>
+        <div v-if="token">
           <li
             class="font-roboto-condensed text-base font-light text-white hover:text-fs-yellow"
           >
@@ -71,7 +73,7 @@
             >
           </li>
         </div>
-        <div v-if="authenticated">
+        <div v-if="token">
           <li
             class="font-roboto-condensed text-base font-light text-white hover:text-fs-yellow"
           >
@@ -104,14 +106,12 @@
 <script setup>
 import nuxtStorage from "nuxt-storage";
 
-const authenticated = ref(
-  nuxtStorage.localStorage.getData("authenticated") || false
-);
+const token = nuxtStorage.localStorage.getData("token");
 
-const firstName = useCookie("firstName");
-const lastName = useCookie("lastName");
-firstName.value = Array.from(firstName.value)[0] || "Valued";
-lastName.value = lastName.value || "User";
+const firstName = ref(useCookie("firstName") || ["Valued"]);
+const lastName = ref(useCookie("lastName") || ["User"]);
+firstName.value = firstName.value;
+lastName.value = lastName.value;
 
 const userName = ref(lastName.value + ", " + firstName.value);
 const showMenu = ref(false);
@@ -119,6 +119,6 @@ const year = new Date();
 
 function setSignOut() {
   nuxtStorage.localStorage.clear();
-  navigateTo("/");
+  navigateTo("/profile");
 }
 </script>

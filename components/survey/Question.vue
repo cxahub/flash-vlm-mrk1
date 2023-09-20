@@ -23,41 +23,35 @@
           >
             {{ question.body.texts[0].text }}
           </div>
-          <div v-if="questionID > 14">
-            <div
-              class="flex p-4"
-              v-for="q in question.questions[0].answers"
-              :key="q.id"
-            >
-              <input
-                type="number"
-                min="1"
-                max="100"
-                class="rounded mt-1 xl:mt-2 h-10"
-                required="required"
-                placeholder="%"
-              />
-              <div class="xl:text-xl xl:font-bold ml-4">
-                {{ q.header.texts[0].text }}
-              </div>
-            </div>
-          </div>
-          <div v-else>
-            <div
-              class="flex p-4"
-              v-for="(q, index) in question.questions[0].answers[0].body.texts"
-              :key="q.id"
-            >
+
+          <div
+            class="flex p-4"
+            v-for="(q, index) in question.questions[0].answers[0].options"
+            :key="q.id"
+          >
+            <div v-if="question.questions[0].answers[0].value.includes(q.id)">
               <input
                 :name="q.id"
                 :value="index + 1"
                 type="checkbox"
                 class="rounded mt-1 xl:mt-1.5 ring-0 focus:ring-0 ring-transparent ring-offset-0 shadow-none focus:ring-transparent bg-white text-fs-brown"
                 required="required"
+                checked
+                @click="() => addChoice(q.id)"
               />
-              <div class="xl:text-xl xl:font-bold ml-4">
-                {{ q.text }}
-              </div>
+            </div>
+            <div v-else>
+              <input
+                :name="q.id"
+                :value="index + 1"
+                type="checkbox"
+                class="rounded mt-1 xl:mt-1.5 ring-0 focus:ring-0 ring-transparent ring-offset-0 shadow-none focus:ring-transparent bg-white text-fs-brown"
+                required="required"
+                @click="() => addChoice(q.id)"
+              />
+            </div>
+            <div class="xl:text-xl xl:font-bold ml-4">
+              {{ q.text }}
             </div>
           </div>
         </div>
@@ -66,55 +60,43 @@
   </div>
 </template>
 
-<script>
-export default {
-  props: {
-    questionID: { type: Number, default: 0 },
-  },
-  setup(props) {
-    //Get runtime config.
-    const config = useRuntimeConfig();
+<script setup>
+import nuxtStorage from "nuxt-storage";
 
-    //Fetch options.
-    const options = {
-      method: "POST",
-      body: {
-        Response: {
-          userInfo: {
-            firstName: "John",
-            lastName: "McCoy",
-            userType: "Employee",
-            userId: "140302",
-            email: "flash@sap.com",
-          },
-          surveyInfo: {
-            surveyTemplateId: 77,
-            surveyAreaId: 4,
-          },
-        },
-      },
-      query: {
-        question: parseInt(props.questionID),
-      },
-    };
+const props = defineProps({
+  groupID: { type: Number, default: 0 },
+  questionID: { type: Number, default: 0 },
+});
 
-    //Fetch data.
-    const { pending, data: question } = useLazyFetch(
-      config.public.VUE_APP_API_URL +
-        "/" +
-        config.public.VUE_APP_API_VLM_ENROLL_ROUTE,
-      {
-        method: options.method,
-        body: options.body,
-        query: options.query,
-      }
-    );
+//Get runtime config.
+const config = useRuntimeConfig();
 
-    return {
-      config,
-      question,
-      pending,
-    };
+//Set emit.
+const emit = defineEmits(["choice"]);
+
+const addChoice = (name) => {
+  emit("choice", name);
+};
+
+//Fetch options.
+const options = {
+  method: "GET",
+  query: {
+    "x-auth-token": nuxtStorage.localStorage.getData("token"),
+    customerSurveyId: useCookie("surveyID").value,
+    group: parseInt(props.groupID),
+    question: parseInt(props.questionID),
   },
 };
+
+//Fetch data.
+const { pending, data: question } = useLazyFetch(
+  config.public.VUE_APP_API_URL +
+    "/" +
+    config.public.VUE_APP_API_VLM_SURVEY_ROUTE,
+  {
+    method: options.method,
+    query: options.query,
+  }
+);
 </script>

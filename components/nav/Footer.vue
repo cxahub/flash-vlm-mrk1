@@ -51,7 +51,13 @@
         <div
           class="col-span-2 xl:col-span-1 text-center xl:pt-6 xl:text-left text-xs xl:text-sm text-white"
         >
-          Survey Provided by SAP® | Copyright ©
+          <NuxtLink
+            to="/unsubscribe"
+            target="_blank"
+            class="py-2 text-fs-yellow hover:text-white cursor-pointer"
+            >Opt-out?</NuxtLink
+          >
+          | Survey Provided by SAP® | Copyright ©
           {{ $dateNowFormat(year) }} Firestarters. All rights reserved.
         </div>
       </div>

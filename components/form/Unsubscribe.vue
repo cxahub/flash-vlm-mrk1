@@ -28,6 +28,8 @@
 </template>
 
 <script setup>
+import nuxtStorage from "nuxt-storage";
+
 //Get runtime config.
 const config = useRuntimeConfig();
 
@@ -44,6 +46,7 @@ const onSubmit = () => {
   formRequest()
     .then((result) => {
       results.value = result;
+      removeAuth();
     })
     .catch((error) => {
       console.error("Unsubscribe form could not be sent", error);
@@ -62,5 +65,29 @@ async function formRequest() {
       method: "GET",
     }
   );
+}
+
+function removeAuth() {
+  //Clear cookies.
+  const userID = useCookie("userId");
+  const firstName = useCookie("firstName");
+  const lastName = useCookie("lastName");
+  const companyName = useCookie("companyName");
+  const email = useCookie("email");
+  const businessfunction = useCookie("businessfunction");
+  const jobrole = useCookie("jobrole");
+  const rememberUser = useCookie("rememberUser");
+  const surveyID = useCookie("surveyID");
+  userID.value = null;
+  firstName.value = null;
+  lastName.value = null;
+  companyName.value = null;
+  email.value = null;
+  businessfunction.value = null;
+  jobrole.value = null;
+  rememberUser.value = null;
+  surveyID.value = null;
+  //Clear local storage.
+  nuxtStorage.localStorage.clear();
 }
 </script>

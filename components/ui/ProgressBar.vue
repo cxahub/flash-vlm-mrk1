@@ -17,24 +17,24 @@
         </span>
       </span>
       <!-- Player Progress Bar-->
-      <span class="block h-2 rounded" :style="{ width: progress }"></span>
+      <span
+        class="block h-2 rounded-full bg-fs-yellow pt-4 pb-3 border-0 -ml-0 -mt-0"
+        :style="{ width: progressBar }"
+      ></span>
     </div>
     <div class="font-bold pl-4">{{ duration }}</div>
   </div>
 </template>
 
-<script>
-export default {
-  props: {
-    questionID: { type: Number, default: 0 },
-  },
-  data(props) {
-    return {
-      duration: "100%",
-      progress: Math.round((props.questionID / 17) * 100) + "%",
-    };
-  },
-  methods: {},
-  computed: {},
-};
+<script setup>
+const props = defineProps({
+  questionID: { type: Number, default: 0 },
+  completePercentage: { type: Number, default: 0 },
+});
+
+const duration = "100%";
+const completed = props.completePercentage;
+const pbValue = parseInt(Number(completed) + 2);
+const progress = completed + "%";
+const progressBar = pbValue + "%";
 </script>

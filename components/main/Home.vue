@@ -47,3 +47,15 @@
     </div>
   </div>
 </template>
+
+<script setup>
+import nuxtStorage from "nuxt-storage";
+
+//Token
+const token = nuxtStorage.localStorage.getData("token");
+console.log("Token: " + token);
+//Check auth.
+if (token != null) {
+  navigateTo("/dashboard");
+}
+</script>
