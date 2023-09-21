@@ -23,26 +23,14 @@
   </div>
 </template>
 
-<script>
-import bgImage from "/images/banner/feedback-banner.jpg";
-export default {
-  setup() {
-    const config = useRuntimeConfig();
+<script setup>
+import bgImageFile from "/images/banner/feedback-banner.jpg";
 
-    const feedbackURL = config.public.VUE_APP_FIRESTARTERS_FEEDBACK_SURVEY_URL;
-
-    return {
-      feedbackURL,
-    };
-  },
-  data() {
-    return {
-      bgImage: {
-        "background-position": "center center",
-        "background-size": "cover",
-        "background-image": `url(${bgImage})`,
-      },
-    };
-  },
+const config = useRuntimeConfig();
+const feedbackURL = config.public.VUE_APP_FLASH_FEEDBACK_SURVEY_URL;
+const bgImage = {
+  "background-position": "center center",
+  "background-size": "cover",
+  "background-image": `url(${bgImageFile})`,
 };
 </script>

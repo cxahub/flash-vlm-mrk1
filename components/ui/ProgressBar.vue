@@ -18,7 +18,7 @@
       </span>
       <!-- Player Progress Bar-->
       <span
-        class="block h-2 rounded-full bg-fs-yellow pt-4 pb-3 border-0 -ml-0 -mt-0"
+        class="block h-2 rounded-full bg-fs-yellow-light pt-4 pb-3"
         :style="{ width: progressBar }"
       ></span>
     </div>
@@ -32,9 +32,14 @@ const props = defineProps({
   completePercentage: { type: Number, default: 0 },
 });
 
-const duration = "100%";
-const completed = props.completePercentage;
-const pbValue = parseInt(Number(completed) + 2);
-const progress = completed + "%";
-const progressBar = pbValue + "%";
+const duration = ref("100%");
+const progressBar = ref("0%");
+const completed = ref(0);
+const pbValue = ref(0);
+const progress = ref(0);
+
+completed.value = props.completePercentage;
+pbValue.value = parseInt(Number(completed.value) + 2);
+progress.value = completed.value + "%";
+progressBar.value = pbValue.value + "%";
 </script>

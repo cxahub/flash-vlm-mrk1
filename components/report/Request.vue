@@ -16,25 +16,31 @@
     <UiButton
       class="py-4"
       text="Request Meeting"
-      path="/contact"
+      :path="`mailto:flash@sap.com?subject=${emailSubject}&body=${encodeURIComponent(
+        emailBody
+      )}`"
       format="primary"
       size="lg"
     />
   </div>
 </template>
 
-<script>
-import bgImage from "/images/banner/request-banner.jpg";
+<script setup>
+import bgImageFile from "/images/banner/request-banner.jpg";
 
-export default {
-  data() {
-    return {
-      bgImage: {
-        "background-position": "center center",
-        "background-size": "cover",
-        "background-image": `url(${bgImage})`,
-      },
-    };
-  },
+const bgImage = {
+  "background-position": "center center",
+  "background-size": "cover",
+  "background-image": `url(${bgImageFile})`,
 };
+
+const firstName = useCookie("firstName").value;
+const lastName = useCookie("lastName").value;
+const email = useCookie("email").value;
+const companyName = useCookie("companyName").value;
+
+const emailSubject = `FLASH%20Request%20Meeting from ${firstName} ${lastName} of ${companyName}`;
+const emailBody = ref(
+  `I would like to request a meeting to review my FLASH results with you and dive deeper into best practices.\n\nThank you,\n\n${firstName} ${lastName}\n${companyName}\n${email}`
+);
 </script>
