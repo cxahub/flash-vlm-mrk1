@@ -1,10 +1,12 @@
 <template>
   <div class="grid grid-cols-1 xl:grid-cols-3">
     <div class="col-span-1">
-      <h1 class="text-3xl xl:text-5xl text-fs-yellow font-bold">
+      <h1
+        class="text-4xl xl:text-5xl text-fs-yellow font-bold text-center xl:text-left"
+      >
         Discover the Secrets to Retail Success
       </h1>
-      <div class="xl:text-xl font-bold py-8">
+      <div class="xl:text-xl font-bold py-8 text-center xl:text-left">
         The world's top retailers rely on FLASH™ performance benchmarks to
         clarify priorities, develop strategies, compare trends, and increase
         their organization's overall performance.
@@ -21,7 +23,7 @@
             <NuxtLink
               to="/report/flash-report-example.pdf"
               target="_blank"
-              class="underline"
+              class="underline font-bold"
               >Review a sample report</NuxtLink
             >
             before you begin to see the type of insights you'll receive

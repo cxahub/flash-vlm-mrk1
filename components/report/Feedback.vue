@@ -1,5 +1,5 @@
 <template>
-  <div class="mx-auto">
+  <div class="mx-auto text-center xl:text-left">
     <NuxtLink :to="feedbackURL" activeClass="text-fs-yellow" target="_blank">
       <div :style="bgImage" class="h-60 rounded-3xl text-center shadow-xl">
         <div

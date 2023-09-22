@@ -45,14 +45,14 @@ const completed = ref(0);
 const pbValue = ref(0);
 const progress = ref(0);
 
-onNuxtReady(() => {
+onMounted(() => {
   setTimeout(function () {
     completed.value = complete.value;
     pbValue.value = Number(completed.value);
     progress.value = completed.value + "%";
     progressBar.value = pbValue.value + "%";
     showProgressBall.value = true;
-  }, 500);
+  }, 1500);
 });
 
 const options = {

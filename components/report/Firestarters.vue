@@ -1,5 +1,5 @@
 <template>
-  <div class="mx-auto">
+  <div class="mx-auto text-center xl:text-left">
     <NuxtLink
       :to="firestartersURL"
       activeClass="text-fs-yellow"

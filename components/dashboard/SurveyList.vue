@@ -1,5 +1,5 @@
 <template>
-  <div class="mx-auto">
+  <div class="mx-auto text-center xl:text-left">
     <div v-if="pending">
       <UiLoader icon="flash-icon-bg-white.png" />
     </div>
@@ -10,29 +10,16 @@
       <table class="table-auto w-full">
         <thead>
           <tr class="border-b-2">
-            <th class="text-left py-2">Company</th>
-            <th class="text-left py-2">Date</th>
-            <th class="text-left py-2">Options</th>
+            <th class="text-center xl:text-left py-2">Company</th>
+            <th class="text-center xl:text-left py-2">Date</th>
           </tr>
         </thead>
         <tbody>
           <tr v-for="s in surveys[1]" :key="s.customersurveyid">
-            <td class="py-2">
-              <a
-                :href="`/?sID=${s[0].customersurveyid}`"
-                class="font-fs-yellow"
-                >{{ s[0].surveyData.org_info.corporate }}</a
-              >
+            <td class="py-2 font-bold">
+              {{ s[0].surveyData.org_info.corporate }}
             </td>
-            <td class="py-2">{{ dateFormat(s[0].createdDate) }}</td>
-            <td class="py-2">
-              <i class="fa fa-file-text pr-2 xl:pr-4" aria-hidden="true"></i>
-              <i
-                class="fa fa-pencil-square pr-2 xl:pr-4"
-                aria-hidden="true"
-              ></i>
-              <i class="fa fa-trash pr-2 xl:pr-4" aria-hidden="true"></i>
-            </td>
+            <td class="py-2">{{ $dateFormat(s[0].createdDate) }}</td>
           </tr>
         </tbody>
       </table>
@@ -41,47 +28,36 @@
   </div>
 </template>
 
-<script>
-import moment from "moment";
-export default {
-  setup() {
-    //Get runtime config.
-    const config = useRuntimeConfig();
+<script setup>
+import nuxtStorage from "nuxt-storage";
 
-    //Fetch options.
-    const options = {
-      method: "POST",
-      body: {
-        Response: {
-          userInfo: {
-            email: "flash@sap.com",
-          },
-        },
+//Get runtime config.
+const config = useRuntimeConfig();
+
+//Fetch options.
+const options = {
+  method: "POST",
+  body: {
+    Response: {
+      userInfo: {
+        email: useCookie("email").value,
       },
-    };
-
-    //Fetch data.
-    const { pending, data: surveys } = useLazyFetch(
-      config.public.VUE_APP_API_URL +
-        "/" +
-        config.public.VUE_APP_API_VLM_SURVEY_LIST_ROUTE,
-      {
-        method: options.method,
-        body: {
-          email: options.body,
-        },
-      }
-    );
-    return {
-      config,
-      surveys,
-      pending,
-    };
-  },
-  methods: {
-    dateFormat(value) {
-      return moment(value).format("DD-MM-yyyy");
     },
   },
+  query: {
+    "x-auth-token": nuxtStorage.localStorage.getData("token"),
+  },
 };
+
+//Fetch data.
+const { pending, data: surveys } = await useLazyFetch(
+  config.public.VUE_APP_API_URL +
+    "/" +
+    config.public.VUE_APP_API_VLM_SURVEY_LIST_ROUTE,
+  {
+    method: options.method,
+    body: options.body,
+    query: options.query,
+  }
+);
 </script>

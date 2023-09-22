@@ -4,14 +4,16 @@
       <UiLoader icon="flash-icon-bg-white.png" />
     </div>
     <div v-else>
-      <div class="grid grid-rows-1 grid-flow-col gap-4 text-center">
+      <div class="grid grid-rows-1 xl:grid-flow-col gap-4 text-center">
         <div
           v-for="(q, index) in questions"
           :key="q.id"
           :class="index === 0 ? 'hidden' : ''"
         >
           <div v-if="index > 0">
-            <div class="text-2xl text-center font-bold text-fs-yellow pb-8">
+            <div
+              class="text-2xl text-center font-bold text-fs-yellow pb-8 drop-shadow-sm"
+            >
               {{ q.header.texts[0].text }}
             </div>
             <div v-for="(qq, key) in q.groups" :key="key">
@@ -26,7 +28,7 @@
                       class="text-base xl:text-lg font-bold text-black text-center uppercase border-2 border-fs-light-brown rounded-lg hover:bg-fs-yellow hover:text-black py-2 px-4 my-4 mx-3 cursor-pointer drop-shadow-lg"
                       :class="
                         qq.questions[0].answers[0].value != ''
-                          ? 'bg-fs-yellow'
+                          ? 'bg-fs-yellow-light'
                           : ''
                       "
                     >

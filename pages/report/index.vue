@@ -1,23 +1,32 @@
 <template>
   <div v-if="complete >= 100">
-    <h1 class="text-3xl xl:text-5xl uppercase font-bold py-4">
+    <h1
+      class="text-3xl xl:text-5xl text-center xl:text-left uppercase font-bold py-4"
+    >
       FLASH&trade; Report
     </h1>
-    <p class="text-lg">
+    <p class="text-lg text-center xl:text-left">
       You must complete all questions to download your FLASH&trade; report.
     </p>
   </div>
   <div v-else>
-    <h1 class="text-3xl xl:text-5xl uppercase font-bold py-4">Thank You</h1>
-    <p class="text-lg">
+    <h1
+      class="text-3xl xl:text-5xl text-center xl:text-left uppercase font-bold py-4"
+    >
+      Thank You
+    </h1>
+    <p class="text-lg text-center xl:text-left">
       Your <span class="font-bold">FLASH&trade;</span> Report is ready for
       download!<br /><br />
       <NuxtLink
         to=""
-        @click="getReport()"
+        @click.prevent="getReport(); showDownload = !showDownload"
         class="max-w-max text-black font-bold uppercase rounded-lg cursor-pointer drop-shadow-lg bg-fs-yellow hover:bg-fs-yellow-light text-sm xl:text-base py-3 px-3 my-3 xl:py-4 xl:px-4 xl:my-4"
         >Download Report</NuxtLink
       >
+      <div v-if="showDownload">
+        <UiLoader type="download" />
+      </div>
       <br />
       <br />
       <br />
@@ -41,7 +50,9 @@
       </NuxtLink>
       site, we'd love to hear from you.
     </p>
-    <h2 class="text-4xl uppercase font-bold py-8">Next Steps?</h2>
+    <h2 class="text-4xl text-center xl:text-left uppercase font-bold py-8">
+      Next Steps?
+    </h2>
     <div class="grid xl:grid-cols-3 gap-8">
       <div>
         <ReportRequest />
@@ -60,6 +71,8 @@
 import nuxtStorage from "nuxt-storage";
 
 const token = nuxtStorage.localStorage.getData("token");
+
+const showDownload = ref(false);
 
 if (!token) {
   navigateTo("/profile?timeout=true");
@@ -85,7 +98,21 @@ definePageMeta({
 function getReport() {
   getDownload()
     .then((result) => {
-      return result;
+      showDownload.value = false;
+      const url = window.URL.createObjectURL(
+        new Blob([result], {
+          type: "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+        })
+      );
+      const link = document.createElement("a");
+
+      link.href = url;
+      link.setAttribute("download", "Flash.pptx");
+      document.body.appendChild(link);
+
+      link.click();
+      link.remove();
+      window.URL.revokeObjectURL(url);
     })
     .catch((error) => {
       console.error("Get report could not be sent", error);

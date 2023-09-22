@@ -31,6 +31,22 @@
       </div>
     </div>
   </div>
+  <div v-else-if="type === 'download'">
+    <div class="text-center py-16">
+      <img
+        :src="`/images/icon/${icon}`"
+        loading="lazy"
+        class="w-8 mx-auto animate-bounce drop-shadow-lg pb-4"
+        aria-label="firestarters loader"
+      />
+      <div
+        class="animate-pulse font-bold"
+        :class="icon === 'flash-icon.png' ? 'text-black' : 'text-white'"
+      >
+        Downloading please wait...
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>

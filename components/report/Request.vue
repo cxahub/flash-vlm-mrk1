@@ -1,5 +1,5 @@
 <template>
-  <div class="mx-auto">
+  <div class="mx-auto text-center xl:text-left">
     <div :style="bgImage" class="h-60 rounded-3xl text-center shadow-xl">
       <div
         class="h-full text-8xl font-bold text-white bg-fs-brown bg-opacity-50 rounded-3xl"

@@ -1,14 +1,16 @@
 <template>
-  <h1 class="text-3xl xl:text-5xl font-bold text-fs-yellow">
+  <h1
+    class="text-3xl text-center xl:text-left xl:text-5xl font-bold text-fs-yellow drop-shadow-sm"
+  >
     Survey Dashboard
   </h1>
   <div class="grid xl:grid-cols-2 gap-0 xl:gap-4">
-    <div class="xl:text-xl py-8">
+    <div class="text-center xl:text-left xl:text-xl py-8">
       <span class="font-bold"
         >We'll keep track of your progress for you on this page.<br
       /></span>
-      Use the button on the right to get started with your assessment. You can
-      also choose from the many question topics below:
+      Click the "Start Survey Now" button to get started with your assessment.
+      You can also choose from the many question topics below:
     </div>
     <div class="py-10 text-center xl:text-right float-right">
       <NuxtLink
@@ -18,14 +20,14 @@
         Start Survey Now &rarr;</NuxtLink
       >
     </div>
-    <!--
+
     <div class="py-10 text-center xl:text-left">
       <UiButton
         :text="!showSurveyList ? 'Show My Surveys' : 'Hide My Surveys'"
         path=""
         @click="showSurveyList = !showSurveyList"
       />
-    </div>-->
+    </div>
   </div>
   <div v-if="showSurveyList">
     <DashboardSurveyList />
