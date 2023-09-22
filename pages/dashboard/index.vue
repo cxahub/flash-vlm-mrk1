@@ -7,7 +7,8 @@
       <span class="font-bold"
         >We'll keep track of your progress for you on this page.<br
       /></span>
-      Use the button on the right to get started with your assessment.
+      Use the button on the right to get started with your assessment. You can
+      also choose from the many question topics below:
     </div>
     <div class="py-10 text-center xl:text-right float-right">
       <NuxtLink
@@ -30,8 +31,8 @@
     <DashboardSurveyList />
   </div>
   <div v-else>
-    <UiProgressBar :completePercentage="complete" />
-    <DashboardQuestions :showLink="true" :completePercentage="complete" />
+    <UiProgressBar />
+    <DashboardQuestions :showLink="true" />
   </div>
 </template>
 
@@ -40,6 +41,7 @@ import nuxtStorage from "nuxt-storage";
 
 //Get runtime config.
 const config = useRuntimeConfig();
+const complete = ref(0);
 
 const token = nuxtStorage.localStorage.getData("token");
 
@@ -61,24 +63,4 @@ definePageMeta({
   });
 
 const showSurveyList = ref(false);
-
-const options = {
-  method: "GET",
-  query: {
-    "x-auth-token": nuxtStorage.localStorage.getData("token"),
-    customerSurveyId: useCookie("surveyID").value,
-    completedpercentage: true,
-  },
-};
-
-//Fetch data.
-const { data: complete } = useLazyFetch(
-  config.public.VUE_APP_API_URL +
-    "/" +
-    config.public.VUE_APP_API_VLM_SURVEY_ROUTE,
-  {
-    method: options.method,
-    query: options.query,
-  }
-);
 </script>

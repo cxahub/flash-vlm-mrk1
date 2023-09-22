@@ -1,14 +1,12 @@
 <template>
   <div class="mx-auto">
-    <NuxtLink to="/contact" activeClass="text-fs-yellow" target="_blank">
-      <div :style="bgImage" class="h-60 rounded-3xl text-center shadow-xl">
-        <div
-          class="h-full text-8xl font-bold text-white bg-fs-brown bg-opacity-50 rounded-3xl"
-        >
-          <span class="opacity- relative top-[30%]">1</span>
-        </div>
+    <div :style="bgImage" class="h-60 rounded-3xl text-center shadow-xl">
+      <div
+        class="h-full text-8xl font-bold text-white bg-fs-brown bg-opacity-50 rounded-3xl"
+      >
+        <span class="opacity- relative top-[30%]">1</span>
       </div>
-    </NuxtLink>
+    </div>
     <p class="text-lg py-4">
       <span class="font-bold">Connect with an expert</span> to review the
       results with you, and dive deeper into best practices.

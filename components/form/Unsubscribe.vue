@@ -54,7 +54,6 @@ const onSubmit = () => {
 };
 
 async function formRequest() {
-  console.log(config.public.VUE_APP_API_VLM_UNSUBSCRIBE_ROUTE);
   return await $fetch(
     config.public.VUE_APP_API_URL +
       "/" +

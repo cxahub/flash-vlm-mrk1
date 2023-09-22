@@ -165,7 +165,7 @@ function setCookies(user) {
   token.value = token;
 
   //Create user cookies for use throughout the site.
-  const userID = useCookie("userId", {
+  const userId = useCookie("userId", {
     maxAge: config.public.VUE_APP_COOKIE_EXPIRES,
   });
   const firstName = useCookie("firstName", {
@@ -180,7 +180,7 @@ function setCookies(user) {
   const email = useCookie("email", {
     maxAge: config.public.VUE_APP_COOKIE_EXPIRES,
   });
-  userID.value = user.userId;
+  userId.value = user.userId;
   firstName.value = user.firstName;
   lastName.value = user.lastName;
   companyName.value = user.companyName;
@@ -195,27 +195,14 @@ function setSurveyID(id, survey) {
   surveyID.value = id;
   //Answer registration questions to instantiate the survey.
   const companyAnswerID = survey.preSurveyAssets.org_info.org_level.unique_id;
-  console.log("companyAnswerID: " + companyAnswerID);
   const bfAnswerID = survey.areas[0].groups[0].questions[0].answers[0].id;
-  console.log("bfAnswerID: " + bfAnswerID);
   const jrAnswerID = survey.areas[0].groups[1].questions[0].answers[0].id;
-  console.log("jrAnswerID: " + jrAnswerID);
   setRegistrationData(companyAnswerID, useCookie("companyName").value);
   setRegistrationData(bfAnswerID, useCookie("businessfunction").value);
   setRegistrationData(jrAnswerID, useCookie("jobrole").value);
 }
 
-//Fetch options.
-const options = {
-  query: {
-    "x-auth-token": nuxtStorage.localStorage.getData("token"),
-    userId: useCookie("userId").value,
-  },
-};
-
 async function setRegistrationData(id, answer) {
-  console.log("setRegistrationData ID: " + id);
-  console.log("setRegistrationData Answer: " + answer);
   return await $fetch(
     config.public.VUE_APP_API_URL +
       "/" +
@@ -233,7 +220,10 @@ async function setRegistrationData(id, answer) {
           },
         ],
       },
-      query: options.query,
+      query: {
+        "x-auth-token": nuxtStorage.localStorage.getData("token"),
+        userId: useCookie("userId").value,
+      },
     }
   );
 }

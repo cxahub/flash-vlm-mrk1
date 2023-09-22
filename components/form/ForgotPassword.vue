@@ -44,7 +44,6 @@ const onSubmit = () => {
   formRequest()
     .then((result) => {
       results.value = result;
-      console.log(results.value.success);
       if (results.value.success) {
         navigateTo("/profile");
       }

@@ -1,6 +1,6 @@
 applications:
   - name: flash-vlm-mrk1
-    path: dist
+    path: .output/public
     routes:
       - route: flash-vlm.cxahub.com
     buildpack: nginx_buildpack

@@ -4,6 +4,7 @@
   </div>
   <div v-else>
     <div class="mx-auto">
+      <UiProgressBar />
       <div
         class="grid grid-cols-1 xl:grid-cols-3 gap-0 xl:gap-8 px-8 py-6 mb-8 border-2 rounded-3xl bg-white drop-shadow-lg"
       >
@@ -74,9 +75,28 @@ const config = useRuntimeConfig();
 //Set emit.
 const emit = defineEmits(["choice"]);
 
-const addChoice = (name) => {
-  emit("choice", name);
+const addChoice = (id) => {
+  emit("choice", id);
+  uncheckElements(id);
 };
+
+function uncheckElements(id) {
+  if (id === 6) {
+    var uncheck = document.getElementsByTagName("input");
+    for (var i = 0; i < uncheck.length - 1; i++) {
+      if (uncheck[i].type == "checkbox") {
+        uncheck[i].checked = false;
+      }
+    }
+  } else {
+    var uncheck = document.getElementsByTagName("input");
+    for (var i = 0; i < uncheck.length; i++) {
+      if (uncheck[i].type == "checkbox" && i === 6) {
+        uncheck[i].checked = false;
+      }
+    }
+  }
+}
 
 //Fetch options.
 const options = {

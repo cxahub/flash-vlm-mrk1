@@ -53,7 +53,6 @@
         >
           <NuxtLink
             to="/unsubscribe"
-            target="_blank"
             class="py-2 text-fs-yellow hover:text-white cursor-pointer"
             >Opt-out?</NuxtLink
           >

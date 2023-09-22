@@ -12,7 +12,6 @@
         ].questions[0].answers[0].value
       "
     />
-    <UiProgressBar :completePercentage="complete" />
 
     <SurveyQuestion
       @choice="addChoice"
@@ -78,7 +77,6 @@
         <div
           v-else-if="parseInt(route.params.id * route.params.groupid) === 15"
         >
-          Final Question
           <NavSurvey
             @choice="addChoice"
             :groupID="parseInt(route.params.groupid)"
@@ -177,13 +175,20 @@ definePageMeta({
 const selectedChoices = ref([]);
 
 const addChoice = (id) => {
-  const choiceList = [...selectedChoices.value];
-  if (choiceList.includes(id)) {
-    choiceList.splice(choiceList.indexOf(id), 1);
-  } else {
+  let choiceList = [...selectedChoices.value];
+  //Handle none of the above.
+  if (id === 6) {
+    choiceList = [];
     choiceList.push(id);
+    selectedChoices.value = choiceList;
+  } else {
+    if (choiceList.includes(id)) {
+      choiceList.splice(choiceList.indexOf(id), 1);
+    } else {
+      choiceList.push(id);
+    }
+    selectedChoices.value = choiceList;
   }
-  selectedChoices.value = choiceList;
 };
 
 //Fetch options.
@@ -207,32 +212,11 @@ const { pending, data: questions } = useLazyFetch(
   }
 );
 
-const optionsComplete = {
-  method: "GET",
-  query: {
-    "x-auth-token": nuxtStorage.localStorage.getData("token"),
-    customerSurveyId: useCookie("surveyID").value,
-    completedpercentage: true,
-  },
-};
-
-//Fetch data.
-const { data: complete } = useLazyFetch(
-  config.public.VUE_APP_API_URL +
-    "/" +
-    config.public.VUE_APP_API_VLM_SURVEY_ROUTE,
-  {
-    method: optionsComplete.method,
-    query: optionsComplete.query,
-  }
-);
-
 onNuxtReady(() => {
   setTimeout(function () {
     const list = document.getElementById("answers").value;
     for (var i = 0; i < list.length; i++) {
       if (list[i] != ",") {
-        console.log(list[i]);
         selectedChoices.value.push(parseInt(list[i]));
       }
     }

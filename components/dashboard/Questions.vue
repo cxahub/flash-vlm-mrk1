@@ -46,7 +46,7 @@
           </div>
         </div>
       </div>
-      <ReportGenerate :completePercentage="completePercentage" />
+      <ReportGenerate />
     </div>
   </div>
 </template>
@@ -57,7 +57,6 @@ import nuxtStorage from "nuxt-storage";
 const props = defineProps({
   showLink: { type: Boolean },
   colWidth: { type: Boolean },
-  completePercentage: { type: Number, default: 0 },
 });
 
 //Get runtime config.
@@ -73,7 +72,7 @@ const options = {
   query: {
     "x-auth-token": nuxtStorage.localStorage.getData("token"),
     customerSurveyId: useCookie("surveyID").value,
-    groupedquestions: true,
+    questions: true,
   },
 };
 

@@ -8,6 +8,7 @@ export default defineNuxtConfig({
   image: {
     dir: "public",
   },
+  ssr: false,
   css: ["~/assets/styles/main.css"],
   app: {
     head: {
@@ -67,6 +68,7 @@ export default defineNuxtConfig({
       VUE_APP_API_VLM_SURVEY_SAVE_RESPONSE_ROUTE:
         process.env.VUE_APP_API_VLM_SURVEY_SAVE_RESPONSE_ROUTE,
       VUE_APP_API_VLM_SURVEY_ROUTE: process.env.VUE_APP_API_VLM_SURVEY_ROUTE,
+      VUE_APP_API_VLM_REPORT_ROUTE: process.env.VUE_APP_API_VLM_REPORT_ROUTE,
       VUE_APP_API_VLM_UNSUBSCRIBE_ROUTE:
         process.env.VUE_APP_API_VLM_UNSUBSCRIBE_ROUTE,
     },
