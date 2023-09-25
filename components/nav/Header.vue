@@ -1,7 +1,7 @@
 <template>
   <header class="fixed w-full -top-1 z-20 bg-fs-brown xl:h-[90px]">
     <nav
-      class="container mx-auto xl:flex xl:justify-between xl:items-center py-5"
+      class="container mx-auto xl:flex xl:justify-between xl:items-center py-5 px-4 xl:px-0"
     >
       <div class="flex items-center justify-between">
         <NuxtLink to="/" class="hover:text-fs-yellow">

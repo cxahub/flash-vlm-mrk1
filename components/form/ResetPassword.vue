@@ -3,13 +3,13 @@
     <form accept-charset="UTF-8" v-on:submit.prevent="onSubmit()" method="POST">
       <div>
         <label class="block text-white font-bold py-2"
-          ><span class="text-fs-red">*</span> Email</label
+          ><span class="text-fs-red">*</span> Password</label
         >
         <input
-          type="email"
-          v-model="email"
+          type="password"
+          v-model="password"
           class="w-full rounded xl:w-1/2"
-          placeholder="Email"
+          placeholder="New Password"
           required="true"
         />
       </div>
@@ -29,6 +29,12 @@
 </template>
 
 <script setup>
+const route = useRoute();
+
+if (!route.params.resetpassreq) {
+  navigateTo("/profile");
+}
+
 //Get runtime config.
 const config = useRuntimeConfig();
 
@@ -49,7 +55,7 @@ const onSubmit = () => {
       }
     })
     .catch((error) => {
-      console.error("Forgot Password form could not be sent", error);
+      console.error("Reset Password form could not be sent", error);
     });
 };
 
@@ -57,13 +63,11 @@ async function formRequest() {
   return await $fetch(
     config.public.VUE_APP_API_URL +
       "/" +
-      config.public.VUE_APP_API_VLM_FORGOT_PASSWORD_ROUTE,
+      config.public.VUE_APP_API_VLM_RESET_PASSWORD_ROUTE,
     {
-      method: "GET",
+      method: "POST",
       query: {
-        email: email.value,
-        redirectURL: config.public.VUE_APP_FLASH_WEBSITE_URL,
-        redirectPath: "/profile/reset-password",
+        resetpassreq: route.params.resetpassreq,
       },
     }
   );

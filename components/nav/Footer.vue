@@ -1,6 +1,6 @@
 <template>
   <footer class="xl:sticky bottom-0 w-full h-160 bg-fs-brown">
-    <div class="container mx-auto z-10">
+    <div class="container mx-auto z-10 px-4 xl:px-0">
       <div class="grid grid-cols-2 gap-8 py-4">
         <div class="col-span-2 text-center xl:text-left">
           <NuxtLink

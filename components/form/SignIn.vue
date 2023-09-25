@@ -8,6 +8,9 @@
   <div v-if="!results.success" class="text-fs-yellow font-bold">
     {{ results.err }}
   </div>
+  <div v-if="showSignIn">
+    <UiLoader icon="flash-icon.png" type="signin" />
+  </div>
   <div>
     <form accept-charset="UTF-8" v-on:submit.prevent="onSubmit()" method="POST">
       <div>
@@ -78,10 +81,16 @@ let registrationMessage = ref(
 );
 let timeoutMessage = ref("Your session has timed out. Please Sign In again.");
 
+const showSignIn = ref(false);
+
 const onSubmit = () => {
+  showSignIn.value = true;
   formRequest()
     .then((result) => {
       results.value = result;
+      if (!results.success) {
+        showSignIn.value = false;
+      }
       if (results.value.success) {
         setCookies(results.value.results[0]);
 
@@ -102,6 +111,7 @@ const onSubmit = () => {
             });
         }
         setTimeout(function () {
+          showSignIn.value = false;
           navigateTo("/dashboard");
         }, 2000);
       }

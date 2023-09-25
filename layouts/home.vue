@@ -1,6 +1,6 @@
 <template>
   <NavHeader />
-  <main :style="bgImage">
+  <main :style="bgImage" class="px-4 xl:px-0">
     <div class="container mx-auto">
       <slot />
     </div>

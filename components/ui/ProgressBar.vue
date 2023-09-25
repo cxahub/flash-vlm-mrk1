@@ -12,7 +12,9 @@
         class="absolute pr-6 text-2xl text-fs-yellow text-roboto -ml-10"
         :style="{ left: progress }"
       >
-        <span class="relative block h-7 rounded-full bg-fs-yellow right-0">
+        <span
+          class="relative block h-7 rounded-full bg-fs-yellow right-0 ml-6 xl:ml-2"
+        >
           <span class="block float-right text-white text-base px-2 pt-1">{{
             progress
           }}</span>

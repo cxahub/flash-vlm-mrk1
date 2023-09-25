@@ -1,30 +1,37 @@
 <template>
   <div class="mx-auto text-center xl:text-left">
-    <NuxtLink
-      :to="firestartersURL"
-      activeClass="text-fs-yellow"
-      target="_blank"
-    >
-      <div :style="bgImage" class="h-60 rounded-3xl text-center shadow-xl">
-        <div
-          class="h-full text-8xl font-bold text-white bg-fs-brown bg-opacity-50 rounded-3xl"
-        >
-          <span class="opacity- relative top-[30%]">3</span>
-        </div>
-      </div></NuxtLink
-    >
-    <p class="text-lg py-4">
-      <span class="font-bold">Explore the Firestarters&trade; Community</span>
-      with insights, events, and tools like this FLASH&trade; Enterprise
-      Assessment. Unlock value and drive your business forward.
-    </p>
-    <UiButton
-      class="py-4"
-      text="Learn More"
-      :path="firestartersURL"
-      format="primary"
-      size="lg"
-    />
+    <div>
+      <NuxtLink
+        :to="firestartersURL"
+        activeClass="text-fs-yellow"
+        target="_blank"
+      >
+        <div :style="bgImage" class="h-60 rounded-3xl text-center shadow-xl">
+          <div
+            class="h-full text-8xl font-bold text-white bg-fs-brown bg-opacity-50 rounded-3xl"
+          >
+            <span class="opacity- relative top-[30%]">3</span>
+          </div>
+        </div></NuxtLink
+      >
+    </div>
+    <div class="h-auto xl:h-40">
+      <p class="text-lg py-4">
+        <span class="font-bold">Explore the Firestarters&trade; Community</span>
+        with insights, events, and tools like this FLASH&trade; Enterprise
+        Assessment. Unlock value and drive your business forward.
+      </p>
+    </div>
+    <div>
+      <UiButton
+        class="py-4"
+        text="Learn More"
+        :path="firestartersURL"
+        target="_blank"
+        format="primary"
+        size="lg"
+      />
+    </div>
   </div>
 </template>
 

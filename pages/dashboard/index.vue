@@ -9,7 +9,8 @@
       <span class="font-bold"
         >We'll keep track of your progress for you on this page.<br
       /></span>
-      Click the "Start Survey Now" button to get started with your assessment.
+      Click the "Start Survey Now" button to get started with your
+      assessment.<br /><br />
       You can also choose from the many question topics below:
     </div>
     <div class="py-10 text-center xl:text-right float-right">

@@ -4,11 +4,11 @@
   >
     <div class="p-4">
       <h1 class="text-3xl xl:text-5xl text-fs-yellow uppercase font-bold">
-        Forgot Password
+        Reset Password
       </h1>
     </div>
     <div class="p-4">
-      <FormForgotPassword />
+      <FormResetPassword />
     </div>
   </div>
 </template>
@@ -18,11 +18,11 @@ definePageMeta({
   layout: "home",
 });
 useHead({
-  title: "Forgot Password - FLASH",
+  title: "Reset Password - FLASH",
   meta: [
     {
       name: "description",
-      content: "FLASH - Forgot Password",
+      content: "FLASH - Reset Password",
     },
   ],
 });

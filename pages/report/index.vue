@@ -25,7 +25,7 @@
         >Download Report</NuxtLink
       >
       <div v-if="showDownload">
-        <UiLoader type="download" />
+        <UiLoader icon="flash-icon-bg-white.png" type="download" />
       </div>
       <br />
       <br />
@@ -37,7 +37,7 @@
         class="underline"
         target="_blank"
         >flash@sap.com</NuxtLink
-      ><br /><br />
+      >.<br /><br />
       Please provide feedback regarding your experience, request a meeting, or
       visit our
       <NuxtLink
@@ -46,9 +46,8 @@
         class="underline"
         target="_blank"
       >
-        Firestarters&trade; Online Global Community
-      </NuxtLink>
-      site, we'd love to hear from you.
+        Firestarters&trade; Online Global Community</NuxtLink>
+      , we'd love to hear from you.
     </p>
     <h2 class="text-4xl text-center xl:text-left uppercase font-bold py-8">
       Next Steps?
@@ -106,8 +105,19 @@ function getReport() {
       );
       const link = document.createElement("a");
 
+      const today = new Date();
+      const yyyy = today.getFullYear();
+      let mm = today.getMonth() + 1; // Months start at 0!
+      let dd = today.getDate();
+
+      if (dd < 10) dd = '0' + dd;
+      if (mm < 10) mm = '0' + mm;
+
+      const formattedToday = dd + '-' + mm + '-' + yyyy;
+      const filename = 'FLASH Enterprise Retail Report - ' + formattedToday + '.pptx';
+
       link.href = url;
-      link.setAttribute("download", "Flash.pptx");
+      link.setAttribute("download", filename);
       document.body.appendChild(link);
 
       link.click();

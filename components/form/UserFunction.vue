@@ -209,7 +209,6 @@ const { data: businessfunction } = useLazyFetch(
   {
     query: {
       status_id: 1,
-      order_by: "sort_id, bf_name",
     },
   }
 );
@@ -222,7 +221,6 @@ const { data: jobrole } = useLazyFetch(
   {
     query: {
       status_id: 1,
-      order_by: "sort_id, jr_name",
     },
   }
 );
