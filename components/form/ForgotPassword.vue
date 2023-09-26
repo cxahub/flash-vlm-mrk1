@@ -1,4 +1,7 @@
 <template>
+  <div v-if="showResultMessage" class="text-fs-yellow font-bold py-4">
+    {{ results }}
+  </div>
   <div>
     <form accept-charset="UTF-8" v-on:submit.prevent="onSubmit()" method="POST">
       <div>
@@ -16,9 +19,7 @@
       <UiButton role="button" text="Submit" type="submit" />
     </form>
     <div class="text-white block float-left pr-4">
-      <NuxtLink to="/profile" class="underline cursor-pointer"
-        >Register Now</NuxtLink
-      >
+      <NuxtLink to="/" class="underline cursor-pointer">Register Now</NuxtLink>
     </div>
     <div class="text-white">
       <NuxtLink to="/profile" class="underline cursor-pointer"
@@ -32,6 +33,8 @@
 //Get runtime config.
 const config = useRuntimeConfig();
 
+let showResultMessage = ref(false);
+
 //Cookie
 const rememberUser = useCookie("rememberUser");
 rememberUser.value = rememberUser.value || "";
@@ -41,19 +44,17 @@ let email = ref(rememberUser.value);
 let results = ref("");
 
 const onSubmit = () => {
-  formRequest()
+  formRequest(config.public.VUE_APP_FLASH_WEBSITE_URL)
     .then((result) => {
       results.value = result;
-      if (results.value.success) {
-        navigateTo("/profile");
-      }
+      showResultMessage.value = true;
     })
     .catch((error) => {
       console.error("Forgot Password form could not be sent", error);
     });
 };
 
-async function formRequest() {
+async function formRequest(url) {
   return await $fetch(
     config.public.VUE_APP_API_URL +
       "/" +
@@ -62,8 +63,8 @@ async function formRequest() {
       method: "GET",
       query: {
         email: email.value,
-        redirectURL: config.public.VUE_APP_FLASH_WEBSITE_URL,
-        redirectPath: "/profile/reset-password",
+        redirectUrl: url,
+        redirectPath: "profile/reset-password",
       },
     }
   );

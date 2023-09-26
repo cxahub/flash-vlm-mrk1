@@ -42,14 +42,18 @@
 <script setup>
 import nuxtStorage from "nuxt-storage";
 
-//Get runtime config.
-const config = useRuntimeConfig();
-const complete = ref(0);
-
 const token = nuxtStorage.localStorage.getData("token");
+const surveyID = ref(useCookie("surveyID").value);
 
+//If token expires redirect.
 if (!token) {
   navigateTo("/profile?timeout=true");
+}
+
+//If surveyID fails to set, redirect.
+if (typeof surveyID.value === "undefined" || surveyID.value === "") {
+  nuxtStorage.localStorage.clear();
+  navigateTo("/profile?surveyIDWarning=true");
 }
 
 definePageMeta({

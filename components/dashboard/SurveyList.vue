@@ -4,9 +4,7 @@
       <UiLoader icon="flash-icon-bg-white.png" />
     </div>
     <div v-else class="pb-16">
-      <h1 class="text-xl xl:text-3xl uppercase font-bold py-8">
-        My Surveys ({{ surveys[0].tabs[0].TotalCount }})
-      </h1>
+      <h1 class="text-xl xl:text-3xl uppercase font-bold py-8">My Surveys</h1>
       <table class="table-auto w-full">
         <thead>
           <tr class="border-b-2">
@@ -15,11 +13,11 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="s in surveys[1]" :key="s.customersurveyid">
+          <tr v-for="s in surveylist" :key="s.surveys">
             <td class="py-2 font-bold">
-              {{ s[0].surveyData.org_info.corporate }}
+              {{ s.surveyData.org_info.corporate }}({{ s.customersurveyid }})
             </td>
-            <td class="py-2">{{ $dateFormat(s[0].createdDate) }}</td>
+            <td class="py-2">{{ $dateFormat(s.surveyData.createdDate) }}</td>
           </tr>
         </tbody>
       </table>
@@ -50,7 +48,7 @@ const options = {
 };
 
 //Fetch data.
-const { pending, data: surveys } = await useLazyFetch(
+const { pending, data: surveylist } = await useLazyFetch(
   config.public.VUE_APP_API_URL +
     "/" +
     config.public.VUE_APP_API_VLM_SURVEY_LIST_ROUTE,

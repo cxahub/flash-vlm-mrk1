@@ -1,4 +1,7 @@
 <template>
+  <div v-if="route.query.surveyIDWarning" class="text-fs-yellow font-bold py-4">
+    {{ surveyIDWarningMessage }}
+  </div>
   <div v-if="route.query.registration" class="text-fs-yellow font-bold py-4">
     {{ registrationMessage }}
   </div>
@@ -63,9 +66,6 @@ const rememberUser = useCookie("rememberUser", {
 });
 rememberUser.value = rememberUser.value || "";
 
-//Token
-const token = nuxtStorage.localStorage.getData("token");
-
 //Form vars.
 let email = ref(rememberUser.value);
 let password = ref("");
@@ -76,9 +76,14 @@ const surveyID = useCookie("surveyID", {
   maxAge: config.public.VUE_APP_COOKIE_EXPIRES,
 });
 surveyID.value = surveyID.value || "";
+let surveyIDWarningMessage = ref(
+  "There was an issue retrieving your survey data. Please Sign In again."
+);
+
 let registrationMessage = ref(
   "You have successfully registered. Please Sign In once you have activated your account."
 );
+
 let timeoutMessage = ref("Your session has timed out. Please Sign In again.");
 
 const showSignIn = ref(false);
@@ -88,30 +93,42 @@ const onSubmit = () => {
   formRequest()
     .then((result) => {
       results.value = result;
-      if (!results.success) {
+      if (!results.value.success) {
         showSignIn.value = false;
       }
       if (results.value.success) {
+        //Create cookies.
         setCookies(results.value.results[0]);
+        //Check for existing survey.
+        getExistingSurvey().then((surveyData) => {
+          if (surveyData.status) {
+            const totalSurveys = surveyData.results[0].tabs[0].TotalCount;
+            const surveyResult = surveyData.results[1];
 
-        //Enroll survey and auth if it doesn't exist.
-        if (surveyID.value === "") {
-          surveyEnrollRequest()
-            .then((resultEnroll) => {
-              resultsEnroll.value = resultEnroll;
-              if (resultsEnroll.value.status) {
-                setSurveyID(
-                  resultsEnroll.value.results.id,
-                  resultsEnroll.value.results
-                );
+            //If a survey exists use it.
+            if (totalSurveys === 0) {
+              //Enroll survey and auth if it doesn't exist.
+              if (surveyID.value === "") {
+                surveyEnrollRequest()
+                  .then((resultEnroll) => {
+                    resultsEnroll.value = resultEnroll;
+                    if (resultsEnroll.value.status) {
+                      setSurveyID(
+                        resultsEnroll.value.results.id,
+                        resultsEnroll.value.results
+                      );
+                    }
+                  })
+                  .catch((error) => {
+                    console.error("Enroll form could not be executed", error);
+                  });
               }
-            })
-            .catch((error) => {
-              console.error("Enroll form could not be executed", error);
-            });
-        }
+            } else {
+              surveyID.value = surveyResult.surveys[0].customersurveyid;
+            }
+          }
+        });
         setTimeout(function () {
-          showSignIn.value = false;
           navigateTo("/dashboard");
         }, 2000);
       }
@@ -171,7 +188,11 @@ function setCookies(user) {
   rememberUser.value = user.email;
 
   //Set the user token.
-  const token = nuxtStorage.localStorage.setData("token", user.token, 60);
+  const token = nuxtStorage.localStorage.setData(
+    "token",
+    user.token,
+    config.public.VUE_APP_LOCAL_STORAGE_EXPIRES
+  );
   token.value = token;
 
   //Create user cookies for use throughout the site.
@@ -233,6 +254,28 @@ async function setRegistrationData(id, answer) {
       query: {
         "x-auth-token": nuxtStorage.localStorage.getData("token"),
         userId: useCookie("userId").value,
+      },
+    }
+  );
+}
+
+async function getExistingSurvey() {
+  return await $fetch(
+    config.public.VUE_APP_API_URL +
+      "/" +
+      config.public.VUE_APP_API_VLM_SURVEY_LIST_ROUTE,
+    {
+      method: "POST",
+      body: {
+        Response: {
+          userInfo: {
+            email: email.value,
+          },
+        },
+      },
+      query: {
+        "x-auth-token": nuxtStorage.localStorage.getData("token"),
+        fullquery: true,
       },
     }
   );

@@ -1,9 +1,28 @@
 <template>
-  <div>
+  <div v-if="showResultMessage" class="text-fs-yellow font-bold py-4">
+    {{ results.results[0].info }}<br /><br />
+    <div v-if="results.success">
+      <div v-if="results.results[0].info.includes('expired')">
+        <NuxtLink
+          to="/profile/forgot-password"
+          class="max-w-max text-black font-bold uppercase rounded-lg cursor-pointer drop-shadow-lg bg-fs-yellow hover:bg-fs-yellow-light text-sm xl:text-base py-3 px-3 my-3 xl:py-4 xl:px-4 xl:my-4"
+          >Request Again</NuxtLink
+        >
+      </div>
+      <div v-else>
+        <NuxtLink
+          to="/profile"
+          class="max-w-max text-black font-bold uppercase rounded-lg cursor-pointer drop-shadow-lg bg-fs-yellow hover:bg-fs-yellow-light text-sm xl:text-base py-3 px-3 my-3 xl:py-4 xl:px-4 xl:my-4"
+          >Sign In</NuxtLink
+        >
+      </div>
+    </div>
+  </div>
+  <div v-else>
     <form accept-charset="UTF-8" v-on:submit.prevent="onSubmit()" method="POST">
       <div>
         <label class="block text-white font-bold py-2"
-          ><span class="text-fs-red">*</span> Password</label
+          ><span class="text-fs-red">*</span> New Password</label
         >
         <input
           type="password"
@@ -16,9 +35,7 @@
       <UiButton role="button" text="Submit" type="submit" />
     </form>
     <div class="text-white block float-left pr-4">
-      <NuxtLink to="/profile" class="underline cursor-pointer"
-        >Register Now</NuxtLink
-      >
+      <NuxtLink to="/" class="underline cursor-pointer">Register Now</NuxtLink>
     </div>
     <div class="text-white">
       <NuxtLink to="/profile" class="underline cursor-pointer"
@@ -31,28 +48,23 @@
 <script setup>
 const route = useRoute();
 
-if (!route.params.resetpassreq) {
+let showResultMessage = ref(false);
+
+if (!route.query.hash) {
   navigateTo("/profile");
 }
 
 //Get runtime config.
 const config = useRuntimeConfig();
 
-//Cookie
-const rememberUser = useCookie("rememberUser");
-rememberUser.value = rememberUser.value || "";
-
-let email = ref(rememberUser.value);
-
-let results = ref("");
+let results = ref({});
+let password = ref("");
 
 const onSubmit = () => {
   formRequest()
     .then((result) => {
       results.value = result;
-      if (results.value.success) {
-        navigateTo("/profile");
-      }
+      showResultMessage.value = true;
     })
     .catch((error) => {
       console.error("Reset Password form could not be sent", error);
@@ -66,8 +78,11 @@ async function formRequest() {
       config.public.VUE_APP_API_VLM_RESET_PASSWORD_ROUTE,
     {
       method: "POST",
+      body: {
+        pass: password.value,
+      },
       query: {
-        resetpassreq: route.params.resetpassreq,
+        hash: route.query.hash,
       },
     }
   );
