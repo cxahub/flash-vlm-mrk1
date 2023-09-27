@@ -64,7 +64,7 @@ async function formRequest(url) {
       query: {
         email: email.value,
         redirectUrl: url,
-        redirectPath: "profile/reset-password",
+        redirectPath: "/profile/reset-password",
       },
     }
   );

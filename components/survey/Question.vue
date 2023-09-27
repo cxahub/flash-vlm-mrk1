@@ -10,7 +10,7 @@
       >
         <div>
           <h1
-            class="text-2xl xl:text-4xl text-center xl:text-left font-bold uppercase pb-4 xl:pb-10"
+            class="text-2xl xl:text-4xl text-center xl:text-left font-bold uppercase pb-4 xl:pb-10 text-fs-yellow"
           >
             {{ question.header.texts[0].text }}
           </h1>
@@ -20,7 +20,7 @@
         </div>
         <div class="xl:col-span-2">
           <div
-            class="text-fs-yellow drop-shadow-sm xl:text-xl font-semibold xl:font-bold text-center xl:text-left px-4 xl:pb-8"
+            class="drop-shadow-sm xl:text-xl font-semibold xl:font-bold text-center xl:text-left px-4 xl:pb-8 xl:pt-2"
           >
             {{ question.questions[0].body.texts[0].text }}
           </div>

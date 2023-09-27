@@ -32,20 +32,25 @@
             Start the survey and return to it at any time with a free personal
             account
           </li>
-          <li class="mb-4">
+          <li class="xl:mb-4">
             You have the option to have a knowledge expert walk you through your
             results
           </li>
         </ul>
       </div>
-      <div class="text-xs xl:text-sm xl:pt-40">
+      <div class="invisible h-0 xl:h-auto xl:visible xl:text-sm xl:pt-56">
         <img src="/images/logo/sap-logo.png" class="block float-left mr-4" />
         The FLASH™ Retail Maturity Assessment is provided by SAP — a global
         leader in enterprise cloud technology.
       </div>
     </div>
-    <div class="xl:col-span-2 pt-10 xl:pt-0 xl:px-16">
+    <div class="xl:col-span-2 pt-4 xl:pt-0 xl:px-16">
       <FormUserFunction />
+      <div class="visible xl:invisible text-xs mt-6">
+        <img src="/images/logo/sap-logo.png" class="block float-left mr-4" />
+        The FLASH™ Retail Maturity Assessment is provided by SAP — a global
+        leader in enterprise cloud technology.
+      </div>
     </div>
   </div>
 </template>

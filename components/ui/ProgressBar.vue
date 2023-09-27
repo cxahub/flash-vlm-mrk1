@@ -1,7 +1,7 @@
 <template>
   <!-- Survey Progress -->
   <div v-if="pending"></div>
-  <div v-else class="flex flex-nowrap gap-4 items-center py-8">
+  <div v-else class="flex flex-nowrap gap-4 items-center py-2">
     <div class="font-bold pr-4">0%</div>
     <div class="progress-bar progress drop-shadow-md">
       <span
