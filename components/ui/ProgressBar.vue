@@ -3,28 +3,13 @@
   <div v-if="pending"></div>
   <div v-else class="flex flex-nowrap gap-4 items-center py-8">
     <div class="font-bold pr-4">0%</div>
-    <div
-      class="w-full h-8 rounded-full border-2 relative cursor-default bg-white drop-shadow-md"
-    >
-      <!-- Player Ball -->
+    <div class="progress-bar progress drop-shadow-md">
       <span
-        v-if="showProgressBall"
-        class="absolute pr-6 text-2xl text-fs-yellow text-roboto -ml-10"
-        :style="{ left: progress }"
+        v-if="progress != '0%'"
+        :style="{ width: progress }"
+        class="rounded-r-full"
+        >{{ progress }}</span
       >
-        <span
-          class="relative block h-7 rounded-full bg-fs-yellow right-0 ml-6 xl:ml-2"
-        >
-          <span class="block float-right text-white text-base px-2 pt-1">{{
-            progress
-          }}</span>
-        </span>
-      </span>
-      <!-- Player Progress Bar-->
-      <span
-        class="block h-2 rounded-full bg-fs-yellow-light pt-4 pb-3"
-        :style="{ width: progressBar }"
-      ></span>
     </div>
     <div class="font-bold pl-4">{{ duration }}</div>
   </div>
@@ -77,3 +62,33 @@ const { pending, data: complete } = await useLazyFetch(
   }
 );
 </script>
+
+<style scoped>
+.progress-bar {
+  width: 100%;
+  height: 30px;
+  border-radius: 15px;
+  margin: 20px 10px;
+  border: 2px solid #eceaea;
+  overflow: hidden;
+  position: relative;
+}
+
+.progress-bar span {
+  height: 100%;
+  display: block;
+  width: 0;
+  color: rgb(255, 251, 251);
+  line-height: 30px;
+  position: absolute;
+  text-align: end;
+  opacity: 1;
+  padding-right: 10px;
+  transition-timing-function: ease-in;
+  transition: 0.1s;
+}
+
+.progress span {
+  background-color: #fcba36;
+}
+</style>

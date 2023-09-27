@@ -1,5 +1,5 @@
 <template>
-  <div v-if="complete >= 100">
+  <div v-if="complete < 100">
     <h1
       class="text-3xl xl:text-5xl text-center xl:text-left uppercase font-bold py-4"
     >

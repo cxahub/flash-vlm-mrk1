@@ -105,32 +105,39 @@ const onSubmit = () => {
             const totalSurveys = surveyData.results[0].tabs[0].TotalCount;
             const surveyResult = surveyData.results[1];
 
+            console.log("Total Surveys: " + totalSurveys);
+
             //If a survey exists use it.
             if (totalSurveys === 0) {
+              console.log("Enrolling");
               //Enroll survey and auth if it doesn't exist.
-              if (surveyID.value === "") {
-                surveyEnrollRequest()
-                  .then((resultEnroll) => {
-                    resultsEnroll.value = resultEnroll;
-                    if (resultsEnroll.value.status) {
-                      setSurveyID(
-                        resultsEnroll.value.results.id,
-                        resultsEnroll.value.results
-                      );
-                    }
-                  })
-                  .catch((error) => {
-                    console.error("Enroll form could not be executed", error);
-                  });
-              }
+              surveyEnrollRequest()
+                .then((resultEnroll) => {
+                  resultsEnroll.value = resultEnroll;
+                  console.log("Enrolled");
+                  if (resultsEnroll.value.status) {
+                    console.log("Setting Survey");
+                    setSurveyID(
+                      resultsEnroll.value.results.id,
+                      resultsEnroll.value.results
+                    );
+                    setTimeout(function () {
+                      navigateTo("/dashboard");
+                    }, 2000);
+                  }
+                  console.log("Survey Set");
+                })
+                .catch((error) => {
+                  console.error("Enroll form could not be executed", error);
+                });
             } else {
               surveyID.value = surveyResult.surveys[0].customersurveyid;
+              setTimeout(function () {
+                navigateTo("/dashboard");
+              }, 2000);
             }
           }
         });
-        setTimeout(function () {
-          navigateTo("/dashboard");
-        }, 2000);
       }
     })
     .catch((error) => {
@@ -183,7 +190,7 @@ async function surveyEnrollRequest() {
   );
 }
 
-function setCookies(user) {
+async function setCookies(user) {
   //Update rememberUser cookie
   rememberUser.value = user.email;
 
@@ -218,7 +225,7 @@ function setCookies(user) {
   email.value = user.email;
 }
 
-function setSurveyID(id, survey) {
+async function setSurveyID(id, survey) {
   //Create surveyID cookie.
   const surveyID = useCookie("surveyID", {
     maxAge: config.public.VUE_APP_COOKIE_EXPIRES,
@@ -228,9 +235,9 @@ function setSurveyID(id, survey) {
   const companyAnswerID = survey.preSurveyAssets.org_info.org_level.unique_id;
   const bfAnswerID = survey.areas[0].groups[0].questions[0].answers[0].id;
   const jrAnswerID = survey.areas[0].groups[1].questions[0].answers[0].id;
-  setRegistrationData(companyAnswerID, useCookie("companyName").value);
-  setRegistrationData(bfAnswerID, useCookie("businessfunction").value);
-  setRegistrationData(jrAnswerID, useCookie("jobrole").value);
+  await setRegistrationData(companyAnswerID, useCookie("companyName").value);
+  await setRegistrationData(bfAnswerID, useCookie("businessfunction").value);
+  await setRegistrationData(jrAnswerID, useCookie("jobrole").value);
 }
 
 async function setRegistrationData(id, answer) {

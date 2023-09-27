@@ -46,7 +46,7 @@
         to=""
         @click="setSurveyAnswer(surveyAnswerID, surveyQuestionAnswer, true)"
         class="max-w-max text-black font-bold uppercase rounded-lg cursor-pointer drop-shadow-lg bg-fs-yellow hover:bg-fs-yellow-light text-sm xl:text-base py-3 px-3 my-3 xl:py-4 xl:px-4 xl:my-4"
-        >Save & Return to Dashboard</NuxtLink
+        >Last Question</NuxtLink
       >
     </div>
     <div

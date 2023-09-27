@@ -40,13 +40,18 @@ rememberUser.value = rememberUser.value || "";
 let email = ref(rememberUser.value);
 
 let results = ref("");
-let unsubscribeMessage = ref("You have successfully unsubscribed.");
+let unsubscribeMessage = ref(
+  "You have successfully unsubscribed. You will now be redirected to the home page."
+);
 
 const onSubmit = () => {
   formRequest()
     .then((result) => {
       results.value = result;
       removeAuth();
+      setTimeout(function () {
+        navigateTo("/");
+      }, 3000);
     })
     .catch((error) => {
       console.error("Unsubscribe form could not be sent", error);
