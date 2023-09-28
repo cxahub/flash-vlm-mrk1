@@ -7,7 +7,7 @@ export default defineNuxtConfig({
   image: {
     dir: "public",
   },
-  ssr: false,
+  ssr: true,
   css: ["~/assets/styles/main.css"],
   app: {
     head: {
