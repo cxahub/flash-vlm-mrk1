@@ -25,11 +25,13 @@
           >
           <input
             type="text"
-            v-model="firstName"
+            v-bind="firstName"
             class="rounded mr-4 mb-2 w-full"
-            required="required"
             placeholder="First Name"
           />
+          <span class="text-fs-yellow text-xs xl:text-sm pt-2">{{
+            errors.firstName
+          }}</span>
         </div>
         <div>
           <label class="block text-white font-bold py-2"
@@ -37,11 +39,13 @@
           >
           <input
             type="text"
-            v-model="lastName"
+            v-bind="lastName"
             class="rounded mr-4 mb-2 w-full"
-            required="required"
             placeholder="Last Name"
           />
+          <span class="text-fs-yellow text-xs xl:text-sm pt-2">{{
+            errors.lastName
+          }}</span>
         </div>
         <div>
           <label class="block text-white font-bold py-2"
@@ -49,11 +53,13 @@
           >
           <input
             type="email"
-            v-model="email"
-            class="rounded w-full"
-            required="required"
+            v-bind="email"
+            class="rounded mr-4 mb-2 w-full"
             placeholder="Email"
           />
+          <span class="text-fs-yellow text-xs xl:text-sm pt-2">{{
+            errors.email
+          }}</span>
         </div>
         <div>
           <label class="block text-white font-bold py-2"
@@ -61,11 +67,13 @@
           >
           <input
             type="password"
-            v-model="password"
-            class="rounded w-full"
-            required="required"
+            v-bind="password"
+            class="rounded mr-4 mb-2 w-full"
             placeholder="Password"
           />
+          <span class="text-fs-yellow text-xs xl:text-sm pt-2">{{
+            errors.password
+          }}</span>
         </div>
         <div>
           <label class="block text-white font-bold py-2"
@@ -73,33 +81,41 @@
           >
           <input
             type="text"
-            v-model="company"
-            class="rounded w-full"
-            required="required"
+            v-bind="company"
+            class="rounded mr-4 mb-2 w-full"
             placeholder="Company Name"
           />
+          <span class="text-fs-yellow text-xs xl:text-sm pt-2">{{
+            errors.company
+          }}</span>
         </div>
         <div>
           <label class="block text-white font-bold py-2"
             ><span class="text-fs-red">*</span> Business Function</label
           >
-          <select class="rounded w-full" v-model="bfID">
+          <select class="rounded mr-4 mb-2 w-full" v-bind="bfID">
             <option value="">Choose a Business Function...</option>
             <option v-for="bf in businessfunction" :key="bf.id" :value="bf.id">
               {{ bf.bf_name }}
             </option>
           </select>
+          <span class="text-fs-yellow text-xs xl:text-sm pt-2">{{
+            errors.bfID
+          }}</span>
         </div>
         <div>
           <label class="block text-white font-bold py-2"
             ><span class="text-fs-red">*</span> Job Role</label
           >
-          <select class="rounded w-full" v-model="jrID">
+          <select class="rounded mr-4 mb-2 w-full" v-bind="jrID">
             <option value="">Choose a Job Role...</option>
             <option v-for="jr in jobrole" :key="jr.id" :value="jr.id">
               {{ jr.jr_name }}
             </option>
           </select>
+          <span class="text-fs-yellow text-xs xl:text-sm pt-2">{{
+            errors.jrID
+          }}</span>
         </div>
         <div class="text-sm xl:text-base text-white py-4">
           By clicking "Submit", you accept our
@@ -194,6 +210,9 @@
 </template>
 
 <script setup>
+import { useForm } from "vee-validate";
+import * as yup from "yup";
+
 //Get runtime config.
 const config = useRuntimeConfig();
 
@@ -225,19 +244,39 @@ const { data: jobrole } = useLazyFetch(
   }
 );
 
-//Form vars.
-let firstName = ref("");
-let lastName = ref("");
-let email = ref("");
-let password = ref("");
-let company = ref("");
-let bfID = ref(0);
-let jrID = ref(0);
+const schema = yup.object({
+  firstName: yup.string().required("First name required"),
+  lastName: yup.string().required("Last name required"),
+  email: yup
+    .string()
+    .required("Email required")
+    .email("Valid email is required"),
+  password: yup
+    .string()
+    .required("Password required")
+    .min(8, "Password minimum length is 8 characters."),
+  company: yup.string().required("Company name required"),
+  bfID: yup.string().required("Business function is required"),
+  jrID: yup.string().required("Job role is required"),
+});
+
+const { defineInputBinds, handleSubmit, errors } = useForm({
+  validationSchema: schema,
+});
+
+// Define fields
+const firstName = defineInputBinds("firstName");
+const lastName = defineInputBinds("lastName");
+const email = defineInputBinds("email");
+const password = defineInputBinds("password");
+const company = defineInputBinds("company");
+const bfID = defineInputBinds("bfID");
+const jrID = defineInputBinds("jrID");
 
 let results = ref("");
 let showRegistering = ref(false);
 
-const onSubmit = () => {
+const onSubmit = handleSubmit(() => {
   formRequest()
     .then((result) => {
       showRegistering.value = false;
@@ -247,14 +286,14 @@ const onSubmit = () => {
         const rememberUser = useCookie("rememberUser", {
           maxAge: config.public.VUE_APP_COOKIE_EXPIRES,
         });
-        rememberUser.value = email.value;
+        rememberUser.value = email.value.value;
         navigateTo("/profile?registration=true");
       }
     })
     .catch((error) => {
       console.error("Registration form could not be sent", error);
     });
-};
+});
 
 async function formRequest() {
   //Show registering.
@@ -267,8 +306,8 @@ async function formRequest() {
   const jobrole = useCookie("jobrole", {
     maxAge: config.public.VUE_APP_COOKIE_EXPIRES,
   });
-  businessfunction.value = bfID.value;
-  jobrole.value = jrID.value;
+  businessfunction.value = bfID.value.value;
+  jobrole.value = jrID.value.value;
 
   //Now call the API.
   return await $fetch(
@@ -278,12 +317,11 @@ async function formRequest() {
     {
       method: "POST",
       body: {
-        firstName: firstName.value,
-        lastName: lastName.value,
-        email: email.value,
-        password: password.value,
-        companyName: company.value,
-        redirectURL: config.public.VUE_APP_VLM_REGISTRATION_REDIRECT_URL,
+        firstName: firstName.value.value,
+        lastName: lastName.value.value,
+        email: email.value.value,
+        password: password.value.value,
+        companyName: company.value.value,
       },
     }
   );

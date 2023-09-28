@@ -13,12 +13,15 @@
         >
         <input
           type="email"
-          v-model="email"
+          v-bind="email"
           class="rounded w-full xl:w-1/2"
           placeholder="Email"
           required="true"
         />
       </div>
+      <span class="block text-fs-yellow text-xs xl:text-sm pt-2">{{
+        errors.email
+      }}</span>
       <UiButton role="button" text="Submit" type="submit" />
     </form>
     <div class="block float-left text-sm text-white py-8">
@@ -29,6 +32,8 @@
 
 <script setup>
 import nuxtStorage from "nuxt-storage";
+import { useForm } from "vee-validate";
+import * as yup from "yup";
 
 //Get runtime config.
 const config = useRuntimeConfig();
@@ -37,14 +42,29 @@ const config = useRuntimeConfig();
 const rememberUser = useCookie("rememberUser");
 rememberUser.value = rememberUser.value || "";
 
-let email = ref(rememberUser.value);
-
 let results = ref("");
 let unsubscribeMessage = ref(
   "You have successfully unsubscribed. You will now be redirected to the home page."
 );
 
-const onSubmit = () => {
+const schema = yup.object({
+  email: yup
+    .string()
+    .required("Email required")
+    .email("Valid email is required"),
+});
+
+const { defineInputBinds, handleSubmit, errors } = useForm({
+  validationSchema: schema,
+  initialValues: {
+    email: rememberUser.value,
+  },
+});
+
+// Define fields
+const email = defineInputBinds("email");
+
+const onSubmit = handleSubmit((values, actions) => {
   formRequest()
     .then((result) => {
       results.value = result;
@@ -56,7 +76,7 @@ const onSubmit = () => {
     .catch((error) => {
       console.error("Unsubscribe form could not be sent", error);
     });
-};
+});
 
 async function formRequest() {
   return await $fetch(
@@ -64,7 +84,7 @@ async function formRequest() {
       "/" +
       config.public.VUE_APP_API_VLM_UNSUBSCRIBE_ROUTE +
       "/" +
-      email.value,
+      email.value.value,
     {
       method: "GET",
     }

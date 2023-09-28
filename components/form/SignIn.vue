@@ -22,10 +22,13 @@
         >
         <input
           type="email"
-          v-model="email"
+          v-bind="email"
           class="w-full rounded xl:w-1/2"
           placeholder="Email"
         />
+        <span class="block text-fs-yellow text-xs xl:text-sm pt-2">{{
+          errors.email
+        }}</span>
       </div>
       <div>
         <label class="block text-white font-bold py-2"
@@ -33,11 +36,13 @@
         >
         <input
           type="password"
-          v-model="password"
+          v-bind="password"
           class="w-full rounded xl:w-1/2"
-          required="required"
           placeholder="Password"
         />
+        <span class="block text-fs-yellow text-xs xl:text-sm pt-2">{{
+          errors.password
+        }}</span>
       </div>
       <UiButton role="button" text="Sign In" type="submit" />
     </form>
@@ -54,6 +59,8 @@
 
 <script setup>
 import nuxtStorage from "nuxt-storage";
+import { useForm } from "vee-validate";
+import * as yup from "yup";
 
 const route = useRoute();
 
@@ -67,8 +74,6 @@ const rememberUser = useCookie("rememberUser", {
 rememberUser.value = rememberUser.value || "";
 
 //Form vars.
-let email = ref(rememberUser.value);
-let password = ref("");
 
 let results = ref("");
 let resultsEnroll = ref("");
@@ -88,7 +93,29 @@ let timeoutMessage = ref("Your session has timed out. Please Sign In again.");
 
 const showSignIn = ref(false);
 
-const onSubmit = () => {
+const schema = yup.object({
+  email: yup
+    .string()
+    .required("Email required")
+    .email("Valid email is required"),
+  password: yup
+    .string()
+    .required("Password required")
+    .min(8, "Password minimum length is 8 characters."),
+});
+
+const { defineInputBinds, handleSubmit, errors } = useForm({
+  validationSchema: schema,
+  initialValues: {
+    email: rememberUser.value,
+  },
+});
+
+// Define fields
+const email = defineInputBinds("email");
+const password = defineInputBinds("password");
+
+const onSubmit = handleSubmit(() => {
   showSignIn.value = true;
   formRequest()
     .then((result) => {
@@ -105,18 +132,13 @@ const onSubmit = () => {
             const totalSurveys = surveyData.results[0].tabs[0].TotalCount;
             const surveyResult = surveyData.results[1];
 
-            console.log("Total Surveys: " + totalSurveys);
-
             //If a survey exists use it.
             if (totalSurveys === 0) {
-              console.log("Enrolling");
               //Enroll survey and auth if it doesn't exist.
               surveyEnrollRequest()
                 .then((resultEnroll) => {
                   resultsEnroll.value = resultEnroll;
-                  console.log("Enrolled");
                   if (resultsEnroll.value.status) {
-                    console.log("Setting Survey");
                     setSurveyID(
                       resultsEnroll.value.results.id,
                       resultsEnroll.value.results
@@ -125,7 +147,6 @@ const onSubmit = () => {
                       navigateTo("/dashboard");
                     }, 2000);
                   }
-                  console.log("Survey Set");
                 })
                 .catch((error) => {
                   console.error("Enroll form could not be executed", error);
@@ -143,7 +164,7 @@ const onSubmit = () => {
     .catch((error) => {
       console.error("Sign In form could not be sent", error);
     });
-};
+});
 
 async function formRequest() {
   return await $fetch(
@@ -153,8 +174,8 @@ async function formRequest() {
     {
       method: "POST",
       body: {
-        uName: email.value,
-        pass: password.value,
+        uName: email.value.value,
+        pass: password.value.value,
       },
     }
   );

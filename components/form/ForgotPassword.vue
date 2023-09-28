@@ -10,11 +10,13 @@
         >
         <input
           type="email"
-          v-model="email"
+          v-bind="email"
           class="w-full rounded xl:w-1/2"
           placeholder="Email"
-          required="true"
         />
+        <span class="block text-fs-yellow text-xs xl:text-sm pt-2">{{
+          errors.email
+        }}</span>
       </div>
       <UiButton role="button" text="Submit" type="submit" />
     </form>
@@ -30,6 +32,9 @@
 </template>
 
 <script setup>
+import { useForm } from "vee-validate";
+import * as yup from "yup";
+
 //Get runtime config.
 const config = useRuntimeConfig();
 
@@ -39,11 +44,26 @@ let showResultMessage = ref(false);
 const rememberUser = useCookie("rememberUser");
 rememberUser.value = rememberUser.value || "";
 
-let email = ref(rememberUser.value);
-
 let results = ref("");
 
-const onSubmit = () => {
+const schema = yup.object({
+  email: yup
+    .string()
+    .required("Email required")
+    .email("Valid email is required"),
+});
+
+const { defineInputBinds, handleSubmit, errors } = useForm({
+  validationSchema: schema,
+  initialValues: {
+    email: rememberUser.value,
+  },
+});
+
+// Define fields
+const email = defineInputBinds("email");
+
+const onSubmit = handleSubmit(() => {
   formRequest(config.public.VUE_APP_FLASH_WEBSITE_URL)
     .then((result) => {
       results.value = result;
@@ -52,7 +72,7 @@ const onSubmit = () => {
     .catch((error) => {
       console.error("Forgot Password form could not be sent", error);
     });
-};
+});
 
 async function formRequest(url) {
   return await $fetch(
@@ -62,7 +82,7 @@ async function formRequest(url) {
     {
       method: "GET",
       query: {
-        email: email.value,
+        email: email.value.value,
         redirectUrl: url,
         redirectPath: "/profile/reset-password",
       },

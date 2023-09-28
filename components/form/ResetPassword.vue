@@ -26,11 +26,13 @@
         >
         <input
           type="password"
-          v-model="password"
+          v-bind="password"
           class="w-full rounded xl:w-1/2"
           placeholder="New Password"
-          required="true"
         />
+        <span class="block text-fs-yellow text-xs xl:text-sm pt-2">{{
+          errors.password
+        }}</span>
       </div>
       <UiButton role="button" text="Submit" type="submit" />
     </form>
@@ -46,6 +48,8 @@
 </template>
 
 <script setup>
+import { useForm } from "vee-validate";
+import * as yup from "yup";
 const route = useRoute();
 
 let showResultMessage = ref(false);
@@ -58,9 +62,22 @@ if (!route.query.hash) {
 const config = useRuntimeConfig();
 
 let results = ref({});
-let password = ref("");
 
-const onSubmit = () => {
+const schema = yup.object({
+  password: yup
+    .string()
+    .required("New password required")
+    .min(8, "Password minimum length is 8 characters."),
+});
+
+const { defineInputBinds, handleSubmit, errors } = useForm({
+  validationSchema: schema,
+});
+
+// Define fields
+const password = defineInputBinds("password");
+
+const onSubmit = handleSubmit(() => {
   formRequest()
     .then((result) => {
       results.value = result;
@@ -69,7 +86,7 @@ const onSubmit = () => {
     .catch((error) => {
       console.error("Reset Password form could not be sent", error);
     });
-};
+});
 
 async function formRequest() {
   return await $fetch(
@@ -79,7 +96,7 @@ async function formRequest() {
     {
       method: "POST",
       body: {
-        pass: password.value,
+        pass: password.value.value,
       },
       query: {
         hash: route.query.hash,
