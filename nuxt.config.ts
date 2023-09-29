@@ -7,7 +7,7 @@ export default defineNuxtConfig({
   image: {
     dir: "public",
   },
-  ssr: true,
+  ssr: false,
   css: ["~/assets/styles/main.css"],
   app: {
     head: {
@@ -52,7 +52,8 @@ export default defineNuxtConfig({
       VUE_APP_API_JOB_ROLE_ROUTE: process.env.VUE_APP_API_JOB_ROLE_ROUTE,
       VUE_APP_API_VLM_ACTIVATE_ROUTE:
         process.env.VUE_APP_API_VLM_ACTIVATE_ROUTE,
-        VUE_APP_API_VLM_ENROLL_TEMPLATE_ID: process.env.VUE_APP_API_VLM_ENROLL_TEMPLATE_ID
+      VUE_APP_API_VLM_ENROLL_TEMPLATE_ID:
+        process.env.VUE_APP_API_VLM_ENROLL_TEMPLATE_ID,
       VUE_APP_API_VLM_ENROLL_ROUTE: process.env.VUE_APP_API_VLM_ENROLL_ROUTE,
       VUE_APP_API_VLM_FORGOT_PASSWORD_ROUTE:
         process.env.VUE_APP_API_VLM_FORGOT_PASSWORD_ROUTE,
