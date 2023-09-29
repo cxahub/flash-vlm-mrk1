@@ -199,7 +199,7 @@ async function surveyEnrollRequest() {
             email: useCookie("email"),
           },
           surveyInfo: {
-            surveyTemplateId: 77,
+            surveyTemplateId: config.public.VUE_APP_API_VLM_ENROLL_TEMPLATE_ID,
             surveyAreaId: 4,
           },
         },
