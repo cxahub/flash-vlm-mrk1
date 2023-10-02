@@ -4,12 +4,20 @@
   <div v-else class="flex flex-nowrap gap-4 items-center py-2">
     <div class="font-bold pr-4">0%</div>
     <div class="progress-bar progress drop-shadow-md">
-      <span
-        v-if="progress != '0%'"
-        :style="{ width: progress }"
-        class="rounded-r-full"
-        >{{ progress }}</span
-      >
+      <div v-if="progress != 0">
+        <span
+          v-if="progress != '89' && progress > 0"
+          :style="{ width: progress + 6 + '%' }"
+          class="rounded-r-full"
+          >{{ Number(progress) + "%" }}</span
+        >
+        <span
+          v-else
+          :style="{ width: progress + 11 + '%' }"
+          class="rounded-r-full"
+          >{{ Number(progress) + 11 + "%" }}
+        </span>
+      </div>
     </div>
     <div class="font-bold pl-4">{{ duration }}</div>
   </div>
@@ -34,12 +42,12 @@ const progress = ref(0);
 
 onMounted(() => {
   setTimeout(function () {
-    completed.value = complete.value;
+    completed.value = complete.value - 11;
     pbValue.value = Number(completed.value);
-    progress.value = completed.value + "%";
-    progressBar.value = pbValue.value + "%";
+    progress.value = completed.value;
+    progressBar.value = pbValue.value;
     showProgressBall.value = true;
-  }, 1500);
+  }, 1200);
 });
 
 const options = {
@@ -77,7 +85,6 @@ const { pending, data: complete } = await useLazyFetch(
 .progress-bar span {
   height: 100%;
   display: block;
-  width: 0;
   color: rgb(255, 251, 251);
   line-height: 30px;
   position: absolute;
