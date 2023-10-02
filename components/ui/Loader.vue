@@ -57,7 +57,7 @@
       />
       <div
         class="animate-pulse font-bold"
-        :class="icon === 'flash-icon.png' ? 'text-black' : 'text-white'"
+        :class="icon === 'flash-icon.png' ? 'text-white' : 'text-white'"
       >
         Downloading please wait...
       </div>

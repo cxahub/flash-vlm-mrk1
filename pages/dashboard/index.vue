@@ -42,8 +42,19 @@
 <script setup>
 import nuxtStorage from "nuxt-storage";
 
-//Get runtime config.
-const config = useRuntimeConfig();
+const token = nuxtStorage.localStorage.getData("token");
+const surveyID = ref(useCookie("surveyID").value);
+
+//If token expires redirect.
+if (!token) {
+  navigateTo("/profile?timeout=true");
+}
+
+//If surveyID fails to set, redirect.
+if (typeof surveyID.value === "undefined" || surveyID.value === "") {
+  nuxtStorage.localStorage.clear();
+  navigateTo("/profile?surveyIDWarning=true");
+}
 
 definePageMeta({
   layout: "dashboard",
@@ -59,55 +70,4 @@ definePageMeta({
   });
 
 const showSurveyList = ref(false);
-const authenticated = ref(useCookie("authenticated") || false);
-const token = ref();
-
-onMounted = () => {
-  tokenRequest()
-    .then((result) => {
-      results.value = result;
-      if (results.value.success) {
-        //Store token locally.
-        nuxtStorage.localStorage.setData("token", auth.results.token, 12);
-      }
-    })
-    .catch((error) => {
-      console.error("Token could not be received", error);
-    });
-};
-
-async function tokenRequest() {
-  //Create a cookie for company name.
-  const company = useCookie("company", { maxAge: 1704085200 });
-  company.value = cnv;
-  const authenticated = useCookie("authenticated", { maxAge: 1704085200 });
-  authenticated.value = true;
-  result.success = true;
-  return result;
-}
-
-//Check auth.
-if (!authenticated.value) {
-  navigateTo("/");
-}
-
-//Fetch options.
-const options = {
-  method: "POST",
-  body: {
-    uName: "flash@sap.com",
-    pass: config.public.VUE_APP_API_VLM_USER_PASSWORD,
-  },
-};
-
-//Fetch data.
-const { data: auth } = useFetch(
-  config.public.VUE_APP_API_URL +
-    "/" +
-    config.public.VUE_APP_API_VLM_LOGIN_ROUTE,
-  {
-    method: options.method,
-    body: options.body,
-  }
-);
 </script>
