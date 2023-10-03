@@ -86,7 +86,7 @@ let surveyIDWarningMessage = ref(
 );
 
 let registrationMessage = ref(
-  "You have successfully registered. Please Sign In once you have activated your account."
+  "You have successfully registered. Please Sign In."
 );
 
 let timeoutMessage = ref("Your session has timed out. Please Sign In again.");
