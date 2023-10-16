@@ -15,7 +15,16 @@ export default defineNuxtConfig({
   image: {
     dir: "public",
   },
-  ssr: false,
+  experimental: { payloadExtraction: false },
+  ssr: true,
+  routeRules: {
+    "/": { ssr: false },
+    "/profile/**": { ssr: false },
+    "/unsubscribe/**": { ssr: false },
+    "/report/**": { ssr: false },
+    "/contact/**": { ssr: false },
+    "/dashboard/**": { ssr: false },
+  },
   css: ["~/assets/styles/main.css"],
   app: {
     head: {
