@@ -33,7 +33,7 @@ export default defineNuxtConfig({
       },
       meta: [
         { name: "theme-color", content: "#363031" },
-        { "http-equiv": "Cache-Control", content: "public, max-age=3600" },
+        //{ "http-equiv": "Cache-Control", content: "public, max-age=3600" },
       ],
     },
   },
