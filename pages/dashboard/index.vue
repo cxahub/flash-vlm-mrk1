@@ -11,6 +11,8 @@
       /></span>
       Click the "Start Survey Now" button to get started with your
       assessment.<br /><br />
+      To update your assessment, click any of the questions to change your
+      answers, click the "Next" button, then click "Generate My Report".<br /><br />
       You can also choose from the many question topics below:
     </div>
     <div class="py-10 text-center xl:text-right float-right">

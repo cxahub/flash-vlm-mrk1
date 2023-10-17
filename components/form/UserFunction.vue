@@ -90,10 +90,14 @@
           }}</span>
         </div>
         <div>
-          <label class="block text-white font-bold py-2"
+          <label for="businessfunction" class="block text-white font-bold py-2"
             ><span class="text-fs-red">*</span> Business Function</label
           >
-          <select class="rounded mr-4 mb-2 w-full" v-bind="bfID">
+          <select
+            id="businessfunction"
+            class="rounded mr-4 mb-2 w-full"
+            v-bind="bfID"
+          >
             <option value="">Choose a Business Function...</option>
             <option v-for="bf in businessfunction" :key="bf.id" :value="bf.id">
               {{ bf.bf_name }}
@@ -104,10 +108,10 @@
           }}</span>
         </div>
         <div>
-          <label class="block text-white font-bold py-2"
+          <label for="jobrole" class="block text-white font-bold py-2"
             ><span class="text-fs-red">*</span> Job Role</label
           >
-          <select class="rounded mr-4 mb-2 w-full" v-bind="jrID">
+          <select id="jobrole" class="rounded mr-4 mb-2 w-full" v-bind="jrID">
             <option value="">Choose a Job Role...</option>
             <option v-for="jr in jobrole" :key="jr.id" :value="jr.id">
               {{ jr.jr_name }}

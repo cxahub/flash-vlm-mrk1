@@ -7,7 +7,7 @@
         <NuxtLink to="/" class="hover:text-fs-yellow">
           <img
             src="/images/icon/flash-icon.png"
-            class="block float-left w-6 xl:w-10 mt-1 mr-3"
+            class="block float-left w-6 h-6 xl:w-10 xl:h-10 mt-1 mr-3"
             aria-label="flash icon"
             alt="Flash Icon"
           />
@@ -27,6 +27,7 @@
           <button
             type="button"
             class="text-white hover:text-gray-400 focus:outline-none focus:text-gray-400"
+            aria-label="Main Menu"
           >
             <svg viewBox="0 0 24 24" class="w-6 h-6 fill-current">
               <path

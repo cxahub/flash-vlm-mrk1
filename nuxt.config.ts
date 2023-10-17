@@ -28,12 +28,12 @@ export default defineNuxtConfig({
   css: ["~/assets/styles/main.css"],
   app: {
     head: {
-      meta: [{ name: "theme-color", content: "#363031" }],
-      link: [
-        {
-          rel: "stylesheet",
-          href: "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css",
-        },
+      htmlAttrs: {
+        lang: "en",
+      },
+      meta: [
+        { name: "theme-color", content: "#363031" },
+        { "http-equiv": "Cache-Control", content: "public, max-age=3600" },
       ],
     },
   },
@@ -93,6 +93,7 @@ export default defineNuxtConfig({
   },
 
   googleFonts: {
+    display: "swap",
     families: {
       Roboto: {
         wght: [100, 300, 700, 800, 900],

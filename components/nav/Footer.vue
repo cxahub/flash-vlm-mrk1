@@ -31,8 +31,8 @@
         <div class="col-span-2 xl:col-span-1 text-center xl:text-left">
           <NuxtLink :to="firestartersURL" class="block hover:text-fs-yellow">
             <img
-              role="image"
-              class="xl:block xl:float-left w-4 xl:w-10 mt-1 xl:mr-3 mx-auto"
+              role="img"
+              class="xl:block xl:float-left w-4 h-4 xl:w-10 xl:h-10 mt-1 xl:mr-3 mx-auto"
               src="/images/icon/firestarters-icon.png"
               aria-label="firestarters icon"
               alt="Firestarters Icon"

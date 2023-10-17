@@ -39,7 +39,11 @@
         </ul>
       </div>
       <div class="invisible h-0 xl:h-auto xl:visible xl:text-sm xl:pt-56">
-        <img src="/images/logo/sap-logo.png" class="block float-left mr-4" />
+        <img
+          src="/images/logo/sap-logo.png"
+          class="block float-left mr-4 h-6 w-12 xl:h-8 xl:w-16"
+          alt="SAP Logo"
+        />
         The FLASH™ Retail Maturity Assessment is provided by SAP — a global
         leader in enterprise cloud technology.
       </div>
@@ -47,7 +51,11 @@
     <div class="xl:col-span-2 pt-4 xl:pt-0 xl:px-16">
       <FormUserFunction />
       <div class="visible xl:invisible text-xs mt-6">
-        <img src="/images/logo/sap-logo.png" class="block float-left mr-4" />
+        <img
+          src="/images/logo/sap-logo.png"
+          class="block float-left mr-4 h-6 w-12 xl:h-8 xl:w-16"
+          alt="SAP Logo"
+        />
         The FLASH™ Retail Maturity Assessment is provided by SAP — a global
         leader in enterprise cloud technology.
       </div>
