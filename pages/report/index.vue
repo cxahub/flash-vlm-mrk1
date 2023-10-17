@@ -15,12 +15,15 @@
     >
       Thank You
     </h1>
-    <p class="text-lg text-center xl:text-left">
+    <div class="text-lg text-center xl:text-left">
       Your <span class="font-bold">FLASH&trade;</span> Report is ready for
       download!<br /><br />
       <NuxtLink
         to=""
-        @click.prevent="getReport(); showDownload = !showDownload"
+        @click.prevent="
+          getReport();
+          showDownload = !showDownload;
+        "
         class="max-w-max text-black font-bold uppercase rounded-lg cursor-pointer drop-shadow-lg bg-fs-yellow hover:bg-fs-yellow-light text-sm xl:text-base py-3 px-3 my-3 xl:py-4 xl:px-4 xl:my-4"
         >Download Report</NuxtLink
       >
@@ -46,9 +49,10 @@
         class="underline"
         target="_blank"
       >
-        Firestarters&trade; Online Global Community</NuxtLink>
+        Firestarters&trade; Online Global Community</NuxtLink
+      >
       , we'd love to hear from you.
-    </p>
+    </div>
     <h2 class="text-4xl text-center xl:text-left uppercase font-bold py-8">
       Next Steps?
     </h2>
@@ -110,11 +114,12 @@ function getReport() {
       let mm = today.getMonth() + 1; // Months start at 0!
       let dd = today.getDate();
 
-      if (dd < 10) dd = '0' + dd;
-      if (mm < 10) mm = '0' + mm;
+      if (dd < 10) dd = "0" + dd;
+      if (mm < 10) mm = "0" + mm;
 
-      const formattedToday = dd + '-' + mm + '-' + yyyy;
-      const filename = 'FLASH Enterprise Retail Report - ' + formattedToday + '.pptx';
+      const formattedToday = dd + "-" + mm + "-" + yyyy;
+      const filename =
+        "FLASH Enterprise Retail Report - " + formattedToday + ".pptx";
 
       link.href = url;
       link.setAttribute("download", filename);
