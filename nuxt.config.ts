@@ -25,6 +25,20 @@ export default defineNuxtConfig({
     "/contact/**": { ssr: false },
     "/dashboard/**": { ssr: false },
   },
+  nitro: {
+    routeRules: {
+      "/img/**": {
+        headers: {
+          "cache-control": `public,max-age=31536000,s-maxage=31536000`,
+        },
+      },
+      "/_nuxt/**": {
+        headers: {
+          "cache-control": `public,max-age=31536000,s-maxage=31536000`,
+        },
+      },
+    },
+  },
   css: ["~/assets/styles/main.css"],
   app: {
     head: {
