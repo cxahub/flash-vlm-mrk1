@@ -2,7 +2,7 @@
   <h1
     class="text-3xl text-center xl:text-left xl:text-5xl font-bold text-fs-yellow drop-shadow-sm"
   >
-    Survey Dashboard
+    My Surveys
   </h1>
   <div class="grid xl:grid-cols-2 gap-0 xl:gap-4">
     <div class="text-center xl:text-left xl:text-xl py-8">
@@ -26,7 +26,7 @@
 
     <div class="py-10 text-center xl:text-left">
       <UiButton
-        :text="!showSurveyList ? 'Show My Surveys' : 'Hide My Surveys'"
+        :text="!showSurveyList ? 'Show My Surveys' : 'Back to Dashboard'"
         path=""
         @click="showSurveyList = !showSurveyList"
       />

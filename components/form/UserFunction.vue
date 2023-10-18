@@ -220,8 +220,6 @@ import * as yup from "yup";
 //Get runtime config.
 const config = useRuntimeConfig();
 
-console.log("Config: " + config.public.VUE_APP_API_URL);
-
 const showTerms = ref(false);
 const showPrivacy = ref(false);
 const showCookiePolicy = ref(false);

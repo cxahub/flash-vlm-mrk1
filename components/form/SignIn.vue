@@ -126,39 +126,44 @@ const onSubmit = handleSubmit(() => {
       if (results.value.success) {
         //Create cookies.
         setCookies(results.value.results[0]);
-        //Check for existing survey.
-        getExistingSurvey().then((surveyData) => {
-          if (surveyData.status) {
-            const totalSurveys = surveyData.results[0].tabs[0].TotalCount;
-            const surveyResult = surveyData.results[1];
+        //Check for redirect.
+        if (route.query.redirect) {
+          navigateTo(route.fullPath.split("/profile?redirect=").pop());
+        } else {
+          //Check for existing survey.
+          getExistingSurvey().then((surveyData) => {
+            if (surveyData.status) {
+              const totalSurveys = surveyData.results[0].tabs[0].TotalCount;
+              const surveyResult = surveyData.results[1];
 
-            //If a survey exists use it.
-            if (totalSurveys === 0) {
-              //Enroll survey and auth if it doesn't exist.
-              surveyEnrollRequest()
-                .then((resultEnroll) => {
-                  resultsEnroll.value = resultEnroll;
-                  if (resultsEnroll.value.status) {
-                    setSurveyID(
-                      resultsEnroll.value.results.id,
-                      resultsEnroll.value.results
-                    );
-                    setTimeout(function () {
-                      navigateTo("/dashboard");
-                    }, 2000);
-                  }
-                })
-                .catch((error) => {
-                  console.error("Enroll form could not be executed", error);
-                });
-            } else {
-              surveyID.value = surveyResult.surveys[0].customersurveyid;
-              setTimeout(function () {
-                navigateTo("/dashboard");
-              }, 2000);
+              //If a survey exists use it.
+              if (totalSurveys === 0) {
+                //Enroll survey and auth if it doesn't exist.
+                surveyEnrollRequest()
+                  .then((resultEnroll) => {
+                    resultsEnroll.value = resultEnroll;
+                    if (resultsEnroll.value.status) {
+                      setSurveyID(
+                        resultsEnroll.value.results.id,
+                        resultsEnroll.value.results
+                      );
+                      setTimeout(function () {
+                        navigateTo("/dashboard");
+                      }, 2000);
+                    }
+                  })
+                  .catch((error) => {
+                    console.error("Enroll form could not be executed", error);
+                  });
+              } else {
+                surveyID.value = surveyResult.surveys[0].customersurveyid;
+                setTimeout(function () {
+                  navigateTo("/dashboard");
+                }, 2000);
+              }
             }
-          }
-        });
+          });
+        }
       }
     })
     .catch((error) => {

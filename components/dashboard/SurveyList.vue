@@ -4,7 +4,9 @@
       <UiLoader icon="flash-icon-bg-white.png" />
     </div>
     <div v-else class="pb-16">
-      <h1 class="text-xl xl:text-3xl uppercase font-bold py-8">My Surveys</h1>
+      <h1 class="text-xl xl:text-3xl uppercase font-bold py-8">
+        Survey Results
+      </h1>
       <table class="table-auto w-full">
         <thead>
           <tr class="border-b-2">
@@ -14,10 +16,15 @@
         </thead>
         <tbody>
           <tr v-for="s in surveylist" :key="s.surveys">
-            <td class="py-2 font-bold">
-              {{ s.surveyData.org_info.corporate }}({{ s.customersurveyid }})
+            <td
+              class="py-2 font-bold cursor-pointer"
+              :title="`Survey ID: ${s.customersurveyid}`"
+            >
+              {{ s.surveyData.org_info.corporate }}
             </td>
-            <td class="py-2">{{ $dateFormat(s.surveyData.createdDate) }}</td>
+            <td class="py-2 cursor-pointer">
+              {{ $dateFormat(s.surveyData.createdDate) }}
+            </td>
           </tr>
         </tbody>
       </table>
