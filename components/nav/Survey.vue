@@ -8,18 +8,32 @@
       <!--Handle index of questions.-->
       <div v-if="props.questionID === 1">
         <NuxtLink
-          :to="`/survey/${parseInt(groupID - 1)}/5/${encodeURIComponent(
-            questionPrevious.toLowerCase()
-          )}`"
+          to=""
+          @click="
+            setSurveyAnswer(
+              surveyAnswerID,
+              surveyQuestionAnswer,
+              false,
+              true,
+              false
+            )
+          "
           class="max-w-max text-black font-bold uppercase rounded-lg cursor-pointer drop-shadow-lg bg-white border border-fs-brown hover:bg-fs-brown hover:text-white text-sm xl:text-base py-3 px-3 my-3 xl:py-4 xl:px-4 xl:my-4"
           >Previous Question</NuxtLink
         >
       </div>
       <div v-else>
         <NuxtLink
-          :to="`/survey/${parseInt(groupID)}/${parseInt(
-            questionID - 1
-          )}/${encodeURIComponent(questionPrevious.toLowerCase())}`"
+          to=""
+          @click="
+            setSurveyAnswer(
+              surveyAnswerID,
+              surveyQuestionAnswer,
+              false,
+              true,
+              false
+            )
+          "
           class="max-w-max text-black font-bold uppercase rounded-lg cursor-pointer drop-shadow-lg bg-white border border-fs-brown hover:bg-fs-brown hover:text-white text-sm xl:text-base py-3 px-3 my-3 xl:py-4 xl:px-4 xl:my-4"
           >Previous Question</NuxtLink
         >
@@ -54,7 +68,16 @@
       :class="questionID === 16 ? 'xl:col-span-2 text-center' : ''"
     >
       <NuxtLink
-        to="/dashboard"
+        to=""
+        @click="
+          setSurveyAnswer(
+            surveyAnswerID,
+            surveyQuestionAnswer,
+            false,
+            false,
+            true
+          )
+        "
         class="max-w-max font-bold uppercase rounded-lg cursor-pointer drop-shadow-lg bg-fs-brown border border-fs-yellow text-white hover:bg-white hover:text-fs-brown text-sm xl:text-base py-3 px-3 my-3 xl:py-4 xl:px-4 xl:my-4"
         >View Dashboard</NuxtLink
       >
@@ -79,20 +102,45 @@ const props = defineProps({
   questionNext: { type: String, default: "question" },
 });
 
-function setSurveyAnswer(id, answer, lastQuestion) {
-  formRequest(id, answer, lastQuestion)
+function setSurveyAnswer(id, answer, lastQuestion, isPrevious, isDashboard) {
+  formRequest(id, answer, lastQuestion, isPrevious, isDashboard)
     .then((result) => {
       results.value = result;
       if (results.value.status) {
         //Account for group change.
-        if (props.questionID === 5 && !lastQuestion) {
+        if (
+          props.questionID === 5 &&
+          !lastQuestion &&
+          !isPrevious &&
+          !isDashboard
+        ) {
           navigateTo(
             `/survey/${parseInt(props.groupID + 1)}/1/${encodeURIComponent(
               props.questionNext.toLowerCase()
             )}`
           );
+        } else if (
+          props.questionID === 1 &&
+          props.groupID > 1 &&
+          !lastQuestion &&
+          isPrevious &&
+          !isDashboard
+        ) {
+          navigateTo(
+            `/survey/${parseInt(props.groupID - 1)}/5/${encodeURIComponent(
+              props.questionNext.toLowerCase()
+            )}`
+          );
+        } else if (isDashboard) {
+          navigateTo(`/dashboard`);
         } else if (lastQuestion) {
           navigateTo(`/dashboard`);
+        } else if (!lastQuestion && isPrevious && !isDashboard) {
+          navigateTo(
+            `/survey/${parseInt(props.groupID)}/${parseInt(
+              props.questionID - 1
+            )}/${encodeURIComponent(props.questionNext.toLowerCase())}`
+          );
         } else {
           navigateTo(
             `/survey/${parseInt(props.groupID)}/${parseInt(

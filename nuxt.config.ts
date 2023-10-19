@@ -24,6 +24,8 @@ export default defineNuxtConfig({
     "/report/**": { ssr: false },
     "/contact/**": { ssr: false },
     "/dashboard/**": { ssr: false },
+    "/download/**": { ssr: false },
+    "/request/**": { ssr: false },
   },
   nitro: {
     routeRules: {

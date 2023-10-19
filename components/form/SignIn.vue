@@ -199,7 +199,7 @@ async function surveyEnrollRequest() {
           userInfo: {
             firstName: useCookie("firstName"),
             lastName: useCookie("lastName"),
-            userType: "Employee", // Can leave it as blank
+            userType: "", // Can leave it as blank
             userId: useCookie("userId"),
             email: useCookie("email"),
           },
