@@ -130,12 +130,20 @@ const onSubmit = handleSubmit(() => {
         if (route.query.redirect) {
           navigateTo(route.fullPath.split("/profile?redirect=").pop());
         } else {
+          //Ensure that company, businessfunction and job role are set.
+          //Check for sap user.
+          if (results.value.results[0].email.includes("@sap.com")) {
+            getCustomerSurvey().then((customerSurveyData) => {
+              if (customerSurveyData.success) {
+                setRegistration(customerSurveyData.results);
+              }
+            });
+          }
           //Check for existing survey.
           getExistingSurvey().then((surveyData) => {
             if (surveyData.status) {
               const totalSurveys = surveyData.results[0].tabs[0].TotalCount;
               const surveyResult = surveyData.results[1];
-
               //If a survey exists use it.
               if (totalSurveys === 0) {
                 //Enroll survey and auth if it doesn't exist.
@@ -247,7 +255,20 @@ async function setCookies(user) {
   userId.value = user.userId;
   firstName.value = user.firstName;
   lastName.value = user.lastName;
-  companyName.value = user.companyName;
+  //Check for sap user.
+  if (user.companyName === null && user.email.includes("@sap.com")) {
+    companyName.value = "SAP";
+    const businessfunction = useCookie("businessfunction", {
+      maxAge: config.public.VUE_APP_COOKIE_EXPIRES,
+    });
+    const jobrole = useCookie("jobrole", {
+      maxAge: config.public.VUE_APP_COOKIE_EXPIRES,
+    });
+    businessfunction.value = 13;
+    jobrole.value = 5;
+  } else {
+    companyName.value = user.companyName;
+  }
   email.value = user.email;
 }
 
@@ -257,6 +278,11 @@ async function setSurveyID(id, survey) {
     maxAge: config.public.VUE_APP_COOKIE_EXPIRES,
   });
   surveyID.value = id;
+  //Answer registration questions to instantiate the survey.
+  await setRegistration(survey);
+}
+
+async function setRegistration(survey) {
   //Answer registration questions to instantiate the survey.
   const companyAnswerID = survey.preSurveyAssets.org_info.org_level.unique_id;
   const bfAnswerID = survey.areas[0].groups[0].questions[0].answers[0].id;
@@ -309,6 +335,21 @@ async function getExistingSurvey() {
       query: {
         "x-auth-token": nuxtStorage.localStorage.getData("token"),
         fullquery: true,
+      },
+    }
+  );
+}
+
+async function getCustomerSurvey() {
+  return await $fetch(
+    config.public.VUE_APP_API_URL +
+      "/" +
+      config.public.VUE_APP_API_VLM_SURVEY_ROUTE,
+    {
+      method: "GET",
+      query: {
+        "x-auth-token": nuxtStorage.localStorage.getData("token"),
+        customerSurveyId: useCookie("surveyID").value,
       },
     }
   );

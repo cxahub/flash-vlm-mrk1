@@ -58,7 +58,7 @@
     </h2>
     <div class="grid xl:grid-cols-3 gap-8">
       <div>
-        <ReportRequest />
+        <ReportRequestToForm />
       </div>
       <div>
         <ReportFeedback />

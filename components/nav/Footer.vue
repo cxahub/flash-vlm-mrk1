@@ -51,12 +51,15 @@
         <div
           class="col-span-2 xl:col-span-1 text-center xl:pt-6 xl:text-left text-xs xl:text-sm text-white"
         >
-          <NuxtLink
-            to="/unsubscribe"
-            class="py-2 text-fs-yellow hover:text-white cursor-pointer"
-            >Opt-out?</NuxtLink
-          >
-          | Survey Provided by SAP® | Copyright ©
+          <div v-if="showOptOut">
+            <NuxtLink
+              to="/unsubscribe"
+              class="py-2 text-fs-yellow hover:text-white cursor-pointer"
+              >Opt-out?</NuxtLink
+            >
+            |
+          </div>
+          Survey Provided by SAP® | Copyright ©
           {{ $dateNowFormat(year) }} Firestarters. All rights reserved.
         </div>
       </div>
@@ -83,6 +86,13 @@ export default {
   setup() {
     //Get runtime config.
     const config = useRuntimeConfig();
+
+    const email = ref(useCookie("email").value || null);
+    const showOptOut = true;
+
+    if (email.includes("@sap.com")) {
+      const showOptOut = false;
+    }
 
     const feedbackURL = config.public.VUE_APP_FIRESTARTERS_FEEDBACK_SURVEY_URL;
     const firestartersURL = config.public.VUE_APP_FIRESTARTERS_WEBSITE_URL;

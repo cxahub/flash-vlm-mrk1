@@ -9,11 +9,10 @@
       <span class="font-bold"
         >We'll keep track of your progress for you on this page.<br
       /></span>
-      Click the "Start Survey Now" button to get started with your
-      assessment.<br /><br />
-      To update your assessment, click any of the questions to change your
-      answers, click the "Next" button, then click "Generate My Report".<br /><br />
-      You can also choose from the many question topics below:
+      Click the "Start Survey Now" button to get started with your assessment.
+      You can also choose from the many question topics below.<br /><br />
+      NOTE: Once you have answered questions, you can update your assessment by
+      clicking any of the questions below and making your changes.
     </div>
     <div class="py-10 text-center xl:text-right float-right">
       <NuxtLink

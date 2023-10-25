@@ -26,6 +26,7 @@ export default defineNuxtConfig({
     "/dashboard/**": { ssr: false },
     "/download/**": { ssr: false },
     "/request/**": { ssr: false },
+    "/vlm/**": { ssr: false },
   },
   nitro: {
     routeRules: {
