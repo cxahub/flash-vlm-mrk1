@@ -51,7 +51,7 @@
         <div
           class="col-span-2 xl:col-span-1 text-center xl:pt-6 xl:text-left text-xs xl:text-sm text-white"
         >
-          <div v-if="showOptOut">
+          <div v-if="showOptOut" class="inline-block">
             <NuxtLink
               to="/unsubscribe"
               class="py-2 text-fs-yellow hover:text-white cursor-pointer"
@@ -81,35 +81,22 @@
   </div>
 </template>
 
-<script>
-export default {
-  setup() {
-    //Get runtime config.
-    const config = useRuntimeConfig();
+<script setup>
+//Get runtime config.
+const config = useRuntimeConfig();
 
-    const email = ref(useCookie("email").value || null);
-    const showOptOut = true;
+const firestartersURL = config.public.VUE_APP_FIRESTARTERS_WEBSITE_URL;
 
-    if (email.includes("@sap.com")) {
-      const showOptOut = false;
-    }
+const email = ref(useCookie("email").value || null);
+let showOptOut = ref(true);
 
-    const feedbackURL = config.public.VUE_APP_FIRESTARTERS_FEEDBACK_SURVEY_URL;
-    const firestartersURL = config.public.VUE_APP_FIRESTARTERS_WEBSITE_URL;
+let showTerms = false;
+let showCookiePolicy = false;
+const year = new Date();
 
-    return {
-      feedbackURL,
-      firestartersURL,
-    };
-  },
-  data() {
-    return {
-      showTerms: false,
-      showCookiePolicy: false,
-      year: new Date(),
-    };
-  },
-};
+if (email.value.includes("@sap.com")) {
+  showOptOut = false;
+}
 </script>
 
 <style scoped>
