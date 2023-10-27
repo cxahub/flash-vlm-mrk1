@@ -50,7 +50,28 @@ export default defineNuxtConfig({
       },
       meta: [
         { name: "theme-color", content: "#363031" },
-        //{ "http-equiv": "Cache-Control", content: "public, max-age=3600" },
+        { property: "og:type", content: "website" },
+        {
+          property: "og:title",
+          content:
+            "FLASH Enterprise Maturity Assessment Tool - Recieve a free personalized report benchmarking your business capabilities.",
+        },
+        {
+          property: "og:description",
+          content:
+            "Recieve a free personalized report benchmarking your business capabilities. The world's top retailers rely on FLASH™ performance benchmarks to clarify priorities, develop strategies, compare trends, and increase their organization's overall performance.",
+        },
+        {
+          property: "og:url",
+          content: "https://flash-vlm.cxahub.com",
+        },
+        {
+          property: "og:image",
+          content:
+            "https://hcp-273d1a36-f26b-4cd3-86d1-5a90b1755f8e.s3.us-east-1.amazonaws.com/repository/image/linkedin/flash-linkedin-banner.png",
+        },
+        { property: "og:image:width", content: "1200" },
+        { property: "og:image:height", content: "630" },
       ],
     },
   },
