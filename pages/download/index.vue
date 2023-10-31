@@ -3,14 +3,14 @@
     <h1
       class="text-3xl xl:text-5xl text-center xl:text-left uppercase font-bold py-4"
     >
-      FLASH&trade; Customer Report Download
+      FLASH Customer Report Download
     </h1>
     <div v-if="showErrorMessage" class="text-fs-red py-12 font-bold">
       {{ errorMessage }}
     </div>
     <div class="text-lg text-center xl:text-left">
-      Download the <span class="font-bold">FLASH&trade;</span> Report you
-      requested via the flash@sap.com email link. <br /><br />
+      Download the <span class="font-bold">FLASH</span> report your company
+      executive requested via the flash@sap.com email.<br /><br />
       <NuxtLink
         to=""
         @click.prevent="
@@ -18,7 +18,7 @@
           showDownload = !showDownload;
         "
         class="max-w-max text-black font-bold uppercase rounded-lg cursor-pointer drop-shadow-lg bg-fs-yellow hover:bg-fs-yellow-light text-sm xl:text-base py-3 px-3 my-3 xl:py-4 xl:px-4 xl:my-4"
-        >Download Customer Report</NuxtLink
+        >Download Company Report</NuxtLink
       >
       <br /><br />
       <u
@@ -131,9 +131,6 @@ function getReport() {
 }
 
 async function getDownload() {
-  console.log(
-    nuxtStorage.localStorage.getData("token") + " " + route.query.surveyId
-  );
   return await $fetch(
     config.public.VUE_APP_API_URL +
       "/" +

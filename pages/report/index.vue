@@ -3,10 +3,10 @@
     <h1
       class="text-3xl xl:text-5xl text-center xl:text-left uppercase font-bold py-4"
     >
-      FLASH&trade; Report
+      FLASH Report
     </h1>
     <p class="text-lg text-center xl:text-left">
-      You must complete all questions to download your FLASH&trade; report.
+      You must complete all questions to download your FLASH report.
     </p>
   </div>
   <div v-else>
@@ -16,8 +16,7 @@
       Thank You
     </h1>
     <div class="text-lg text-center xl:text-left">
-      Your <span class="font-bold">FLASH&trade;</span> Report is ready for
-      download!<br /><br />
+      Your <span class="font-bold">FLASH</span> Report is ready for download!<br /><br />
       <NuxtLink
         to=""
         @click.prevent="
@@ -49,7 +48,7 @@
         class="underline"
         target="_blank"
       >
-        Firestarters&trade; Online Global Community</NuxtLink
+        Firestarters Online Global Community</NuxtLink
       >
       , we'd love to hear from you.
     </div>

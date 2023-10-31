@@ -12,14 +12,14 @@
     <div class="text-xs xl:text-base font-normal text-gray-400 leading-5">
       {{ instructions }}
     </div>
-    <form @submit.prevent="onSubmit()">
+    <form accept-charset="UTF-8" v-on:submit.prevent="onSubmit()" method="POST">
       <h2 class="text-lg xl:text-2xl text-fs-yellow uppercase font-bold py-6">
         {{ emailSubject }}
       </h2>
 
       <div class="text-fs-yellow pb-4">
         <label class="block text-white font-bold py-2">Request</label>
-        I would like to request a meeting to review my FLASH™ results with you
+        I would like to request a meeting to review my FLASH results with you
         and dive deeper into best practices.
         <br /><br />
         <span class="text-white text-sm">
@@ -37,13 +37,7 @@
         </textarea>
       </div>
       <div>
-        <UiButton
-          role="button"
-          text="Submit"
-          path=""
-          class="block"
-          type="submit"
-        />
+        <UiButton role="button" text="Submit" type="submit" />
       </div>
     </form>
   </div>
@@ -65,13 +59,13 @@ const email = ref(useCookie("email").value);
 const companyName = ref(useCookie("companyName").value);
 const comments = ref("");
 
-const emailSubject = ref("FLASH™ Meeting Request");
+const emailSubject = ref("FLASH Meeting Request");
 const emailBody = ref(
-  `I would like to request a meeting to review my FLASH™ results with you and dive deeper into best practices.`
+  `I would like to request a meeting to review my FLASH results with you and dive deeper into best practices.`
 );
 
 const emailSignature = ref(
-  `Thank you,<br/><br/><strong>${firstName.value} ${lastName.value}</strong><br/>${companyName.value}<br/><a href="mailto:${email.value}?subject=FLASH™ Meeting Request Follow-up">${email.value}</a>`
+  `Thank you,<br/><br/><strong>${firstName.value} ${lastName.value}</strong><br/>${companyName.value}<br/><a href="mailto:${email.value}?subject=FLASH Meeting Request Follow-up">${email.value}</a>`
 );
 
 let results = ref("");

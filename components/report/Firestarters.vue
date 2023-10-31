@@ -17,9 +17,9 @@
     </div>
     <div class="h-auto xl:h-40">
       <p class="text-lg py-4">
-        <span class="font-bold">Explore the Firestarters&trade; Community</span>
-        with insights, events, and tools like this FLASH&trade; Enterprise
-        Assessment. Unlock value and drive your business forward.
+        <span class="font-bold">Explore the Firestarters Community</span>
+        with insights, events, and tools like this FLASH Enterprise Assessment.
+        Unlock value and drive your business forward.
       </p>
     </div>
     <div>

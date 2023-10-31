@@ -7,7 +7,7 @@
         Discover the Secrets to Retail Success
       </h1>
       <div class="xl:text-xl font-bold py-8 text-center xl:text-left">
-        The world's top retailers rely on FLASH™ performance benchmarks to
+        The world's top retailers rely on FLASH performance benchmarks to
         clarify priorities, develop strategies, compare trends, and increase
         their organization's overall performance.
       </div>
@@ -44,7 +44,7 @@
           class="block float-left mr-4 h-6 w-12 xl:h-8 xl:w-16"
           alt="SAP Logo"
         />
-        The FLASH™ Retail Maturity Assessment is provided by SAP — a global
+        FLASH Retail Maturity Assessment is provided by SAP & SAP VLM — a global
         leader in enterprise cloud technology.
       </div>
     </div>
@@ -56,7 +56,7 @@
           class="block float-left mr-4 h-6 w-12 xl:h-8 xl:w-16"
           alt="SAP Logo"
         />
-        The FLASH™ Retail Maturity Assessment is provided by SAP — a global
+        FLASH Retail Maturity Assessment is provided by SAP & SAP VLM — a global
         leader in enterprise cloud technology.
       </div>
     </div>

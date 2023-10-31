@@ -36,9 +36,11 @@ export default defineNuxtConfig({
         },
       },
       "/_nuxt/**": {
+        /*
         headers: {
           "cache-control": `public,max-age=31536000,s-maxage=31536000`,
         },
+        */
       },
     },
   },
@@ -59,7 +61,7 @@ export default defineNuxtConfig({
         {
           property: "og:description",
           content:
-            "Recieve a free personalized report benchmarking your business capabilities. The world's top retailers rely on FLASH™ performance benchmarks to clarify priorities, develop strategies, compare trends, and increase their organization's overall performance.",
+            "Recieve a free personalized report benchmarking your business capabilities. The world's top retailers rely on FLASH performance benchmarks to clarify priorities, develop strategies, compare trends, and increase their organization's overall performance.",
         },
         {
           property: "og:url",

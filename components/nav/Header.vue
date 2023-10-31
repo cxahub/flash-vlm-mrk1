@@ -14,7 +14,7 @@
           <div
             class="block float-left font-roboto text-2xl xl:text-5xl text-white uppercase font-bold"
           >
-            FLASH&trade;
+            FLASH
           </div>
           <div
             class="hidden xl:block float-left text-2xl xl:font-roboto-condensed font-medium text-fs-light-brown capitalize pt-2 mx-8"
@@ -45,7 +45,7 @@
       >
         <div v-if="token">
           <li
-            class="font-roboto-condensed text-base font-light text-white hover:text-fs-yellow"
+            class="font-roboto-condensed text-base font-light text-white hover:text-fs-yellow cursor-pointer"
           >
             Welcome {{ userName }}
           </li>

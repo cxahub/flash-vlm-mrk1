@@ -1,5 +1,5 @@
 <template>
-  <div class="mb-10 xl:mb-14">
+  <div class="mb-10 xl:mb-14 cursor-pointer">
     <h3 class="block float-left text-xl xl:text-3xl text-fs-yellow font-bold">
       Privacy Policy
     </h3>
@@ -7,7 +7,9 @@
       <i class="fa fa-times-circle text-black" aria-hidden="true"></i>
     </div>
   </div>
-  <div class="block overflow-x-hidden h-[85%] scrollbar-hide w-full text-sm">
+  <div
+    class="block overflow-x-hidden h-[85%] scrollbar-hide w-full text-sm cursor-pointer"
+  >
     <div class="py-2">This Privacy Statement was updated on June 27, 2023.</div>
 
     <h1 class="text-xl font-bold">PRIVACY STATEMENT</h1>

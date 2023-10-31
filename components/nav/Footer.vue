@@ -59,7 +59,7 @@
             >
             |
           </div>
-          Survey Provided by SAP® | Copyright ©
+          Survey Provided by SAP® & SAP VLM | Copyright ©
           {{ $dateNowFormat(year) }} Firestarters. All rights reserved.
         </div>
       </div>
@@ -67,14 +67,14 @@
   </footer>
   <div
     @click="showTerms = !showTerms"
-    class="absolute mx-4 -top-24 xl:top-60 xl:left-[60%] xl:w-[20%] h-[50%] overflow-x-hidden rounded-3xl border-2 p-8 bg-white border-gray-500"
+    class="absolute mx-4 -top-24 xl:top-60 xl:left-[60%] xl:w-[20%] h-[50%] overflow-x-hidden rounded-3xl border-2 p-8 bg-white border-gray-500 no-scrollbar"
     :class="showTerms ? 'show-panel-bottom' : `hide-panel-bottom`"
   >
     <LegalTerms />
   </div>
   <div
     @click="showCookiePolicy = !showCookiePolicy"
-    class="absolute mx-4 -top-24 xl:top-60 xl:left-[60%] xl:w-[20%] h-[50%] overflow-x-hidden rounded-3xl border-2 p-8 bg-white border-gray-500"
+    class="absolute mx-4 -top-24 xl:top-60 xl:left-[60%] xl:w-[20%] h-[50%] overflow-x-hidden rounded-3xl border-2 p-8 bg-white border-gray-500 no-scrollbar"
     :class="showCookiePolicy ? 'show-panel-bottom' : `hide-panel-bottom`"
   >
     <LegalCookiePolicy />
@@ -90,8 +90,8 @@ const firestartersURL = config.public.VUE_APP_FIRESTARTERS_WEBSITE_URL;
 const email = ref(useCookie("email").value || null);
 let showOptOut = ref(true);
 
-let showTerms = false;
-let showCookiePolicy = false;
+let showTerms = ref(false);
+let showCookiePolicy = ref(false);
 const year = new Date();
 
 if (email.value.includes("@sap.com")) {
