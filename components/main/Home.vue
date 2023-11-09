@@ -44,8 +44,7 @@
           class="block float-left mr-4 h-6 w-12 xl:h-8 xl:w-16"
           alt="SAP Logo"
         />
-        FLASH Retail Maturity Assessment is provided by SAP & SAP VLM — a global
-        leader in enterprise cloud technology.
+        FLASH: Powered by SAP Value Lifecycle Manager.
       </div>
     </div>
     <div class="xl:col-span-2 pt-4 xl:pt-0 xl:px-16">
@@ -56,8 +55,7 @@
           class="block float-left mr-4 h-6 w-12 xl:h-8 xl:w-16"
           alt="SAP Logo"
         />
-        FLASH Retail Maturity Assessment is provided by SAP & SAP VLM — a global
-        leader in enterprise cloud technology.
+        FLASH: Powered by SAP Value Lifecycle Manager.
       </div>
     </div>
   </div>

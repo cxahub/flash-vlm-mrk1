@@ -8,11 +8,11 @@
   >
     {{ requestMessage }}
   </div>
-  <div v-else>
+  <div>
     <div class="text-xs xl:text-base font-normal text-gray-400 leading-5">
       {{ instructions }}
     </div>
-    <form accept-charset="UTF-8" v-on:submit.prevent="onSubmit()" method="POST">
+    <form @submit.prevent="onSubmit()">
       <h2 class="text-lg xl:text-2xl text-fs-yellow uppercase font-bold py-6">
         {{ emailSubject }}
       </h2>
@@ -49,7 +49,7 @@ const config = useRuntimeConfig();
 
 const instructions =
   'Please enter any comments and click "Submit" to request a meeting.';
-let showRequestMessage = ref(false);
+
 const requestMessage =
   "Thank you for your request. Please allow for up to 2 business days for a response. You will now be redirected.";
 const surveyID = ref(useCookie("surveyID").value);
@@ -69,13 +69,14 @@ const emailSignature = ref(
 );
 
 let results = ref("");
+let showRequestMessage = ref(false);
 
 const onSubmit = () => {
+  showRequestMessage.value = true;
   formRequest()
     .then((result) => {
       results.value = result;
       if (results.value.success) {
-        showRequestMessage.value = true;
         setTimeout(function () {
           navigateTo("/report");
         }, 5000);
