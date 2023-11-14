@@ -10,7 +10,7 @@
 export default {
   setup() {
     definePageMeta({
-      layout: "home",
+      layout: "request-meeting",
     }),
       useHead({
         title: "Request - FLASH - Enterprise Maturity Assessment",

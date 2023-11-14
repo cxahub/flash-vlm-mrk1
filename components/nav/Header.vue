@@ -17,7 +17,7 @@
             FLASH
           </div>
           <div
-            class="hidden xl:block float-left text-2xl xl:font-roboto-condensed font-medium text-fs-light-brown capitalize pt-2 mx-8"
+            class="hidden xl:block float-left text-2xl xl:font-roboto-condensed font-medium text-white capitalize pt-2 mx-8"
           >
             {{ $dateNowFormat(year) }} Enterprise Maturity Assessment
           </div>
