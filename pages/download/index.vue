@@ -3,7 +3,7 @@
     <h1
       class="text-3xl xl:text-5xl text-center xl:text-left uppercase font-bold py-4"
     >
-      FLASH Customer Report Download
+      FLASH Company Report Download
     </h1>
     <div v-if="showErrorMessage" class="text-fs-red py-12 font-bold">
       {{ errorMessage }}

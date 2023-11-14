@@ -34,8 +34,8 @@
               role="img"
               class="xl:block xl:float-left w-4 h-4 xl:w-10 xl:h-10 mt-1 xl:mr-3 mx-auto"
               src="/images/icon/firestarters-icon.png"
-              aria-label="firestarters icon"
-              alt="Firestarters Icon"
+              aria-label="firestarters logo"
+              alt="Firestarters Logo"
             />
             <span
               class="xl:block xl:float-left font-roboto text-xs lg:text-xl text-white uppercase font-bold"
@@ -49,18 +49,29 @@
           </NuxtLink>
         </div>
         <div
-          class="col-span-2 xl:col-span-1 text-center xl:pt-6 xl:text-left text-xs xl:text-sm text-white"
+          class="col-span-2 xl:col-span-1 text-center xl:pt-0 xl:text-left text-xs xl:text-sm"
         >
-          <div v-if="showOptOut" class="inline-block">
-            <NuxtLink
-              to="/unsubscribe"
-              class="py-2 text-fs-yellow hover:text-white cursor-pointer"
-              >Opt-out?</NuxtLink
-            >
-            |
+          <img
+            role="img"
+            src="/images/logo/sap-logo.png"
+            class="xl:block xl:float-left xl:mr-4 h-6 w-12 mb-2 xl:h-8 xl:w-16 mx-auto"
+            aria-label="sap logo"
+            alt="SAP Logo"
+          />
+          <div class="xl:block xl:float-left text-white font-bold pb-2 xl:pb-0">
+            FLASH is powered by SAP Value Lifecycle Manager.
           </div>
-          Survey Provided by SAP® & SAP VLM | Copyright ©
-          {{ $dateNowFormat(year) }} Firestarters. All rights reserved.
+          <div class="xl:block xl:float-left text-white text-xs xl:text-sm">
+            © {{ $dateNowFormat(year) }} Firestarters. All rights reserved.
+            <span v-if="showOptOut">
+              |
+              <NuxtLink
+                to="/unsubscribe"
+                class="text-fs-yellow hover:text-white cursor-pointer"
+                >Opt-out?</NuxtLink
+              >
+            </span>
+          </div>
         </div>
       </div>
     </div>
@@ -74,7 +85,7 @@
   </div>
   <div
     @click="showCookiePolicy = !showCookiePolicy"
-    class="absolute mx-4 -top-24 xl:top-60 xl:left-[60%] xl:w-[20%] h-[50%] overflow-x-hidden rounded-3xl border-2 p-8 bg-white border-gray-500 no-scrollbar"
+    class="absolute mx-4 -top-24 xl:top-60 xl:left-[60%] xl:w-[20%] overflow-x-hidden rounded-3xl border-2 p-8 bg-white border-gray-500 no-scrollbar"
     :class="showCookiePolicy ? 'show-panel-bottom' : `hide-panel-bottom`"
   >
     <LegalCookiePolicy />

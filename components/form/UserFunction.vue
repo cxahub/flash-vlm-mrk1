@@ -206,7 +206,7 @@
   </div>
   <div
     @click="showCookiePolicy = !showCookiePolicy"
-    class="absolute right-4 left-4 -top-24 xl:top-60 xl:left-[60%] xl:w-[20%] h-[50%] overflow-x-hidden rounded-3xl border-2 p-8 bg-white border-gray-500 no-scrollbar"
+    class="absolute right-4 left-4 -top-24 xl:top-60 xl:left-[60%] xl:w-[20%] overflow-x-hidden rounded-3xl border-2 p-8 bg-white border-gray-500 no-scrollbar"
     :class="showCookiePolicy ? 'show-panel-bottom' : `hide-panel-bottom`"
   >
     <LegalCookiePolicy />

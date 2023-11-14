@@ -11,12 +11,12 @@
     class="block overflow-x-hidden h-[85%] scrollbar-hide w-full text-sm cursor-pointer"
   >
     <p class="py-2">
-      SAP is conducting online assessments wherein SAP is soliciting information
-      from individual companies concerning technology and business plans in
-      order to gain a better understanding of the relevant industries.
-      Information collected pursuant to these online assessments shall be
-      referred to as Feedback. SAP shall use the Feedback to perform analyses of
-      organization's performance as compared to other organizations
+      SAP/SAP VLM is conducting online assessments wherein SAP/SAP VLM is
+      soliciting information from individual companies concerning technology and
+      business plans in order to gain a better understanding of the relevant
+      industries. Information collected pursuant to these online assessments
+      shall be referred to as Feedback. SAP shall use the Feedback to perform
+      analyses of organization's performance as compared to other organizations
       participating in the assessments and shall share it with them, SAP
       employees and concerned partners. The Feedback shall be aggregated with
       other participating organizations' Feedback to generate insights. The
