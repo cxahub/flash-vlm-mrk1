@@ -47,7 +47,7 @@ onMounted(() => {
     progress.value = completed.value;
     progressBar.value = pbValue.value;
     showProgressBall.value = true;
-  }, 1200);
+  }, 1500);
 });
 
 const options = {

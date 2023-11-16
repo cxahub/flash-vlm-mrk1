@@ -9,7 +9,11 @@
       />
       <div
         class="animate-pulse font-bold"
-        :class="icon === 'flash-icon.png' ? 'text-black' : 'text-white'"
+        :class="
+          icon === 'flash-icon.png' || icon === 'flash-icon-bg-white.png'
+            ? 'text-black'
+            : 'text-white'
+        "
       >
         Loading...
       </div>

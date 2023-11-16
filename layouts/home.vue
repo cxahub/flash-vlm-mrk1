@@ -16,7 +16,10 @@ export default {
       bgImage: {
         "background-position": "center center",
         "background-size": "cover",
-        "background-image": `url(${bgImage})`,
+        "background-image": `linear-gradient(
+    rgba(0, 0, 0, 0.7),
+    rgba(0, 0, 0, 0.4)
+  ), url(${bgImage})`,
         "background-repeat": "no-repeat",
         height: "100%",
       },

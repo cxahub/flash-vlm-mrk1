@@ -19,7 +19,7 @@
           <div
             class="hidden xl:block float-left text-2xl xl:font-roboto-condensed font-medium text-white capitalize pt-2 mx-8"
           >
-            {{ $dateNowFormat(year) }} Enterprise Maturity Assessment
+            Enterprise Maturity Assessment
           </div>
         </NuxtLink>
         <!-- Mobile menu button -->
@@ -116,7 +116,6 @@ lastName.value = lastName.value;
 
 const userName = ref(lastName.value + ", " + firstName.value);
 const showMenu = ref(false);
-const year = new Date();
 
 function setSignOut() {
   nuxtStorage.localStorage.clear();
