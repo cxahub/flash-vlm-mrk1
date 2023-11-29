@@ -13,7 +13,7 @@ const token = nuxtStorage.localStorage.getData("token");
 
 //If token expires redirect.
 if (!token) {
-  navigateTo("/profile");
+  navigateTo("/profile?redirect=/request");
 }
 
 definePageMeta({
