@@ -11,6 +11,7 @@ export default defineNuxtConfig({
   },
   devServer: {
     port: 4000,
+    host: "flash-vlm-local.cxahub.com",
   },
   image: {
     dir: "public",

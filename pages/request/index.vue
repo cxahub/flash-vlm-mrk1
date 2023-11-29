@@ -6,21 +6,26 @@
   </div>
 </template>
 
-<script>
-export default {
-  setup() {
-    definePageMeta({
-      layout: "request-meeting",
-    }),
-      useHead({
-        title: "Request - FLASH - Enterprise Maturity Assessment",
-        meta: [
-          {
-            name: "description",
-            content: "Request - FLASH - Enterprise Maturity Assessment",
-          },
-        ],
-      });
-  },
-};
+<script setup>
+import nuxtStorage from "nuxt-storage";
+
+const token = nuxtStorage.localStorage.getData("token");
+
+//If token expires redirect.
+if (!token) {
+  navigateTo("/profile");
+}
+
+definePageMeta({
+  layout: "request-meeting",
+}),
+  useHead({
+    title: "Request - FLASH - Enterprise Maturity Assessment",
+    meta: [
+      {
+        name: "description",
+        content: "Request - FLASH - Enterprise Maturity Assessment",
+      },
+    ],
+  });
 </script>

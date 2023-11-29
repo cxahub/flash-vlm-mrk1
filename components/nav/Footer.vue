@@ -98,7 +98,7 @@ const config = useRuntimeConfig();
 
 const firestartersURL = config.public.VUE_APP_FIRESTARTERS_WEBSITE_URL;
 
-const email = ref(useCookie("email").value || null);
+const email = ref(useCookie("email").value || "");
 let showOptOut = ref(true);
 
 let showTerms = ref(false);
