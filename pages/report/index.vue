@@ -31,7 +31,11 @@
       </div>
       <br />
       <br />
-      <br />
+      <UtilsMobileAppDownload
+        message="It is recommended that you use the PowerPoint app for optimal viewing. To get the app, click here:"
+        appStoreURL="https://apps.apple.com/us/app/microsoft-powerpoint/id586449534"
+        playStoreURL="https://play.google.com/store/apps/details?id=com.microsoft.office.powerpoint&hl=en_US&gl=US&pli=1"
+      />
       If you are unable to download your report please contact us at:
       <NuxtLink
         :to="`mailto:flash@sap.com?subject=FLASH Download Problem - ${companyName}`"
