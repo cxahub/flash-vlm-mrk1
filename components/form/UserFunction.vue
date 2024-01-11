@@ -325,7 +325,10 @@ async function formRequest() {
         lastName: lastName.value.value,
         email: email.value.value,
         password: password.value.value,
+        cntry_id: 185,
         companyName: company.value.value,
+        register_source: "Flash",
+        email_confirmation: true,
       },
     }
   );

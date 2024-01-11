@@ -189,6 +189,8 @@ async function formRequest() {
       body: {
         uName: email.value.value,
         pass: password.value.value,
+        register_source: "Flash",
+        email_confirmation: false,
       },
     }
   );
