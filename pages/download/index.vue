@@ -48,7 +48,7 @@
       explain, please click the "Sign In to Download Report" link from the
       flash@sap.com email and try again or contact us at:
       <NuxtLink
-        :to="`mailto:flash@sap.com?subject=FLASH Download Problem - Survey ID: ${route.query.surveyId}`"
+        :to="`mailto:flash@sap.com?subject=FLASH Download Problem - Assesssment ID: ${route.query.surveyId}`"
         activeClass="text-fs-yellow"
         class="underline"
         target="_blank"
