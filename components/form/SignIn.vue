@@ -187,7 +187,7 @@ async function formRequest() {
     {
       method: "POST",
       body: {
-        uName: email.value.value,
+        uName: email.value.value.toLowerCase(),
         pass: password.value.value,
         register_source: "Flash",
         email_confirmation: false,

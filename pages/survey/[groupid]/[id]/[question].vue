@@ -163,11 +163,11 @@ definePageMeta({
   layout: "survey",
 }),
   useHead({
-    title: "Survey - FLASH - Enterprise Maturity Assessment",
+    title: "Assesssment - FLASH - Enterprise Maturity Assessment",
     meta: [
       {
         name: "description",
-        content: "Survey - FLASH - Enterprise Maturity Assessment",
+        content: "Assesssment - FLASH - Enterprise Maturity Assessment",
       },
     ],
   });

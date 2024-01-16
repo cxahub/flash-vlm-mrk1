@@ -5,7 +5,7 @@
     <div
       class="text-base text-center xl:text-left xl:text-xl text-white xl:font-bold pb-4"
     >
-      Create an account and complete a 15-question survey to receive a free
+      Create an account and complete a 15-question assesssment to receive a free
       personalized report benchmarking your business capabilities.
     </div>
     <div v-if="showRegistering">
@@ -323,7 +323,7 @@ async function formRequest() {
       body: {
         firstName: firstName.value.value,
         lastName: lastName.value.value,
-        email: email.value.value,
+        email: email.value.value.toLowerCase(),
         password: password.value.value,
         cntry_id: 185,
         companyName: company.value.value,

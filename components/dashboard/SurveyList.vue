@@ -5,7 +5,7 @@
     </div>
     <div v-else class="pb-16">
       <h1 class="text-xl xl:text-3xl uppercase font-bold py-8">
-        Survey Results
+        Assesssment Results
       </h1>
       <table class="table-auto w-full">
         <thead>
@@ -18,7 +18,7 @@
           <tr v-for="s in surveylist" :key="s.surveys">
             <td
               class="py-2 font-bold cursor-pointer"
-              :title="`Survey ID: ${s.customersurveyid}`"
+              :title="`Assesssment ID: ${s.customersurveyid}`"
             >
               {{ s.surveyData.org_info.corporate }}
             </td>

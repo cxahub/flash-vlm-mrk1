@@ -151,7 +151,7 @@ function setSurveyAnswer(id, answer, lastQuestion, isPrevious, isDashboard) {
       }
     })
     .catch((error) => {
-      console.error("Survey answer form could not be sent", error);
+      console.error("Assesssment answer form could not be sent", error);
     });
 }
 

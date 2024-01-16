@@ -29,8 +29,8 @@
             before you begin to see the type of insights you'll receive
           </li>
           <li class="mb-4">
-            Start the survey and return to it at any time with a free personal
-            account
+            Start the assesssment and return to it at any time with a free
+            personal account
           </li>
           <li class="xl:mb-4">
             You have the option to have a knowledge expert walk you through your
